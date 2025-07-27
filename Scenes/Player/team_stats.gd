@@ -32,8 +32,6 @@ func create_instance() -> Resource:
 	var total_cards_per_turn := 0
 	var combined_deck = CardPile.new()
 	for character in team:
-		print(character.max_health)
-		print(character.max_mana)
 		total_health += character.max_health
 		total_mana += character.max_mana
 		total_cards_per_turn += character.cards_per_turn

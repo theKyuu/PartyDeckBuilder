@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://m3m8ovs2nj3i"]
 
-[ext_resource type="Texture2D" uid="uid://bap7boopew7cu" path="res://art/warrior.png" id="1_a3d8c"]
 [ext_resource type="Script" uid="uid://bhcuh7fhuikq3" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
+[ext_resource type="Texture2D" uid="uid://j66j40js5f14" path="res://art/hero.png" id="2_mtuoh"]
 [ext_resource type="PackedScene" uid="uid://cvfwxw3vqjxc4" path="res://Scenes/UI/stats_ui.tscn" id="2_xpcdj"]
 
 [node name="Player" type="Node2D" groups=["player"]]
 script = ExtResource("1_xpcdj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_a3d8c")
+texture = ExtResource("2_mtuoh")
 
 [node name="StatsUI" parent="." instance=ExtResource("2_xpcdj")]
 offset_left = -84.0

@@ -20,3 +20,4 @@ res://Scenes/Card_UI/card_ui.tscn
 res://custom_resources/card.gd
 res://Scenes/Card_UI/card_ui.gd
 res://custom_resources/character_stats.gd
+res://Scenes/Player/player.tscn
