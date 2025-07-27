@@ -1,0 +1,8 @@
+res://Scenes/Battle/battle.tscn
+res://main_theme.tres
+res://Scenes/Card_UI/card_dragging_stylebox.tres
+res://art/white_sprite_material.gdshader
+res://characters/warrior/cards/warrior_axe_attack.tres
+res://characters/warrior/cards/warrior_slash.tres
+res://characters/warrior/cards/warrior_block.tres
+res://characters/warrior/warrior_starting_deck.tres

@@ -1,0 +1,14 @@
+Node
+CanvasLayer
+Button
+Label
+VBoxContainer
+Panel
+AudioStreamPlayer
+AudioStreamPlayer2D
+Timer
+ColorRect
+TextureRect
+HBoxContainer
+Node2D
+RichTextLabel

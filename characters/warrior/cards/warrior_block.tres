@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://f8oudvqy5gi1"]
+
+[ext_resource type="Texture2D" uid="uid://qa82ot6kehru" path="res://art/block.png" id="1_5nea4"]
+[ext_resource type="Script" uid="uid://7foxewlhop13" path="res://characters/warrior/cards/warrior_block.gd" id="2_5nea4"]
+[ext_resource type="AudioStream" uid="uid://hgmr0ssdojie" path="res://audio/armor.ogg" id="3_1eir7"]
+
+[resource]
+script = ExtResource("2_5nea4")
+id = "warrior_block"
+type = 1
+target = 0
+cost = 1
+icon = ExtResource("1_5nea4")
+tooltip_text = "[center]Gain 5 block[/center]"
+sound = ExtResource("3_1eir7")
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"
