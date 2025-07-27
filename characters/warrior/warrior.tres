@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_nliw2")
 starting_deck = ExtResource("3_wgifn")
-cards_per_turn = 4
-max_mana = 3
+cards_per_turn = 1
+max_mana = 1
 max_health = 10
 art = ExtResource("1_xju84")
 metadata/_custom_type_script = "uid://dlw8qygrsxfxo"

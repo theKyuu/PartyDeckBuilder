@@ -59,7 +59,7 @@ stats = ExtResource("8_xxu1y")
 
 [node name="Player" parent="." instance=ExtResource("3_17ekq")]
 position = Vector2(200, 385)
-stats = ExtResource("4_rgg0r")
+stats = ExtResource("10_rcd83")
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("3_vvvpr")]
 
