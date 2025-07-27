@@ -3,12 +3,12 @@ extends Node2D
 
 const WHITE_SPRITE_MATERIAL := preload("res://art/white_sprite_material.tres")
 
-@export var stats: CharacterStats : set = set_character_stats
+@export var stats: TeamStats : set = set_character_stats
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 
-func set_character_stats(value: CharacterStats) -> void:
+func set_character_stats(value: TeamStats) -> void:
 	stats = value
 	
 	if not stats.stats_changed.is_connected(update_stats):
@@ -17,7 +17,7 @@ func set_character_stats(value: CharacterStats) -> void:
 	update_player()
 
 func update_player() -> void:
-	if not stats is CharacterStats:
+	if not stats is TeamStats:
 		return
 	if not is_inside_tree():
 		await ready

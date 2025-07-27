@@ -8,7 +8,7 @@ const DRAG_STYLEBOX := preload("res://Scenes/Card_UI/card_dragging_stylebox.tres
 const HOVER_STYLEBOX := preload("res://Scenes/Card_UI/card_hover_stylebox.tres")
 
 @export var card: Card : set = _set_card
-@export var char_stats: CharacterStats : set = _set_char_stats
+@export var team_stats: TeamStats : set = _set_team_stats
 
 @onready var panel: Panel = $Panel
 @onready var cost: Label = $Cost
@@ -41,7 +41,7 @@ func play() -> void:
 	if not card:
 		return
 	
-	card.play(targets, char_stats)
+	card.play(targets, team_stats)
 	queue_free()
 
 func _on_gui_input(event: InputEvent) -> void:
@@ -70,9 +70,9 @@ func _set_playable(value: bool) -> void:
 		cost.remove_theme_color_override("font_color")
 		icon.modulate = Color(1, 1, 1, 1)
 
-func _set_char_stats(value: CharacterStats) -> void:
-	char_stats = value
-	char_stats.stats_changed.connect(_on_char_stats_changed)
+func _set_team_stats(value: TeamStats) -> void:
+	team_stats = value
+	team_stats.stats_changed.connect(_on_team_stats)
 
 
 func _on_drop_point_detector_area_entered(area: Area2D) -> void:
@@ -90,7 +90,7 @@ func _on_card_drag_or_aiming_started(used_card: CardUI) -> void:
 
 func _on_card_drag_or_aiming_ended(used_card: CardUI) -> void:
 	disabled = false
-	self.playable = char_stats.can_play_card(card)
+	self.playable = team_stats.can_play_card(card)
 
-func _on_char_stats_changed() -> void:
-	self.playable = char_stats.can_play_card(card)
+func _on_team_stats() -> void:
+	self.playable = team_stats.can_play_card(card)

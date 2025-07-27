@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var char_stats: CharacterStats
+@export var team_stats: TeamStats
 @export var music: AudioStream
 
 @onready var battle_ui: BattleUI = $BattleUI as BattleUI
@@ -10,8 +10,8 @@ extends Node2D
 
 func _ready() -> void:
 	# Placeholder solution until gameflow outside of the battle scene is created
-	var new_stats: CharacterStats = char_stats.create_instance()
-	battle_ui.char_stats = new_stats
+	var new_stats: TeamStats = team_stats.create_instance()
+	battle_ui.team_stats = new_stats
 	player.stats = new_stats
 	
 	enemy_handler.child_order_changed.connect(_on_enemies_child_order_changed)
@@ -23,7 +23,7 @@ func _ready() -> void:
 
 	start_battle(new_stats)
 
-func start_battle(stats: CharacterStats) -> void:
+func start_battle(stats: TeamStats) -> void:
 	get_tree().paused = false
 	MusicPlayer.play(music, true)
 	enemy_handler.reset_enemy_actions()

@@ -35,9 +35,9 @@ func _get_targets(targets: Array[Node]) -> Array[Node]:
 		_:
 			return []
 
-func play(targets: Array[Node], char_stats: CharacterStats) -> void:
+func play(targets: Array[Node], team_stats: TeamStats) -> void:
 	Events.card_played.emit(self)
-	char_stats.mana -= cost
+	team_stats.mana -= cost
 	
 	if is_single_targeted():
 		apply_effects(targets)

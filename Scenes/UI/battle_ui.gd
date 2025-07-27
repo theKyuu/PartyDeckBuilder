@@ -1,7 +1,7 @@
 class_name BattleUI
 extends CanvasLayer
 
-@export var char_stats: CharacterStats : set = _set_char_stats
+@export var team_stats: TeamStats : set = _set_team_stats
 
 @onready var hand: Hand = $Hand as Hand
 @onready var mana_ui: ManaUI = $ManaUI as ManaUI
@@ -11,10 +11,10 @@ func _ready() -> void:
 	Events.player_hand_drawn.connect(_on_player_hand_drawn)
 	end_turn_button.pressed.connect(_on_end_turn_button_pressed)
 
-func _set_char_stats(value: CharacterStats) -> void:
-	char_stats = value
-	mana_ui.char_stats = char_stats
-	hand.char_stats = char_stats
+func _set_team_stats(value: TeamStats) -> void:
+	team_stats = value
+	mana_ui.team_stats = team_stats
+	hand.team_stats = team_stats
 
 func _on_player_hand_drawn() -> void:
 	end_turn_button.disabled = false

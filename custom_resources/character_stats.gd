@@ -5,10 +5,12 @@ extends Stats
 @export var cards_per_turn: int
 @export var max_mana: int
 
-var mana: int : set = set_mana
+
+var mana: int
 var deck: CardPile
 var discard: CardPile
 var draw_pile: CardPile
+
 
 func set_mana(value : int) -> void:
 	mana = value

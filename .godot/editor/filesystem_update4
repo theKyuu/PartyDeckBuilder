@@ -11,9 +11,12 @@ res://characters/hero/cards/basic_defend.tres
 res://characters/hero/hero_starting_deck.tres
 res://characters/hero/hero.tres
 res://characters/warrior/cards/warrior_block.gd
+res://Scenes/Battle/battle.gd
 res://Scenes/UI/battle_over_panel.tscn
 res://Global/music_player.tscn
-res://enemies/bat/bat_enemy_ai.tscn
-res://Global/sfx_player.tscn
-res://Scenes/Player/player.gd
-res://Scenes/Player/player_handler.gd
+res://Scenes/Player/team_stats.gd
+res://Scenes/UI/battle_ui.gd
+res://Scenes/Card_UI/card_ui.tscn
+res://custom_resources/card.gd
+res://Scenes/Card_UI/card_ui.gd
+res://custom_resources/character_stats.gd
