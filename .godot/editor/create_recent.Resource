@@ -1,6 +1,6 @@
 Card
-EnemyStats
 CharacterStats
+EnemyStats
 Stats
 CardPile
 Theme

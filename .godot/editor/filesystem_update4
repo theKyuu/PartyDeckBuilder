@@ -6,3 +6,15 @@ res://characters/warrior/cards/warrior_axe_attack.tres
 res://characters/warrior/cards/warrior_slash.tres
 res://characters/warrior/cards/warrior_block.tres
 res://characters/warrior/warrior_starting_deck.tres
+res://characters/hero/hero.tres
+res://characters/hero/cards/basic_attack.tres
+res://characters/hero/cards/basic_attack.gd
+res://characters/warrior/warrior.tres
+res://characters/hero/hero_starting_deck.tres
+res://characters/hero/cards/basic_defend.tres
+res://characters/hero/cards/basic_defend.gd
+res://characters/warrior/cards/warrior_block.gd
+res://Scenes/UI/battle_over_panel.tscn
+res://Global/music_player.tscn
+res://enemies/bat/bat_enemy_ai.tscn
+res://Global/sfx_player.tscn

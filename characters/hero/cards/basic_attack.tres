@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dtkf7kt0q2t7j"]
+
+[ext_resource type="Texture2D" uid="uid://ddj4y5h5gbenj" path="res://art/punch.png" id="1_3n5lt"]
+[ext_resource type="Script" uid="uid://ddcph6vdxlcyi" path="res://characters/hero/cards/basic_attack.gd" id="1_y7upj"]
+
+[resource]
+script = ExtResource("1_y7upj")
+id = "basic_attack"
+type = 0
+target = 1
+cost = 1
+icon = ExtResource("1_3n5lt")
+tooltip_text = "[center][b]Punch![/b]
+
+Deal 6 damage.
+[/center]"
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"

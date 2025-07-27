@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ctyt4irigiqir"]
+
+[ext_resource type="Script" uid="uid://b3v8wit1yqngo" path="res://characters/hero/cards/basic_defend.gd" id="1_hdsit"]
+[ext_resource type="Texture2D" uid="uid://qa82ot6kehru" path="res://art/block.png" id="1_s86vj"]
+
+[resource]
+script = ExtResource("1_hdsit")
+id = "basic_defend"
+type = 1
+target = 0
+cost = 1
+icon = ExtResource("1_s86vj")
+tooltip_text = "[center][b]Defend[/b]
+
+Add 5 block.
+[/center]"
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"
