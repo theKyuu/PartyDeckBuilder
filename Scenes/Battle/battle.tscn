@@ -54,15 +54,15 @@ debug_color = Color(0, 0.6, 0.701961, 0.0941176)
 script = ExtResource("4_ev1ic")
 
 [node name="BatEnemy" parent="EnemyHandler" instance=ExtResource("2_rgg0r")]
-position = Vector2(790, 291)
+position = Vector2(706, 248)
 stats = ExtResource("8_xxu1y")
 
 [node name="CrabEnemy" parent="EnemyHandler" instance=ExtResource("2_rgg0r")]
-position = Vector2(996, 383)
+position = Vector2(912, 340)
 stats = ExtResource("5_11mmy")
 
 [node name="BatEnemy2" parent="EnemyHandler" instance=ExtResource("2_rgg0r")]
-position = Vector2(1196, 294)
+position = Vector2(1112, 251)
 stats = ExtResource("8_xxu1y")
 
 [node name="Player" parent="." instance=ExtResource("3_17ekq")]

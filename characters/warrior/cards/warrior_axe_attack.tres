@@ -11,6 +11,7 @@ type = 0
 target = 1
 cost = 1
 icon = ExtResource("1_ungqh")
-tooltip_text = "[center]Deal 6 damage.[/center]"
+tooltip_text = "[center][b]Axe chop[/b]
+Deal 8 damage.[/center]"
 sound = ExtResource("3_6uoki")
 metadata/_custom_type_script = "uid://5jjm0pxg22ag"
