@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=5 format=3 uid="uid://dpgq1j6pqnr5r"]
+
+[ext_resource type="Script" uid="uid://5jjm0pxg22ag" path="res://custom_resources/card.gd" id="1_uaid3"]
+[ext_resource type="Script" uid="uid://c5r1qqnd6s0vv" path="res://custom_resources/card_pile.gd" id="2_e4dcm"]
+[ext_resource type="Resource" uid="uid://dhqc21hrwdd42" path="res://characters/druid/cards/vine_shield.tres" id="2_g8vss"]
+[ext_resource type="Resource" uid="uid://cualq0m46o0u1" path="res://characters/druid/cards/druid_heal.tres" id="3_2d73g"]
+
+[resource]
+script = ExtResource("2_e4dcm")
+cards = Array[ExtResource("1_uaid3")]([ExtResource("2_g8vss"), ExtResource("2_g8vss"), ExtResource("2_g8vss"), ExtResource("2_g8vss"), ExtResource("3_2d73g"), ExtResource("3_2d73g"), ExtResource("3_2d73g"), ExtResource("3_2d73g")])
+metadata/_custom_type_script = "uid://c5r1qqnd6s0vv"
