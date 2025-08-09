@@ -6,6 +6,9 @@
 
 [resource]
 script = ExtResource("1_8j12t")
+character_name = "Druid"
+description = "May nature heal and protect you."
+portrait = ExtResource("1_uqtek")
 starting_deck = ExtResource("3_l2j86")
 cards_per_turn = 2
 max_mana = 1

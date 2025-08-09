@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://baceppoomkwht"]
+
+[ext_resource type="Script" uid="uid://bs582adysjkmj" path="res://Scenes/UI/main_menu.gd" id="1_5wsvm"]
+
+[sub_resource type="Gradient" id="Gradient_36iwh"]
+offsets = PackedFloat32Array(0, 0.996269)
+colors = PackedColorArray(0.142858, 0.142858, 0.142858, 1, 0.423542, 0.136569, 1.20327e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5wsvm"]
+gradient = SubResource("Gradient_36iwh")
+
+[sub_resource type="LabelSettings" id="LabelSettings_i2xx2"]
+font_size = 80
+shadow_size = 10
+shadow_color = Color(0.635294, 0.309804, 0, 0.52549)
+shadow_offset = Vector2(5, 5)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5wsvm")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_5wsvm")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -562.0
+offset_top = -208.0
+offset_right = 562.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "The Party Deckbuilder Game!"
+label_settings = SubResource("LabelSettings_i2xx2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -391.0
+offset_right = 250.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 19
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continue"
+
+[node name="New Game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "New Game
+"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

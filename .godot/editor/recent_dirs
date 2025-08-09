@@ -1,10 +1,12 @@
+res://Scenes/Run
+res://Scenes/UI/Map
+res://Scenes/UI
 res://characters/druid
 res://characters/druid/cards
 res://characters/hero/cards
 res://characters/warrior/cards
 res://characters/hero
 res://enemies/bat
-res://Scenes/UI
 res://Global
 res://art
 res://

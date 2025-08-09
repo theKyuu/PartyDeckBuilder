@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://u3j4cx7fhpd3"]
+
+[ext_resource type="PackedScene" uid="uid://bnuasnlbmj5rf" path="res://Scenes/UI/Map/map.tscn" id="1_1rprc"]
+[ext_resource type="Script" uid="uid://ot4snydssqd7" path="res://Scenes/Run/run.gd" id="1_g5qup"]
+[ext_resource type="Resource" uid="uid://nle813selunr" path="res://Scenes/Run/run_startup.tres" id="2_xspjj"]
+
+[node name="Run" type="Node"]
+script = ExtResource("1_g5qup")
+run_startup = ExtResource("2_xspjj")
+
+[node name="Map" parent="." instance=ExtResource("1_1rprc")]
+
+[node name="CurrentView" type="Node" parent="."]
+
+[node name="DebugButtons" type="VBoxContainer" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="MapButton" type="Button" parent="DebugButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Map"
+
+[node name="BattleButton" type="Button" parent="DebugButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Battle
+"
+
+[node name="CharacterPickButton" type="Button" parent="DebugButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Character Picker
+"

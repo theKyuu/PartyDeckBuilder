@@ -1,3 +1,4 @@
+RunStartup
 CardPile
 CharacterStats
 Card

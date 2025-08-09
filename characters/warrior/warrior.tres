@@ -6,6 +6,10 @@
 
 [resource]
 script = ExtResource("1_nliw2")
+character_name = "Warrior"
+description = "All out attacking!
+It's the best form of defense, after all..."
+portrait = ExtResource("1_xju84")
 starting_deck = ExtResource("3_wgifn")
 cards_per_turn = 1
 max_mana = 1
