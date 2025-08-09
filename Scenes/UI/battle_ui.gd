@@ -3,8 +3,8 @@ extends CanvasLayer
 
 @export var team_stats: TeamStats : set = _set_team_stats
 
-@onready var hand: Hand = $Hand as Hand
-@onready var mana_ui: ManaUI = $ManaUI as ManaUI
+@onready var hand: Hand = $Hand
+@onready var mana_ui: ManaUI = $ManaUI
 @onready var end_turn_button: Button = %EndTurnButton
 
 func _ready() -> void:
