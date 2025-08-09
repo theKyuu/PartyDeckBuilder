@@ -45,10 +45,7 @@ func get_chance_based_action() -> EnemyAction:
 
 
 func setup_chances() -> void:
-	var action: EnemyAction 
-	
-	for child in get_children():
-		action = child as EnemyAction
+	for action: EnemyAction in get_children():
 		if not action or action.type != EnemyAction.Type.CHANCE_BASED:
 			continue
 		

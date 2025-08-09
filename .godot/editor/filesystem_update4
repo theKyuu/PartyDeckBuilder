@@ -15,3 +15,7 @@ res://Scenes/UI/battle_ui.gd
 res://Scenes/Card_UI/card_ui.gd
 res://Enemy/enemy.gd
 res://Scenes/Player/player.gd
+res://Scenes/Player/player.tscn
+res://Enemy/enemy_handler.gd
+res://Enemy/enemy_action_picker.gd
+res://Global/sound_player.gd
