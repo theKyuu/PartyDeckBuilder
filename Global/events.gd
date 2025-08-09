@@ -26,3 +26,7 @@ signal battle_won
 
 #Map-related events
 signal map_exited
+signal event_node_exited
+
+#Team-related events
+signal team_updated(new_team: TeamStats)

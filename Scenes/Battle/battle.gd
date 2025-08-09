@@ -1,3 +1,4 @@
+class_name Battle
 extends Node2D
 
 @export var team_stats: TeamStats
