@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://u3j4cx7fhpd3"]
+[gd_scene load_steps=7 format=3 uid="uid://u3j4cx7fhpd3"]
 
 [ext_resource type="PackedScene" uid="uid://bnuasnlbmj5rf" path="res://Scenes/UI/Map/map.tscn" id="1_1rprc"]
 [ext_resource type="Script" uid="uid://ot4snydssqd7" path="res://Scenes/Run/run.gd" id="1_g5qup"]
 [ext_resource type="Resource" uid="uid://nle813selunr" path="res://Scenes/Run/run_startup.tres" id="2_xspjj"]
+[ext_resource type="PackedScene" uid="uid://cg2so00cqpm3e" path="res://Scenes/UI/card_pile_opener.tscn" id="4_iq2b7"]
+[ext_resource type="Texture2D" uid="uid://c63othrnrmcgl" path="res://art/deck_pile.png" id="5_73a50"]
+[ext_resource type="PackedScene" uid="uid://kaup3wrvo677" path="res://Scenes/UI/card_pile_view.tscn" id="6_3lri4"]
 
 [node name="Run" type="Node"]
 script = ExtResource("1_g5qup")
@@ -13,9 +16,14 @@ run_startup = ExtResource("2_xspjj")
 [node name="CurrentView" type="Node" parent="."]
 
 [node name="DebugButtons" type="VBoxContainer" parent="."]
-anchors_preset = 9
-anchor_bottom = 1.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -113.5
+offset_right = 369.0
+offset_bottom = 113.5
 grow_vertical = 2
+alignment = 1
 
 [node name="MapButton" type="Button" parent="DebugButtons"]
 unique_name_in_owner = true
@@ -33,3 +41,47 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Character Picker
 "
+
+[node name="TopBar" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Background" type="ColorRect" parent="TopBar"]
+custom_minimum_size = Vector2(0, 80)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.498039)
+
+[node name="BarItems" type="HBoxContainer" parent="TopBar"]
+custom_minimum_size = Vector2(0, 80)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Placeholder" type="Control" parent="TopBar/BarItems"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeckButton" parent="TopBar/BarItems" node_paths=PackedStringArray("counter") instance=ExtResource("4_iq2b7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+texture_normal = ExtResource("5_73a50")
+counter = NodePath("Counter")
+
+[node name="Counter" type="Label" parent="TopBar/BarItems/DeckButton"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 45.0
+offset_right = 51.0
+offset_bottom = 87.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 30
+text = "99"
+horizontal_alignment = 1
+
+[node name="DeckView" parent="TopBar" instance=ExtResource("6_3lri4")]
+unique_name_in_owner = true
+visible = false

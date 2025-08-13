@@ -8,6 +8,8 @@ const MAP_SCENE := preload("res://Scenes/UI/Map/map.tscn")
 @export var run_startup: RunStartup
 
 @onready var current_view: Node = $CurrentView
+@onready var deck_button: CardPileOpener = %DeckButton
+@onready var deck_view: CardPileView = %DeckView
 @onready var map_button: Button = %MapButton
 @onready var battle_button: Button = %BattleButton
 @onready var character_pick_button: Button = %CharacterPickButton
@@ -28,6 +30,7 @@ func _ready() -> void:
 
 func _start_run() -> void:
 	_setup_event_connections()
+	_setup_top_bar()
 	print("TODO: Generate map")
 
 func _change_view(scene: PackedScene) -> void:
@@ -50,6 +53,11 @@ func _setup_event_connections() -> void:
 	map_button.pressed.connect(_change_view.bind(MAP_SCENE))
 	battle_button.pressed.connect(_change_view.bind(BATTLE_SCENE))
 	character_pick_button.pressed.connect(_change_view.bind(CHARACTER_PICKER_SCENE))
+
+func _setup_top_bar():
+	deck_button.card_pile = team.deck
+	deck_view.card_pile = team.deck
+	deck_button.pressed.connect(deck_view.show_current_view.bind("Deck"))
 
 func _on_map_exited() -> void:
 	print("TODO: From the MAP, change view based on room type")
