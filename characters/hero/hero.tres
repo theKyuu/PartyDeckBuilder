@@ -6,6 +6,8 @@
 
 [resource]
 script = ExtResource("1_bie2b")
+character_name = ""
+description = ""
 starting_deck = ExtResource("2_parck")
 cards_per_turn = 3
 max_mana = 1
