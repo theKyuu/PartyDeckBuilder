@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://u3j4cx7fhpd3"]
+[gd_scene load_steps=9 format=3 uid="uid://u3j4cx7fhpd3"]
 
 [ext_resource type="PackedScene" uid="uid://bnuasnlbmj5rf" path="res://Scenes/UI/Map/map.tscn" id="1_1rprc"]
 [ext_resource type="Script" uid="uid://ot4snydssqd7" path="res://Scenes/Run/run.gd" id="1_g5qup"]
 [ext_resource type="Resource" uid="uid://nle813selunr" path="res://Scenes/Run/run_startup.tres" id="2_xspjj"]
+[ext_resource type="Theme" uid="uid://58rstjmw4hw4" path="res://Scenes/UI/debug_buttons.tres" id="4_3lri4"]
+[ext_resource type="PackedScene" uid="uid://b2xiybmbwnx57" path="res://Scenes/UI/gold_ui.tscn" id="4_73a50"]
 [ext_resource type="PackedScene" uid="uid://cg2so00cqpm3e" path="res://Scenes/UI/card_pile_opener.tscn" id="4_iq2b7"]
 [ext_resource type="Texture2D" uid="uid://c63othrnrmcgl" path="res://art/deck_pile.png" id="5_73a50"]
 [ext_resource type="PackedScene" uid="uid://kaup3wrvo677" path="res://Scenes/UI/card_pile_view.tscn" id="6_3lri4"]
@@ -16,31 +18,35 @@ run_startup = ExtResource("2_xspjj")
 [node name="CurrentView" type="Node" parent="."]
 
 [node name="DebugButtons" type="VBoxContainer" parent="."]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -113.5
-offset_right = 369.0
-offset_bottom = 113.5
-grow_vertical = 2
+offset_top = 186.0
+offset_right = 170.0
+offset_bottom = 350.0
 alignment = 1
 
 [node name="MapButton" type="Button" parent="DebugButtons"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("4_3lri4")
 text = "Map"
 
 [node name="BattleButton" type="Button" parent="DebugButtons"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("4_3lri4")
 text = "Battle
 "
 
 [node name="CharacterPickButton" type="Button" parent="DebugButtons"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("4_3lri4")
 text = "Character Picker
 "
+
+[node name="BattleRewardButton" type="Button" parent="DebugButtons"]
+layout_mode = 2
+theme = ExtResource("4_3lri4")
+text = "Rewards"
 
 [node name="TopBar" type="CanvasLayer" parent="."]
 layer = 3
@@ -57,6 +63,10 @@ custom_minimum_size = Vector2(0, 80)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+
+[node name="GoldUI" parent="TopBar/BarItems" instance=ExtResource("4_73a50")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="Placeholder" type="Control" parent="TopBar/BarItems"]
 layout_mode = 2

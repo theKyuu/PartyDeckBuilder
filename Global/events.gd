@@ -24,6 +24,9 @@ signal enemy_turn_ended
 signal battle_over_screen_requested(text:String, type: BattleOverPanel.Type)
 signal battle_won
 
+#Battle reward-related events
+signal battle_reward_exited
+
 #Map-related events
 signal map_exited
 signal event_node_exited
