@@ -25,25 +25,30 @@ func take_damage(damage: int) -> void:
 func can_play_card(card: Card) -> bool:
 	return mana >= card.cost
 
-func create_instance() -> Resource:
-	var instance: TeamStats = self.duplicate()
+func set_combined_stats() -> void:
 	var total_health := 0
 	var total_mana := 0
 	var total_cards_per_turn := 0
 	var combined_deck = CardPile.new()
-	for character in team:
+	for character: CharacterStats in team:
 		total_health += character.max_health
 		total_mana += character.max_mana
 		total_cards_per_turn += character.cards_per_turn
-		for card in character.starting_deck.cards:
+		if not character.deck:
+			character.deck = character.starting_deck
+		for card in character.deck.cards:
 			combined_deck.add_card(card)
-	instance.max_health = total_health
-	instance.health = total_health
+	deck = combined_deck.duplicate()
+	max_health = total_health
+	max_mana = total_mana
+	cards_per_turn = total_cards_per_turn
+
+func create_instance() -> Resource:
+	var instance: TeamStats = self.duplicate()
+	instance.set_combined_stats()
+	instance.health = instance.max_health
 	instance.block = 0
-	instance.cards_per_turn = total_cards_per_turn
-	instance.max_mana = total_mana
 	instance.reset_mana()
-	instance.deck = combined_deck.duplicate()
 	instance.draw_pile = CardPile.new()
 	instance.discard = CardPile.new()
 	return instance

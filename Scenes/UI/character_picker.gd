@@ -3,7 +3,6 @@ extends Control
 const WARRIOR_STATS := preload("res://characters/warrior/warrior.tres")
 const DRUID_STATS := preload("res://characters/druid/druid.tres")
 
-@export var team_stats: TeamStats
 @onready var title: Label = %Title
 @onready var description: Label = %Description
 @onready var character_portrait: TextureRect = %CharacterPortrait
@@ -20,11 +19,8 @@ func set_current_character(new_character: CharacterStats) -> void:
 	character_portrait.texture = current_character.portrait
 
 func _on_select_button_pressed() -> void:
-	team_stats.team.append(current_character)
-	print("Add %s to the party!" % current_character.character_name)
-	Events.team_updated.emit(team_stats)
+	Events.character_added.emit(current_character)
 	Events.event_node_exited.emit()
-
 
 func _on_warrior_button_pressed() -> void:
 	current_character = WARRIOR_STATS

@@ -32,4 +32,4 @@ signal map_exited
 signal event_node_exited
 
 #Team-related events
-signal team_updated(new_team: TeamStats)
+signal character_added(character: CharacterStats)

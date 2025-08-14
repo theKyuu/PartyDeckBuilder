@@ -43,14 +43,9 @@ func _start_run() -> void:
 func _change_view(scene: PackedScene) -> Node:
 	if current_view.get_child_count() > 0:
 		current_view.get_child(0).queue_free()
-	
 	get_tree().paused = false
 	var new_view := scene.instantiate()
-	if "team_stats" in new_view:
-		new_view.team_stats = team
-	
 	current_view.add_child(new_view)
-	
 	return new_view
 
 func _setup_event_connections() -> void:
@@ -58,10 +53,10 @@ func _setup_event_connections() -> void:
 	Events.event_node_exited.connect(_change_view.bind(MAP_SCENE))
 	Events.battle_reward_exited.connect(_change_view.bind(MAP_SCENE))
 	Events.map_exited.connect(_on_map_exited)
-	Events.team_updated.connect(_on_team_updated)
+	Events.character_added.connect(_on_character_added)
 	
 	map_button.pressed.connect(_change_view.bind(MAP_SCENE))
-	battle_button.pressed.connect(_change_view.bind(BATTLE_SCENE))
+	battle_button.pressed.connect(_on_battle_button_pressed)
 	character_pick_button.pressed.connect(_change_view.bind(CHARACTER_PICKER_SCENE))
 
 func _setup_top_bar():
@@ -70,16 +65,23 @@ func _setup_top_bar():
 	deck_view.card_pile = team.deck
 	deck_button.pressed.connect(deck_view.show_current_view.bind("Deck"))
 
+func _on_battle_button_pressed() -> void:
+	var battle_scene := _change_view(BATTLE_SCENE) as Battle
+	battle_scene.team_stats = team
+
 func _on_battle_won() -> void:
 	var reward_scene := _change_view(BATTLE_REWARD_SCENE) as BattleReward
 	reward_scene.run_stats = stats
 	reward_scene.team_stats = team
-	
+	MusicPlayer.stop()
 	# Temporary reward data injection
 	reward_scene.add_gold_reward(69)
 
 func _on_map_exited() -> void:
 	print("TODO: From the MAP, change view based on room type")
 
-func _on_team_updated(new_team: TeamStats) -> void:
-	team = new_team
+func _on_character_added(character: CharacterStats) -> void:
+	team.team.append(character)
+	team.set_combined_stats()
+	_setup_top_bar()
+	
