@@ -45,6 +45,8 @@ func _change_view(scene: PackedScene) -> Node:
 		current_view.get_child(0).queue_free()
 	get_tree().paused = false
 	var new_view := scene.instantiate()
+	if "team_stats" in new_view: # Ugly solution only for Battle Scene atm
+		new_view.team_stats = team
 	current_view.add_child(new_view)
 	return new_view
 
@@ -56,7 +58,7 @@ func _setup_event_connections() -> void:
 	Events.character_added.connect(_on_character_added)
 	
 	map_button.pressed.connect(_change_view.bind(MAP_SCENE))
-	battle_button.pressed.connect(_on_battle_button_pressed)
+	battle_button.pressed.connect(_change_view.bind(BATTLE_SCENE))
 	character_pick_button.pressed.connect(_change_view.bind(CHARACTER_PICKER_SCENE))
 
 func _setup_top_bar():
@@ -64,10 +66,6 @@ func _setup_top_bar():
 	deck_button.card_pile = team.deck
 	deck_view.card_pile = team.deck
 	deck_button.pressed.connect(deck_view.show_current_view.bind("Deck"))
-
-func _on_battle_button_pressed() -> void:
-	var battle_scene := _change_view(BATTLE_SCENE) as Battle
-	battle_scene.team_stats = team
 
 func _on_battle_won() -> void:
 	var reward_scene := _change_view(BATTLE_REWARD_SCENE) as BattleReward
