@@ -1,17 +1,87 @@
-[gd_scene load_steps=4 format=3 uid="uid://m3m8ovs2nj3i"]
+[gd_scene load_steps=7 format=3 uid="uid://m3m8ovs2nj3i"]
 
 [ext_resource type="Script" uid="uid://bhcuh7fhuikq3" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
 [ext_resource type="Texture2D" uid="uid://j66j40js5f14" path="res://art/hero.png" id="2_mtuoh"]
 [ext_resource type="PackedScene" uid="uid://cvfwxw3vqjxc4" path="res://Scenes/UI/stats_ui.tscn" id="2_xpcdj"]
+[ext_resource type="Texture2D" uid="uid://bap7boopew7cu" path="res://art/warrior.png" id="4_dd0ac"]
+[ext_resource type="Script" uid="uid://dqpvivxfjgcmv" path="res://Scenes/Player/team_sprite_container.gd" id="7_gk6dx"]
+[ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/druid.png" id="8_jhyir"]
 
 [node name="Player" type="Node2D" groups=["player"]]
 script = ExtResource("1_xpcdj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_mtuoh")
-
-[node name="StatsUI" parent="." instance=ExtResource("2_xpcdj")]
-offset_left = -84.0
-offset_top = 90.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -182.0
 offset_right = 100.0
-offset_bottom = 153.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="TeamSpriteContainer" type="Control" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+script = ExtResource("7_gk6dx")
+
+[node name="Spot1" type="TextureRect" parent="VBoxContainer/TeamSpriteContainer"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("2_mtuoh")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Spot2" type="TextureRect" parent="VBoxContainer/TeamSpriteContainer"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 100.0
+offset_right = 250.0
+offset_bottom = 100.0
+texture = ExtResource("4_dd0ac")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Spot3" type="TextureRect" parent="VBoxContainer/TeamSpriteContainer"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 150.0
+offset_right = 175.0
+offset_bottom = 150.0
+texture = ExtResource("8_jhyir")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Spot4" type="TextureRect" parent="VBoxContainer/TeamSpriteContainer"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 100.0
+offset_bottom = 200.0
+texture = ExtResource("4_dd0ac")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Spot5" type="TextureRect" parent="VBoxContainer/TeamSpriteContainer"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 200.0
+offset_right = 250.0
+offset_bottom = 200.0
+texture = ExtResource("2_mtuoh")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="StatsUI" parent="VBoxContainer" instance=ExtResource("2_xpcdj")]
+unique_name_in_owner = true
+layout_mode = 2

@@ -5,8 +5,8 @@ const WHITE_SPRITE_MATERIAL := preload("res://art/white_sprite_material.tres")
 
 @export var stats: TeamStats : set = set_character_stats
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var stats_ui: StatsUI = $StatsUI
+@onready var team_sprite_container: TeamSpriteContainer = %TeamSpriteContainer
+@onready var stats_ui: StatsUI = %StatsUI
 
 func set_character_stats(value: TeamStats) -> void:
 	stats = value
@@ -22,8 +22,14 @@ func update_player() -> void:
 	if not is_inside_tree():
 		await ready
 	
-	sprite_2d.texture = stats.art
+	set_team_sprites()
 	update_stats()
+
+func set_team_sprites() -> void:
+	for char: CharacterStats in stats.team:
+		print("Adding char to team_sprites")
+		team_sprite_container.team_sprites.append(char.art)
+	team_sprite_container.set_team_layout()
 
 func update_stats() -> void:
 	stats_ui.update_stats(stats)
@@ -32,7 +38,7 @@ func take_damage(damage: int) -> void:
 	if stats.health <= 0:
 		return
 	
-	sprite_2d.material = WHITE_SPRITE_MATERIAL
+	#sprite_2d.material = WHITE_SPRITE_MATERIAL
 	
 	var tween := create_tween()
 	tween.tween_callback(Shaker.shake.bind(self, 24, 0.15))
@@ -41,7 +47,7 @@ func take_damage(damage: int) -> void:
 	
 	tween.finished.connect(
 		func():
-			sprite_2d.material = null
+			#sprite_2d.material = null
 			
 			if stats.health <= 0:
 				Events.player_died.emit()
