@@ -33,6 +33,7 @@ layout_mode = 2
 script = ExtResource("7_gk6dx")
 
 [node name="Spot1" type="TextureRect" parent="VBoxContainer/TeamSpriteContainer"]
+use_parent_material = true
 layout_mode = 0
 offset_left = 100.0
 offset_top = 100.0
@@ -43,6 +44,7 @@ expand_mode = 1
 stretch_mode = 3
 
 [node name="Spot2" type="TextureRect" parent="VBoxContainer/TeamSpriteContainer"]
+use_parent_material = true
 layout_mode = 0
 offset_left = 250.0
 offset_top = 100.0
@@ -53,6 +55,7 @@ expand_mode = 1
 stretch_mode = 3
 
 [node name="Spot3" type="TextureRect" parent="VBoxContainer/TeamSpriteContainer"]
+use_parent_material = true
 layout_mode = 0
 offset_left = 175.0
 offset_top = 150.0
@@ -63,6 +66,7 @@ expand_mode = 1
 stretch_mode = 3
 
 [node name="Spot4" type="TextureRect" parent="VBoxContainer/TeamSpriteContainer"]
+use_parent_material = true
 layout_mode = 0
 offset_left = 100.0
 offset_top = 200.0
@@ -73,6 +77,7 @@ expand_mode = 1
 stretch_mode = 3
 
 [node name="Spot5" type="TextureRect" parent="VBoxContainer/TeamSpriteContainer"]
+use_parent_material = true
 layout_mode = 0
 offset_left = 250.0
 offset_top = 200.0

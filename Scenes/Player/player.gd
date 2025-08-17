@@ -38,7 +38,7 @@ func take_damage(damage: int) -> void:
 	if stats.health <= 0:
 		return
 	
-	#sprite_2d.material = WHITE_SPRITE_MATERIAL
+	team_sprite_container.material = WHITE_SPRITE_MATERIAL
 	
 	var tween := create_tween()
 	tween.tween_callback(Shaker.shake.bind(self, 24, 0.15))
@@ -47,7 +47,7 @@ func take_damage(damage: int) -> void:
 	
 	tween.finished.connect(
 		func():
-			#sprite_2d.material = null
+			team_sprite_container.material = null
 			
 			if stats.health <= 0:
 				Events.player_died.emit()
