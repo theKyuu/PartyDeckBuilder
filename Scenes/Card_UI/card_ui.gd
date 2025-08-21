@@ -3,6 +3,7 @@ extends Control
 
 signal reparent_requested(which_card_ui: CardUI)
 
+const SIZE := Vector2(160,200)
 const BASE_STYLEBOX := preload("res://Scenes/Card_UI/card_base_stylebox.tres")
 const DRAG_STYLEBOX := preload("res://Scenes/Card_UI/card_dragging_stylebox.tres")
 const HOVER_STYLEBOX := preload("res://Scenes/Card_UI/card_hover_stylebox.tres")

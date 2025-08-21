@@ -11,6 +11,9 @@ func enter() -> void:
 	card_ui.reparent_requested.emit(card_ui)
 	card_ui.pivot_offset = Vector2.ZERO
 	Events.tooltip_hide_requested.emit()
+	
+	if card_ui.parent and card_ui.parent is Hand:
+		card_ui.parent.update_cards()
 
 func on_gui_input(event: InputEvent) -> void:
 	if not card_ui.playable or card_ui.disabled:

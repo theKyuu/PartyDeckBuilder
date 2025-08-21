@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b70s7setlpoy6"]
+[gd_scene load_steps=29 format=3 uid="uid://b70s7setlpoy6"]
 
 [ext_resource type="Texture2D" uid="uid://d28pgi05bgc6b" path="res://art/background.png" id="1_3qw02"]
 [ext_resource type="Script" uid="uid://btuav3vwfix2k" path="res://Scenes/Battle/battle.gd" id="1_ev1ic"]
@@ -33,6 +33,15 @@ metadata/_custom_type_script = "uid://c8dmgly6pie5w"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqxgi"]
 size = Vector2(1280, 474)
+
+[sub_resource type="Curve" id="Curve_fboss"]
+_data = [Vector2(0, 0), 0.0, 5.5, 0, 0, Vector2(0.496667, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.5, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_82moc"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 6.0, 0, 0, Vector2(0.5, -0.00270641), 0.0, 0.0, 0, 0, Vector2(1, 1), 6.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_ev1ic")
@@ -82,7 +91,8 @@ script = ExtResource("7_11mmy")
 
 [node name="Tooltip" parent="BattleUI" instance=ExtResource("7_q43bu")]
 
-[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+[node name="Hand" type="Container" parent="BattleUI"]
+custom_minimum_size = Vector2(800, 200)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -93,8 +103,11 @@ offset_top = -200.0
 offset_right = 400.0
 grow_horizontal = 2
 grow_vertical = 0
-alignment = 1
+size_flags_vertical = 8
 script = ExtResource("2_wqxgi")
+hand_curve = SubResource("Curve_fboss")
+rotation_curve = SubResource("Curve_82moc")
+x_sep = 20
 
 [node name="ManaUI" parent="BattleUI" instance=ExtResource("11_bch6i")]
 offset_top = -187.0
@@ -102,19 +115,20 @@ offset_bottom = -107.0
 
 [node name="EndTurnButton" type="Button" parent="BattleUI"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 100)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -177.0
-offset_right = -20.0
-offset_bottom = -97.0
+offset_left = -180.0
+offset_top = -220.0
+offset_right = -30.0
+offset_bottom = -120.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("13_11mmy")
-text = "End Turn"
+text = "Done"
 
 [node name="DrawPileButton" parent="BattleUI" node_paths=PackedStringArray("counter") instance=ExtResource("20_fboss")]
 unique_name_in_owner = true
@@ -200,3 +214,5 @@ visible = false
 [node name="DiscardPileView" parent="CardPileViews" instance=ExtResource("24_nti3y")]
 unique_name_in_owner = true
 visible = false
+
+[connection signal="child_order_changed" from="BattleUI/Hand" to="BattleUI/Hand" method="_on_child_order_changed"]
