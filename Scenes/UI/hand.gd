@@ -51,7 +51,7 @@ func _update_cards() -> void:
 			y_multiplier = 0.0
 			rot_multiplier = 0.0
 		
-		var final_x: float = offset + CardUI.SIZE.x * i + final_x_sep
+		var final_x: float = offset + CardUI.SIZE.x * i + final_x_sep * i
 		var final_y: float = y_min + y_max * y_multiplier
 		
 		card.position = Vector2(final_x, final_y)
