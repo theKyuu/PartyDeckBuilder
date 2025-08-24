@@ -13,7 +13,7 @@ func enter() -> void:
 	Events.tooltip_hide_requested.emit()
 	
 	if card_ui.parent and card_ui.parent is Hand:
-		card_ui.parent.update_cards()
+		card_ui.parent._update_cards()
 
 func on_gui_input(event: InputEvent) -> void:
 	if not card_ui.playable or card_ui.disabled:
