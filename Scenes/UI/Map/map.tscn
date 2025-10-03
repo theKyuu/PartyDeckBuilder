@@ -1,48 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnuasnlbmj5rf"]
+[gd_scene load_steps=5 format=3 uid="uid://bnuasnlbmj5rf"]
 
 [ext_resource type="Script" uid="uid://m4u38hvxvpi4" path="res://Scenes/UI/Map/map.gd" id="1_0vwer"]
+[ext_resource type="Script" uid="uid://b080bfp28ijk8" path="res://Scenes/UI/Map/map_generator.gd" id="2_48iyi"]
 
-[node name="Map" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="Gradient" id="Gradient_48iyi"]
+colors = PackedColorArray(0.279967, 0.279967, 0.279967, 1, 0.774123, 0.758299, 0.743405, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8dhgj"]
+gradient = SubResource("Gradient_48iyi")
+
+[node name="Map" type="Node2D"]
 script = ExtResource("1_0vwer")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Lines" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
+
+[node name="Rooms" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(640, 360)
+
+[node name="MapGenerator" type="Node" parent="."]
+script = ExtResource("2_48iyi")
+
+[node name="MapBackground" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="MapBackground"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.15967, 0.15967, 0.15967, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -93.0
-offset_top = -70.0
-offset_right = 93.0
-offset_bottom = 70.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Map"
-
-[node name="Button" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(250, 100)
-layout_mode = 2
-text = "Go Back
-"
-
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+texture = SubResource("GradientTexture1D_8dhgj")

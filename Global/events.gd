@@ -28,7 +28,7 @@ signal battle_won
 signal battle_reward_exited
 
 #Map-related events
-signal map_exited
+signal map_exited(room: Room)
 signal event_node_exited
 
 #Team-related events
