@@ -47,8 +47,6 @@ func _change_view(scene: PackedScene) -> Node:
 		
 	get_tree().paused = false
 	var new_view := scene.instantiate()
-	if "team_stats" in new_view: # Ugly solution only for Battle Scene atm
-		new_view.team_stats = team
 	current_view.add_child(new_view)
 	map.hide_map()
 	
@@ -77,26 +75,31 @@ func _setup_top_bar():
 	deck_view.card_pile = team.deck
 	deck_button.pressed.connect(deck_view.show_current_view.bind("Deck"))
 
+func _on_battle_room_entered(room: Room) -> void:
+	var battle_scene: Battle = _change_view(BATTLE_SCENE) as Battle
+	battle_scene.team_stats = team
+	battle_scene.battle_stats = room.battle_stats
+	battle_scene.start_battle()
+
 func _on_battle_won() -> void:
 	var reward_scene := _change_view(BATTLE_REWARD_SCENE) as BattleReward
 	reward_scene.run_stats = stats
 	reward_scene.team_stats = team
 	MusicPlayer.stop()
-	# Temporary reward data injection
-	reward_scene.add_gold_reward(69)
+	reward_scene.add_gold_reward(map.last_room.battle_stats.roll_gold_reward())
 
 func _on_map_exited(room: Room) -> void:
 	match room.type:
 		Room.Type.FIGHT:
-			_change_view(BATTLE_SCENE)
+			_on_battle_room_entered(room)
 		Room.Type.TRAINING:
-			_change_view(BATTLE_SCENE)
+			_on_battle_room_entered(room)
 		Room.Type.CHARACTER:
 			_change_view(CHARACTER_PICKER_SCENE)
 		Room.Type.EVENT:
-			_change_view(BATTLE_SCENE)
+			_on_battle_room_entered(room)
 		Room.Type.BOSS:
-			_change_view(BATTLE_SCENE)
+			_on_battle_room_entered(room)
 
 func _on_character_added(character: CharacterStats) -> void:
 	team.team.append(character)

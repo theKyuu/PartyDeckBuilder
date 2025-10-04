@@ -11,6 +11,8 @@ const FIGHT_ROOM_WEIGHT := 10.0
 const TRAINING_ROOM_WEIGHT := 2.5
 const EVENT_ROOM_WEIGHT := 4.0
 
+@export var battle_stats_pool: BattleStatsPool
+
 var random_room_type_weights = {
 	Room.Type.FIGHT: 0.0,
 	Room.Type.TRAINING: 0.0,
@@ -29,6 +31,8 @@ func generate_map() -> Array[Array]:
 		var current_j := j
 		for i in ROWS - 1:
 			current_j = _setup_connection(i, current_j)
+	
+	battle_stats_pool.setup()
 	
 	_setup_boss_room()
 	_setup_random_room_weights()
@@ -125,6 +129,7 @@ func _setup_boss_room() -> void:
 			current_room.next_rooms.append(boss_room)
 	
 	boss_room.type = Room.Type.BOSS
+	boss_room.battle_stats = battle_stats_pool.get_random_battle_for_tier(2)
 
 func _setup_random_room_weights() -> void:
 	random_room_type_weights[Room.Type.FIGHT] = FIGHT_ROOM_WEIGHT
@@ -138,6 +143,7 @@ func _setup_room_types() -> void:
 	for room: Room in map_data[0]:
 		if room.next_rooms.size() > 0:
 			room.type = Room.Type.FIGHT
+			room.battle_stats = battle_stats_pool.get_random_battle_for_tier(0)
 	
 	# Middle row is always a character
 	for room: Room in map_data[floor(ROWS / 2)]:
@@ -179,6 +185,13 @@ func _set_room_randomly(room_to_set: Room) -> void:
 		training_on_third_last = is_training and room_to_set.row == ROWS - 3
 		
 	room_to_set.type = type_candidate
+	
+	if type_candidate == Room.Type.FIGHT:
+		var fight_tier := 0
+		if room_to_set.row > 2:
+			fight_tier = 1
+		
+		room_to_set.battle_stats = battle_stats_pool.get_random_battle_for_tier(fight_tier)
 
 func _room_has_parent_of_type(room: Room, type: Room.Type) -> bool:
 	var parents: Array[Room] = []
