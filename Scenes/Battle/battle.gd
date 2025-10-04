@@ -1,6 +1,7 @@
 class_name Battle
 extends Node2D
 
+@export var battle_stats: BattleStats
 @export var team_stats: TeamStats
 @export var music: AudioStream
 
