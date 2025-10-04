@@ -18,35 +18,33 @@ func _ready() -> void:
 		spot.texture = null
 
 func set_team_layout() -> void:
-	print("Setting layout with sprites:")
-	print(team_sprites)
 	match team_sprites.size():
 		0:
 			return
 		1:
 			spot_3.texture = team_sprites[0]
-			self.custom_minimum_size = MEDIUM
+			custom_minimum_size = MEDIUM
 		2:
 			spot_1.texture = team_sprites[0]
 			spot_3.texture = team_sprites[1]
-			self.custom_minimum_size = MEDIUM
+			custom_minimum_size = MEDIUM
 		3:
 			spot_1.texture = team_sprites[0]
 			spot_2.texture = team_sprites[1]
 			spot_3.texture = team_sprites[2]
-			self.custom_minimum_size = MEDIUM
+			custom_minimum_size = MEDIUM
 		4:
 			spot_1.texture = team_sprites[0]
 			spot_2.texture = team_sprites[1]
 			spot_4.texture = team_sprites[2]
 			spot_5.texture = team_sprites[3]
-			self.custom_minimum_size = LARGE
+			custom_minimum_size = LARGE
 		5:
 			spot_1.texture = team_sprites[0]
 			spot_2.texture = team_sprites[1]
 			spot_3.texture = team_sprites[2]
 			spot_4.texture = team_sprites[3]
 			spot_5.texture = team_sprites[4]
-			self.custom_minimum_size = LARGE
+			custom_minimum_size = LARGE
 		_:
 			return

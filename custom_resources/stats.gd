@@ -22,15 +22,15 @@ func take_damage(damage : int) -> void:
 		return
 	var initial_damage = damage
 	damage = clampi(damage - block, 0, damage)
-	self.block = clampi(block - initial_damage, 0, block)
-	self.health -= damage
+	block = clampi(block - initial_damage, 0, block)
+	health -= damage
 
 func heal(amount : int) -> void:
-	var current_health := self.health
-	if (current_health + amount) > self.max_health :
-		self.health = self.max_health
+	var current_health := health
+	if (current_health + amount) > max_health :
+		health = max_health
 	else:
-		self.health += amount
+		health += amount
 
 func create_instance() -> Resource:
 	var instance: Stats = self.duplicate()

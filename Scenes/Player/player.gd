@@ -27,7 +27,6 @@ func update_player() -> void:
 
 func set_team_sprites() -> void:
 	for char: CharacterStats in stats.team:
-		print("Adding char to team_sprites")
 		team_sprite_container.team_sprites.append(char.art)
 	team_sprite_container.set_team_layout()
 
