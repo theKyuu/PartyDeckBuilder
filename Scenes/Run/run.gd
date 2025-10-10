@@ -4,6 +4,8 @@ extends Node
 const BATTLE_SCENE := preload("res://Scenes/Battle/battle.tscn")
 const BATTLE_REWARD_SCENE := preload("res://Scenes/UI/battle_reward.tscn")
 const CHARACTER_PICKER_SCENE := preload("res://Scenes/UI/character_picker.tscn")
+const TRAINING_SCENE := preload("res://Scenes/Training/training.tscn")
+const EVENT_SCENE := preload("res://Scenes/Event/event.tscn")
 
 @export var run_startup: RunStartup
 
@@ -17,6 +19,8 @@ const CHARACTER_PICKER_SCENE := preload("res://Scenes/UI/character_picker.tscn")
 @onready var map_button: Button = %MapButton
 @onready var battle_button: Button = %BattleButton
 @onready var character_pick_button: Button = %CharacterPickButton
+@onready var training_button: Button = %TrainingButton
+@onready var event_button: Button = %EventButton
 
 var stats: RunStats
 var team: TeamStats
@@ -68,6 +72,8 @@ func _setup_event_connections() -> void:
 	map_button.pressed.connect(_show_map)
 	battle_button.pressed.connect(_change_view.bind(BATTLE_SCENE))
 	character_pick_button.pressed.connect(_change_view.bind(CHARACTER_PICKER_SCENE))
+	training_button.pressed.connect(_change_view.bind(TRAINING_SCENE))
+	event_button.pressed.connect(_change_view.bind(EVENT_SCENE))
 
 func _setup_top_bar():
 	gold_ui.run_stats = stats
@@ -93,11 +99,11 @@ func _on_map_exited(room: Room) -> void:
 		Room.Type.FIGHT:
 			_on_battle_room_entered(room)
 		Room.Type.TRAINING:
-			_on_battle_room_entered(room)
+			_change_view(TRAINING_SCENE)
 		Room.Type.CHARACTER:
 			_change_view(CHARACTER_PICKER_SCENE)
 		Room.Type.EVENT:
-			_on_battle_room_entered(room)
+			_change_view(EVENT_SCENE)
 		Room.Type.BOSS:
 			_on_battle_room_entered(room)
 

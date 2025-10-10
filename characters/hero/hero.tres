@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://c1ehhigqoqx20"]
 
-[ext_resource type="Script" uid="uid://dlw8qygrsxfxo" path="res://custom_resources/character_stats.gd" id="1_bie2b"]
 [ext_resource type="Texture2D" uid="uid://j66j40js5f14" path="res://art/hero.png" id="1_kj3r7"]
+[ext_resource type="Script" uid="uid://dlw8qygrsxfxo" path="res://Scenes/Run/custom_resources/character_stats.gd" id="2_kj3r7"]
 [ext_resource type="Resource" uid="uid://ddfl7tw0dc81y" path="res://characters/hero/hero_starting_deck.tres" id="2_parck"]
 
 [resource]
-script = ExtResource("1_bie2b")
+script = ExtResource("2_kj3r7")
 character_name = ""
 description = ""
 starting_deck = ExtResource("2_parck")

@@ -53,7 +53,7 @@ func unlock_row(which_row: int = floors_climbed) -> void:
 
 func unlock_next_rooms() -> void:
 	for map_room: MapRoom in rooms.get_children():
-		if last_room.next_rooms.has(map_room.room):
+		if last_room && last_room.next_rooms.has(map_room.room):
 			map_room.available = true
 
 func show_map() -> void:

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://25hcojbc2uli" path="res://enemies/bat/bat_attack_action.gd" id="2_06k5i"]
 [ext_resource type="Texture2D" uid="uid://c8hehdbegh82b" path="res://art/axe.png" id="3_5laa2"]
 [ext_resource type="Script" uid="uid://c1idfpfq3j8u0" path="res://enemies/bat/bat_block_action.gd" id="3_yq87b"]
-[ext_resource type="Script" uid="uid://k088fiuv8jay" path="res://custom_resources/intent.gd" id="4_6cpw6"]
+[ext_resource type="Script" uid="uid://k088fiuv8jay" path="res://Scenes/Run/custom_resources/intent.gd" id="4_6cpw6"]
 [ext_resource type="AudioStream" uid="uid://df5wkihx1i16d" path="res://audio/hit.ogg" id="5_8hwcw"]
 [ext_resource type="Texture2D" uid="uid://qa82ot6kehru" path="res://art/block.png" id="7_iplk6"]
 [ext_resource type="AudioStream" uid="uid://hgmr0ssdojie" path="res://audio/armor.ogg" id="8_ygf61"]

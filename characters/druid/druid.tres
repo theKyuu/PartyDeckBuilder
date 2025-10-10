@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://ov1akopl5o1w"]
 
-[ext_resource type="Script" uid="uid://dlw8qygrsxfxo" path="res://custom_resources/character_stats.gd" id="1_8j12t"]
 [ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/druid.png" id="1_uqtek"]
+[ext_resource type="Script" uid="uid://dlw8qygrsxfxo" path="res://Scenes/Run/custom_resources/character_stats.gd" id="2_l2j86"]
 [ext_resource type="Resource" uid="uid://dpgq1j6pqnr5r" path="res://characters/druid/druid_starting_deck.tres" id="3_l2j86"]
 
 [resource]
-script = ExtResource("1_8j12t")
+script = ExtResource("2_l2j86")
 character_name = "Druid"
 description = "May nature heal and protect you."
 portrait = ExtResource("1_uqtek")

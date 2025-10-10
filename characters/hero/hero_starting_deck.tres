@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="CardPile" load_steps=5 format=3 uid="uid://ddfl7tw0dc81y"]
 
-[ext_resource type="Script" uid="uid://5jjm0pxg22ag" path="res://custom_resources/card.gd" id="1_wvhrm"]
+[ext_resource type="Script" uid="uid://5jjm0pxg22ag" path="res://Scenes/Run/custom_resources/card.gd" id="1_h04jd"]
 [ext_resource type="Resource" uid="uid://dtkf7kt0q2t7j" path="res://characters/hero/cards/basic_attack.tres" id="2_h04jd"]
 [ext_resource type="Resource" uid="uid://ctyt4irigiqir" path="res://characters/hero/cards/basic_defend.tres" id="3_h04jd"]
-[ext_resource type="Script" uid="uid://c5r1qqnd6s0vv" path="res://custom_resources/card_pile.gd" id="3_mqq2r"]
+[ext_resource type="Script" uid="uid://c5r1qqnd6s0vv" path="res://Scenes/Run/custom_resources/card_pile.gd" id="4_mqq2r"]
 
 [resource]
-script = ExtResource("3_mqq2r")
-cards = Array[ExtResource("1_wvhrm")]([ExtResource("2_h04jd"), ExtResource("2_h04jd"), ExtResource("2_h04jd"), ExtResource("2_h04jd"), ExtResource("3_h04jd"), ExtResource("3_h04jd"), ExtResource("3_h04jd"), ExtResource("3_h04jd")])
+script = ExtResource("4_mqq2r")
+cards = Array[ExtResource("1_h04jd")]([ExtResource("2_h04jd"), ExtResource("2_h04jd"), ExtResource("2_h04jd"), ExtResource("2_h04jd"), ExtResource("3_h04jd"), ExtResource("3_h04jd"), ExtResource("3_h04jd"), ExtResource("3_h04jd")])
 metadata/_custom_type_script = "uid://c5r1qqnd6s0vv"
