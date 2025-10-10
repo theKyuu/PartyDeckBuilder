@@ -10,6 +10,7 @@ const EVENT_SCENE := preload("res://Scenes/Event/event.tscn")
 @export var run_startup: RunStartup
 
 @onready var current_view: Node = $CurrentView
+@onready var health_ui: HealthUI = %HealthUI
 @onready var gold_ui: GoldUI = %GoldUI
 @onready var deck_button: CardPileOpener = %DeckButton
 @onready var deck_view: CardPileView = %DeckView
@@ -76,6 +77,8 @@ func _setup_event_connections() -> void:
 	event_button.pressed.connect(_change_view.bind(EVENT_SCENE))
 
 func _setup_top_bar():
+	team.stats_changed.connect(health_ui.update_stats.bind(team))
+	health_ui.update_stats(team)
 	gold_ui.run_stats = stats
 	deck_button.card_pile = team.deck
 	deck_view.card_pile = team.deck
