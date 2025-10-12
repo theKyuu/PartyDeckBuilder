@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdhcb36ujqe18"]
+
+[ext_resource type="Texture2D" uid="uid://cuutwvm3nrfdn" path="res://art/exposed.png" id="1_i6qk2"]
+[ext_resource type="Script" uid="uid://dbvf6hjvnowm6" path="res://Scenes/status_handler/status_ui.gd" id="1_st24k"]
+[ext_resource type="Resource" uid="uid://bhf0uyojqjph3" path="res://statuses/powering_up.tres" id="2_5ig88"]
+
+[node name="StatusUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_st24k")
+status = ExtResource("2_5ig88")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_i6qk2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Duration" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 9.0
+offset_right = 54.0
+offset_bottom = 51.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 30
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stacks" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 9.0
+offset_right = 54.0
+offset_bottom = 51.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 30
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1

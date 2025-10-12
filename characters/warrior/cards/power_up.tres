@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dsgi205hvuq2b"]
+
+[ext_resource type="Texture2D" uid="uid://bm7jdnji0uwth" path="res://art/smughead.png" id="1_1lg1x"]
+[ext_resource type="Script" uid="uid://dy2wexbfijl0e" path="res://characters/warrior/cards/power_up.gd" id="2_0ay2d"]
+
+[resource]
+script = ExtResource("2_0ay2d")
+id = "power_up"
+type = 2
+target = 0
+cost = 3
+exhausts = false
+icon = ExtResource("1_1lg1x")
+tooltip_text = "Moar power every turn!!"
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dc3dm6vctnf8"]
+
+[ext_resource type="Texture2D" uid="uid://ptj0sbblrisb" path="res://art/icky_punch.png" id="1_ssrvn"]
+[ext_resource type="Script" uid="uid://d27jlcao3m7np" path="res://characters/druid/cards/weakening_strike.gd" id="1_vpiot"]
+[ext_resource type="AudioStream" uid="uid://df5wkihx1i16d" path="res://audio/hit.ogg" id="3_72n0f"]
+
+[resource]
+script = ExtResource("1_vpiot")
+id = "weakening_strike"
+type = 0
+target = 1
+cost = 1
+icon = ExtResource("1_ssrvn")
+tooltip_text = "[center][b]Weakening Strike[/b]
+
+Deal 6 damage.
+Add 1 Expose Armor.[/center]"
+sound = ExtResource("3_72n0f")
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"
