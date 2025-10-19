@@ -19,7 +19,7 @@ enum StackType {NONE, INTENSITY, DURATION}
 @export var icon: Texture
 @export_multiline var tooltip: String
 
-func intitialize_status(_target: Node) -> void:
+func initialize_status(_target: Node) -> void:
 	pass
 
 func apply_status(_target: Node) -> void:

@@ -10,6 +10,7 @@ id = "basic_attack"
 type = 0
 target = 1
 cost = 1
+exhausts = false
 icon = ExtResource("1_3n5lt")
 tooltip_text = "[center][b]Punch![/b]
 

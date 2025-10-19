@@ -92,7 +92,7 @@ script = ExtResource("7_11mmy")
 
 [node name="Tooltip" parent="BattleUI" instance=ExtResource("7_q43bu")]
 
-[node name="Hand" type="Container" parent="BattleUI"]
+[node name="Hand" type="Container" parent="BattleUI" node_paths=PackedStringArray("player")]
 custom_minimum_size = Vector2(800, 200)
 anchors_preset = 7
 anchor_left = 0.5
@@ -106,6 +106,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
 script = ExtResource("2_wqxgi")
+player = NodePath("../../Player")
 hand_curve = SubResource("Curve_fboss")
 rotation_curve = SubResource("Curve_82moc")
 x_sep = 20

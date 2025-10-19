@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://m3m8ovs2nj3i"]
+[gd_scene load_steps=10 format=3 uid="uid://m3m8ovs2nj3i"]
 
 [ext_resource type="Script" uid="uid://bhcuh7fhuikq3" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
 [ext_resource type="Texture2D" uid="uid://j66j40js5f14" path="res://art/hero.png" id="2_mtuoh"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bap7boopew7cu" path="res://art/warrior.png" id="4_dd0ac"]
 [ext_resource type="PackedScene" uid="uid://dtrk2gvcmhh2" path="res://Scenes/status_handler/status_handler.tscn" id="7_0u5uq"]
 [ext_resource type="Script" uid="uid://dqpvivxfjgcmv" path="res://Scenes/Player/team_sprite_container.gd" id="7_gk6dx"]
+[ext_resource type="PackedScene" uid="uid://d4iidpd0hit5f" path="res://modifier_handler/modifier_handler.tscn" id="8_gk6dx"]
 [ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/druid.png" id="8_jhyir"]
+[ext_resource type="PackedScene" uid="uid://doare8s5v1j58" path="res://modifier_handler/modifier.tscn" id="9_jhyir"]
 
 [node name="Player" type="Node2D" groups=["player"]]
 script = ExtResource("1_xpcdj")
@@ -98,3 +100,16 @@ offset_top = 132.0
 offset_right = 86.0
 offset_bottom = 216.0
 status_owner = NodePath("..")
+
+[node name="ModifierHandler" parent="." instance=ExtResource("8_gk6dx")]
+
+[node name="DmgDealtModifier" parent="ModifierHandler" instance=ExtResource("9_jhyir")]
+
+[node name="DmgTakenModifier" parent="ModifierHandler" instance=ExtResource("9_jhyir")]
+type = 1
+
+[node name="CardCostModifier" parent="ModifierHandler" instance=ExtResource("9_jhyir")]
+type = 2
+
+[node name="HealingReceivedModifier" parent="ModifierHandler" instance=ExtResource("9_jhyir")]
+type = 3

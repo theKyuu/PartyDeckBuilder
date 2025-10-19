@@ -10,6 +10,7 @@ id = "vine_shield"
 type = 1
 target = 0
 cost = 1
+exhausts = false
 icon = ExtResource("1_p1jk6")
 tooltip_text = "[center][b]Vine Shield[/b]
 

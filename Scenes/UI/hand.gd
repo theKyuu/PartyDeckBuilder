@@ -1,9 +1,10 @@
 class_name Hand
 extends Container
 
-@export var team_stats: TeamStats
-
 @onready var card_ui := preload("res://Scenes/Card_UI/card_ui.tscn")
+
+@export var player: Player
+@export var team_stats: TeamStats
 
 @export_group("Card layout vars")
 @export var hand_curve: Curve
@@ -21,6 +22,7 @@ func add_card(card: Card) -> void:
 	new_card_ui.card = card
 	new_card_ui.parent = self
 	new_card_ui.team_stats = team_stats
+	new_card_ui.player_modifiers = player.modifier_handler
 	_update_cards()
 
 func discard_card(card: CardUI) -> void:

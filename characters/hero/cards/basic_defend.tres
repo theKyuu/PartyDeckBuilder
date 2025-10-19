@@ -9,6 +9,7 @@ id = "basic_defend"
 type = 1
 target = 0
 cost = 1
+exhausts = false
 icon = ExtResource("1_s86vj")
 tooltip_text = "[center][b]Defend[/b]
 

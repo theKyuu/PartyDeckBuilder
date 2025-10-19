@@ -10,6 +10,7 @@ id = "weakening_strike"
 type = 0
 target = 1
 cost = 1
+exhausts = false
 icon = ExtResource("1_ssrvn")
 tooltip_text = "[center][b]Weakening Strike[/b]
 

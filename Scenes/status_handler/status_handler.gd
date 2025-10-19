@@ -37,7 +37,7 @@ func add_status(status: Status) -> void:
 		add_child(new_status_ui)
 		new_status_ui.status = status
 		new_status_ui.status.status_applied.connect(_on_status_applied)
-		new_status_ui.status.intitialize_status(status_owner)
+		new_status_ui.status.initialize_status(status_owner)
 		return
 	
 	# If it's already appolied and unique, ignore
