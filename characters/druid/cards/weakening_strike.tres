@@ -14,7 +14,7 @@ exhausts = false
 icon = ExtResource("1_ssrvn")
 tooltip_text = "[center][b]Weakening Strike[/b]
 
-Deal 6 damage.
-Add 1 Expose Armor.[/center]"
+Deal %s damage.
+Add 2 Expose Armor.[/center]"
 sound = ExtResource("3_72n0f")
 metadata/_custom_type_script = "uid://5jjm0pxg22ag"
