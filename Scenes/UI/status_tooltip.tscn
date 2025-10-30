@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5hn0hpfn3d50"]
+
+[ext_resource type="Script" uid="uid://c8k08fgoyhp0q" path="res://Scenes/UI/status_tooltip.gd" id="1_3du0c"]
+[ext_resource type="Texture2D" uid="uid://cuutwvm3nrfdn" path="res://art/exposed.png" id="1_xsvna"]
+
+[node name="StatusTooltip" type="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+offset_right = 454.0
+offset_bottom = 59.0
+script = ExtResource("1_3du0c")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_xsvna")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Exposed: Takes 50% more damage from attacks for 2 turns. "
+autowrap_mode = 2

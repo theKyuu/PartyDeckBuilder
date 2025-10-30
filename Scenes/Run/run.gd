@@ -113,5 +113,6 @@ func _on_map_exited(room: Room) -> void:
 func _on_character_added(character: CharacterStats) -> void:
 	team.team.append(character)
 	team.set_combined_stats()
+	team.health += character.max_health
 	_setup_top_bar()
 	
