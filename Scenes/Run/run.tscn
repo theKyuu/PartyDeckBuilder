@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://u3j4cx7fhpd3"]
+[gd_scene load_steps=12 format=3 uid="uid://u3j4cx7fhpd3"]
 
 [ext_resource type="PackedScene" uid="uid://bnuasnlbmj5rf" path="res://Scenes/UI/Map/map.tscn" id="1_1rprc"]
 [ext_resource type="Script" uid="uid://ot4snydssqd7" path="res://Scenes/Run/run.gd" id="1_g5qup"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://c63othrnrmcgl" path="res://art/deck_pile.png" id="5_73a50"]
 [ext_resource type="PackedScene" uid="uid://beptpar4p077e" path="res://Scenes/UI/health_ui.tscn" id="5_gomxk"]
 [ext_resource type="PackedScene" uid="uid://kaup3wrvo677" path="res://Scenes/UI/card_pile_view.tscn" id="6_3lri4"]
+[ext_resource type="PackedScene" uid="uid://caoclrmf81h6p" path="res://Scenes/passives_handler/passive_handler.tscn" id="7_vwusp"]
+[ext_resource type="PackedScene" uid="uid://dxl7wwj46p43l" path="res://Scenes/passives_handler/passive_tooltip_popup.tscn" id="11_5riug"]
 
 [node name="Run" type="Node"]
 script = ExtResource("1_g5qup")
@@ -86,9 +88,14 @@ show_max_hp = true
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Placeholder" type="Control" parent="TopBar/BarItems"]
+[node name="PassiveHandlerContainer" type="CenterContainer" parent="TopBar/BarItems"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="PassiveHandler" parent="TopBar/BarItems/PassiveHandlerContainer" instance=ExtResource("7_vwusp")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 
 [node name="DeckButton" parent="TopBar/BarItems" node_paths=PackedStringArray("counter") instance=ExtResource("4_iq2b7")]
 unique_name_in_owner = true
@@ -111,5 +118,9 @@ text = "99"
 horizontal_alignment = 1
 
 [node name="DeckView" parent="TopBar" instance=ExtResource("6_3lri4")]
+unique_name_in_owner = true
+visible = false
+
+[node name="PassiveTooltipPopup" parent="TopBar" instance=ExtResource("11_5riug")]
 unique_name_in_owner = true
 visible = false

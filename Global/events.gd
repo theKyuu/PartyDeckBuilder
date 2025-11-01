@@ -21,17 +21,20 @@ signal enemy_action_completed(enemy: Enemy)
 signal enemy_turn_ended
 signal enemy_died(enemy: Enemy)
 
-#Battle-related events
+# Battle-related events
 signal battle_over_screen_requested(text:String, type: BattleOverPanel.Type)
 signal battle_won
 signal status_tooltip_requested(statuses: Array[Status])
 
-#Battle reward-related events
+# Battle reward-related events
 signal battle_reward_exited
 
-#Map-related events
+# Map-related events
 signal map_exited(room: Room)
 signal event_node_exited
 
-#Team-related events
+# Team-related events
 signal character_added(character: CharacterStats)
+
+# Passive-related events
+signal passive_tooltip_requested(passive: Passive)

@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Passive" load_steps=2 format=3 uid="uid://b0q7v58cwmxfx"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b0q7v58cwmxfx"]
 
-[ext_resource type="Script" uid="uid://dux4gmu4grt72" path="res://custom_resources/passive.gd" id="1_saao8"]
+[ext_resource type="Texture2D" uid="uid://c4lo6w2lphrpe" path="res://art/healfluff.png" id="1_mmhn8"]
+[ext_resource type="Script" uid="uid://xpxmraqd3rr0" path="res://passives/energy_burst.gd" id="2_mmhn8"]
 
 [resource]
-script = ExtResource("1_saao8")
+script = ExtResource("2_mmhn8")
 passive_name = "Energy Burst"
 id = "energy_burst"
 type = 1
+icon = ExtResource("1_mmhn8")
 tooltip = "At the start of combat, gain 1 energy."
 metadata/_custom_type_script = "uid://dux4gmu4grt72"

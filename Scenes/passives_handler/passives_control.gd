@@ -22,8 +22,8 @@ func _ready() -> void:
 	right_button.pressed.connect(_on_right_button_pressed)
 	passives_start_position = passives.position
 	
-	#for passive_ui: PassiveUI in passives.get_tree():
-	#	passive_ui.free()
+	for passive_ui: PassiveUI in passives.get_children():
+		passive_ui.free()
 	
 	passives.child_order_changed.connect(_on_passives_child_order_changed)
 	_on_passives_child_order_changed()

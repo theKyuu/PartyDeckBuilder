@@ -1,9 +1,18 @@
+# Player turn order:
+# 1. START_OF_TURN Passives
+# 2. START_OF_TURN Statuses
+# 3. Draw Hand
+# 4. End Turn
+# 5. END_OF_TURN Passives
+# 6. END_OF_TURN Statuses
+# 7. Discard Hand
 class_name PlayerHandler
 extends Node
 
 const HAND_DRAW_INTERVAL := 0.1
 const HAND_DISCARD_INTERVAL := 0.1
 
+@export var passives: PassiveHandler
 @export var player: Player
 @export var hand: Hand
 
@@ -17,17 +26,18 @@ func start_battle(char_stats: TeamStats) -> void:
 	team.draw_pile = team.deck.duplicate(true)
 	team.draw_pile.shuffle()
 	team.discard = CardPile.new()
+	passives.passives_activated.connect(_on_passives_activated)
 	player.status_handler.statuses_applied.connect(_on_statuses_applied)
 	start_turn()
 
 func start_turn() -> void:
 	team.block = 0
 	team.reset_mana()
-	player.status_handler.apply_statuses_by_type(Status.Type.START_OF_TURN)
+	passives.activate_passives_by_type(Passive.Type.START_OF_TURN)
 
 func end_turn() -> void:
 	hand.disable_hand()
-	player.status_handler.apply_statuses_by_type(Status.Type.END_OF_TURN)
+	passives.activate_passives_by_type(Passive.Type.END_OF_TURN)
 
 func draw_card() -> void:
 	reshuffle_deck_from_discard()
@@ -74,6 +84,13 @@ func _on_card_played(card: Card) -> void:
 		return
 	
 	team.discard.add_card(card)
+
+func _on_passives_activated(type: Passive.Type) -> void:
+	match type:
+		Passive.Type.START_OF_TURN:
+			player.status_handler.apply_statuses_by_type(Status.Type.START_OF_TURN)
+		Passive.Type.END_OF_TURN:
+			player.status_handler.apply_statuses_by_type(Status.Type.END_OF_TURN)
 
 func _on_statuses_applied(type: Status.Type) -> void:
 	match type:

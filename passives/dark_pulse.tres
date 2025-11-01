@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="Passive" load_steps=2 format=3 uid="uid://3prpfulkdcd2"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://3prpfulkdcd2"]
 
-[ext_resource type="Script" uid="uid://dux4gmu4grt72" path="res://custom_resources/passive.gd" id="1_3jl4y"]
+[ext_resource type="Texture2D" uid="uid://ptj0sbblrisb" path="res://art/icky_punch.png" id="1_xramy"]
+[ext_resource type="Script" uid="uid://dytkb08gro78a" path="res://passives/dark_pulse.gd" id="2_xramy"]
 
 [resource]
-script = ExtResource("1_3jl4y")
+script = ExtResource("2_xramy")
+damage = 2
 passive_name = "Dark Pulse"
 id = "dark_pulse"
 type = 0
+icon = ExtResource("1_xramy")
 tooltip = "Deals 2 damage to all enemies at start of turn."
 metadata/_custom_type_script = "uid://dux4gmu4grt72"

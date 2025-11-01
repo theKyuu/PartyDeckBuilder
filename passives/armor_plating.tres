@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="Passive" load_steps=2 format=3 uid="uid://de52sqfxqsteu"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://de52sqfxqsteu"]
 
-[ext_resource type="Script" uid="uid://dux4gmu4grt72" path="res://custom_resources/passive.gd" id="1_yn23d"]
+[ext_resource type="Texture2D" uid="uid://orm6q6ad66v" path="res://art/big_block.png" id="1_rdkxy"]
+[ext_resource type="Script" uid="uid://b8ucvxcdgev5b" path="res://passives/armor_plating.gd" id="2_rdkxy"]
 
 [resource]
-script = ExtResource("1_yn23d")
+script = ExtResource("2_rdkxy")
+block = 3
 passive_name = "Armor Plating"
 id = "armor_plating"
 type = 2
-tooltip = "Adds 3 armor at end of turn."
+icon = ExtResource("1_rdkxy")
+tooltip = "Adds 3 block at end of turn."
 metadata/_custom_type_script = "uid://dux4gmu4grt72"

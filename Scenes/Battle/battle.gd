@@ -4,6 +4,7 @@ extends Node2D
 @export var battle_stats: BattleStats
 @export var team_stats: TeamStats
 @export var music: AudioStream
+@export var passives: PassiveHandler
 
 @onready var battle_ui: BattleUI = $BattleUI
 @onready var player_handler: PlayerHandler = $PlayerHandler
@@ -23,15 +24,24 @@ func start_battle() -> void:
 	
 	battle_ui.team_stats = team_stats
 	player.stats = team_stats
+	player_handler.passives = passives
 	enemy_handler.setup_enemies(battle_stats)
 	enemy_handler.reset_enemy_actions()
 	
-	player_handler.start_battle(team_stats)
-	battle_ui.initialize_card_pile_ui()
+	passives.passives_activated.connect(_on_passives_activated)
+	passives.activate_passives_by_type(Passive.Type.START_OF_COMBAT)
+
+func _on_passives_activated(type: Passive.Type) -> void:
+	match type:
+		Passive.Type.START_OF_COMBAT:
+			player_handler.start_battle(team_stats)
+			battle_ui.initialize_card_pile_ui()
+		Passive.Type.END_OF_COMBAT:
+			Events.battle_over_screen_requested.emit("Victory!", BattleOverPanel.Type.WIN)
 
 func _on_enemies_child_order_changed() -> void:
-	if enemy_handler.get_child_count() == 0:
-		Events.battle_over_screen_requested.emit("Victory!", BattleOverPanel.Type.WIN)
+	if enemy_handler.get_child_count() == 0 and is_instance_valid(passives):
+		passives.activate_passives_by_type(Passive.Type.END_OF_COMBAT)
 
 func _on_enemy_turn_ended() -> void:
 	player_handler.start_turn()

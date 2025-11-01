@@ -16,5 +16,8 @@ func initialize_passive(_owner: PassiveUI) -> void:
 func activate_passive(_owner: PassiveUI) -> void:
 	pass
 
-func deactivate_passive(_owner: PassiveUI) -> void:
+func deactivate_passive(_owner: PassiveUI) -> void: # Only used by passives that get removed upon activation, IE Store Coupon
 	pass
+
+func get_tooltip() -> String:
+	return tooltip

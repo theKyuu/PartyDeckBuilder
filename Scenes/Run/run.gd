@@ -12,6 +12,8 @@ const EVENT_SCENE := preload("res://Scenes/Event/event.tscn")
 @onready var current_view: Node = $CurrentView
 @onready var health_ui: HealthUI = %HealthUI
 @onready var gold_ui: GoldUI = %GoldUI
+@onready var passive_handler: PassiveHandler = %PassiveHandler
+@onready var passive_tooltip: PassiveTooltipPopup = %PassiveTooltipPopup
 @onready var deck_button: CardPileOpener = %DeckButton
 @onready var deck_view: CardPileView = %DeckView
 @onready var map: Map = $Map
@@ -80,6 +82,7 @@ func _setup_top_bar():
 	team.stats_changed.connect(health_ui.update_stats.bind(team))
 	health_ui.update_stats(team)
 	gold_ui.run_stats = stats
+	Events.passive_tooltip_requested.connect(passive_tooltip.show_tooltip)
 	deck_button.card_pile = team.deck
 	deck_view.card_pile = team.deck
 	deck_button.pressed.connect(deck_view.show_current_view.bind("Deck"))
@@ -88,6 +91,7 @@ func _on_battle_room_entered(room: Room) -> void:
 	var battle_scene: Battle = _change_view(BATTLE_SCENE) as Battle
 	battle_scene.team_stats = team
 	battle_scene.battle_stats = room.battle_stats
+	battle_scene.passives = passive_handler
 	battle_scene.start_battle()
 
 func _on_battle_won() -> void:
@@ -114,5 +118,8 @@ func _on_character_added(character: CharacterStats) -> void:
 	team.team.append(character)
 	team.set_combined_stats()
 	team.health += character.max_health
+	if is_instance_of(character.passive, Passive):
+		passive_handler.add_passive(character.passive)
+	
 	_setup_top_bar()
 	

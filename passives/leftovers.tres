@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Passive" load_steps=3 format=3 uid="uid://c6dnfnroa5514"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c6dnfnroa5514"]
 
-[ext_resource type="Script" uid="uid://dux4gmu4grt72" path="res://custom_resources/passive.gd" id="1_jk41w"]
-[ext_resource type="Texture2D" uid="uid://gxqj8cph87wg" path="res://art/health.png" id="1_sqqy6"]
+[ext_resource type="Texture2D" uid="uid://db3rkkx50ugm3" path="res://art/meat.png" id="1_sqqy6"]
+[ext_resource type="Script" uid="uid://do18os6kyep8t" path="res://passives/leftovers.gd" id="2_sqqy6"]
 
 [resource]
-script = ExtResource("1_jk41w")
+script = ExtResource("2_sqqy6")
+heal_amount = 6
 passive_name = "Leftovers"
 id = "leftovers"
 type = 3
