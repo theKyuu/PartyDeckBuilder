@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Passive" load_steps=2 format=3 uid="uid://de52sqfxqsteu"]
+
+[ext_resource type="Script" uid="uid://dux4gmu4grt72" path="res://custom_resources/passive.gd" id="1_yn23d"]
+
+[resource]
+script = ExtResource("1_yn23d")
+passive_name = "Armor Plating"
+id = "armor_plating"
+type = 2
+tooltip = "Adds 3 armor at end of turn."
+metadata/_custom_type_script = "uid://dux4gmu4grt72"

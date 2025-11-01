@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Passive" load_steps=2 format=3 uid="uid://b0q7v58cwmxfx"]
+
+[ext_resource type="Script" uid="uid://dux4gmu4grt72" path="res://custom_resources/passive.gd" id="1_saao8"]
+
+[resource]
+script = ExtResource("1_saao8")
+passive_name = "Energy Burst"
+id = "energy_burst"
+type = 1
+tooltip = "At the start of combat, gain 1 energy."
+metadata/_custom_type_script = "uid://dux4gmu4grt72"

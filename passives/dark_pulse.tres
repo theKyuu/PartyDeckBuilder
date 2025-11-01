@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Passive" load_steps=2 format=3 uid="uid://3prpfulkdcd2"]
+
+[ext_resource type="Script" uid="uid://dux4gmu4grt72" path="res://custom_resources/passive.gd" id="1_3jl4y"]
+
+[resource]
+script = ExtResource("1_3jl4y")
+passive_name = "Dark Pulse"
+id = "dark_pulse"
+type = 0
+tooltip = "Deals 2 damage to all enemies at start of turn."
+metadata/_custom_type_script = "uid://dux4gmu4grt72"

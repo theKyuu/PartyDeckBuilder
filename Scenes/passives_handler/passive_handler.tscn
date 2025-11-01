@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://caoclrmf81h6p"]
+
+[ext_resource type="Texture2D" uid="uid://bc0a62qoio4vj" path="res://art/side_arrow.png" id="1_u1jdh"]
+[ext_resource type="Script" uid="uid://hxk7kws4qcf6" path="res://Scenes/passives_handler/passive_handler.gd" id="1_usog0"]
+[ext_resource type="Script" uid="uid://c12laehwhonad" path="res://Scenes/passives_handler/passives_control.gd" id="2_s660j"]
+[ext_resource type="Texture2D" uid="uid://b52fyao0e0xj1" path="res://art/side_arrow_fade.png" id="2_usog0"]
+[ext_resource type="PackedScene" uid="uid://qe84tkslce21" path="res://Scenes/passives_handler/passive_ui.tscn" id="3_usog0"]
+
+[node name="PassiveHandler" type="HBoxContainer"]
+offset_right = 300.0
+offset_bottom = 60.0
+script = ExtResource("1_usog0")
+
+[node name="LeftButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture_normal = ExtResource("1_u1jdh")
+texture_pressed = ExtResource("1_u1jdh")
+texture_hover = ExtResource("1_u1jdh")
+texture_disabled = ExtResource("2_usog0")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="PassivesControl" type="Control" parent="." node_paths=PackedStringArray("left_button", "right_button")]
+clip_contents = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+script = ExtResource("2_s660j")
+left_button = NodePath("../LeftButton")
+right_button = NodePath("../RightButton")
+
+[node name="Passives" type="HBoxContainer" parent="PassivesControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 0
+offset_right = 374.0
+offset_bottom = 60.0
+theme_override_constants/separation = 10
+
+[node name="PassiveUI" parent="PassivesControl/Passives" instance=ExtResource("3_usog0")]
+layout_mode = 2
+
+[node name="PassiveUI2" parent="PassivesControl/Passives" instance=ExtResource("3_usog0")]
+layout_mode = 2
+
+[node name="PassiveUI3" parent="PassivesControl/Passives" instance=ExtResource("3_usog0")]
+layout_mode = 2
+
+[node name="PassiveUI4" parent="PassivesControl/Passives" instance=ExtResource("3_usog0")]
+layout_mode = 2
+
+[node name="PassiveUI5" parent="PassivesControl/Passives" instance=ExtResource("3_usog0")]
+layout_mode = 2
+
+[node name="PassiveUI6" parent="PassivesControl/Passives" instance=ExtResource("3_usog0")]
+layout_mode = 2
+
+[node name="PassiveUI7" parent="PassivesControl/Passives" instance=ExtResource("3_usog0")]
+layout_mode = 2
+
+[node name="RightButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture_normal = ExtResource("1_u1jdh")
+texture_pressed = ExtResource("1_u1jdh")
+texture_hover = ExtResource("1_u1jdh")
+texture_disabled = ExtResource("2_usog0")
+ignore_texture_size = true
+stretch_mode = 5

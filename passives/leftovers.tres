@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Passive" load_steps=3 format=3 uid="uid://c6dnfnroa5514"]
+
+[ext_resource type="Script" uid="uid://dux4gmu4grt72" path="res://custom_resources/passive.gd" id="1_jk41w"]
+[ext_resource type="Texture2D" uid="uid://gxqj8cph87wg" path="res://art/health.png" id="1_sqqy6"]
+
+[resource]
+script = ExtResource("1_jk41w")
+passive_name = "Leftovers"
+id = "leftovers"
+type = 3
+icon = ExtResource("1_sqqy6")
+tooltip = "At the end of combat, heal 6 HP."
+metadata/_custom_type_script = "uid://dux4gmu4grt72"
