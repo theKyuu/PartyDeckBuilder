@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="RunStartup" load_steps=6 format=3 uid="uid://nle813selunr"]
 
 [ext_resource type="Script" uid="uid://c8dmgly6pie5w" path="res://Scenes/Player/team_stats.gd" id="1_lqhr3"]
-[ext_resource type="Script" uid="uid://dlw8qygrsxfxo" path="res://Scenes/Run/custom_resources/character_stats.gd" id="2_lqhr3"]
+[ext_resource type="Script" uid="uid://dlw8qygrsxfxo" path="res://custom_resources/character_stats.gd" id="2_lqhr3"]
 [ext_resource type="Resource" uid="uid://c1ehhigqoqx20" path="res://characters/hero/hero.tres" id="3_1xuvh"]
-[ext_resource type="Script" uid="uid://olv0ak320xw" path="res://Scenes/Run/custom_resources/RunStartup.gd" id="4_c8lns"]
+[ext_resource type="Script" uid="uid://olv0ak320xw" path="res://custom_resources/RunStartup.gd" id="4_c8lns"]
 
 [sub_resource type="Resource" id="Resource_tpo8l"]
 script = ExtResource("1_lqhr3")

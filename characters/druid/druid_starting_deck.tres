@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CardPile" load_steps=6 format=3 uid="uid://dpgq1j6pqnr5r"]
 
-[ext_resource type="Script" uid="uid://5jjm0pxg22ag" path="res://Scenes/Run/custom_resources/card.gd" id="1_g8vss"]
+[ext_resource type="Script" uid="uid://5jjm0pxg22ag" path="res://custom_resources/card.gd" id="1_g8vss"]
 [ext_resource type="Resource" uid="uid://dhqc21hrwdd42" path="res://characters/druid/cards/vine_shield.tres" id="2_g8vss"]
 [ext_resource type="Resource" uid="uid://cualq0m46o0u1" path="res://characters/druid/cards/druid_heal.tres" id="3_2d73g"]
-[ext_resource type="Script" uid="uid://c5r1qqnd6s0vv" path="res://Scenes/Run/custom_resources/card_pile.gd" id="4_2d73g"]
+[ext_resource type="Script" uid="uid://c5r1qqnd6s0vv" path="res://custom_resources/card_pile.gd" id="4_2d73g"]
 [ext_resource type="Resource" uid="uid://dc3dm6vctnf8" path="res://characters/druid/cards/weakening_strike.tres" id="4_muu5v"]
 
 [resource]
