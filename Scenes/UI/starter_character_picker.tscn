@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://8hxy6742wtrr"]
 
-[ext_resource type="Script" uid="uid://bg46qj3w5vgbg" path="res://Scenes/UI/character_picker.gd" id="1_822lg"]
+[ext_resource type="Script" uid="uid://bsdf75enhuvtm" path="res://Scenes/UI/starter_character_picker.gd" id="1_ka475"]
 [ext_resource type="Resource" uid="uid://nle813selunr" path="res://Scenes/Run/run_startup.tres" id="2_gx57u"]
 [ext_resource type="Texture2D" uid="uid://bap7boopew7cu" path="res://art/warrior.png" id="2_ka475"]
 [ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/druid.png" id="3_gx57u"]
@@ -33,7 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_822lg")
+script = ExtResource("1_ka475")
 run_startup = ExtResource("2_gx57u")
 
 [node name="Background" type="TextureRect" parent="."]

@@ -1,7 +1,10 @@
 extends Control
 
+const RUN_SCENE := preload("res://Scenes/Run/run.tscn")
 const WARRIOR_STATS := preload("res://characters/warrior/warrior.tres")
 const DRUID_STATS := preload("res://characters/druid/druid.tres")
+
+@export var run_startup: RunStartup
 
 @onready var title: Label = %Title
 @onready var description: Label = %Description
@@ -25,5 +28,8 @@ func _on_druid_button_pressed() -> void:
 	current_character = DRUID_STATS
 
 func _on_select_button_pressed() -> void:
-	Events.character_added.emit(current_character)
-	Events.event_node_exited.emit()
+	run_startup.type = RunStartup.Type.NEW_RUN
+	run_startup.player_team.team.append(current_character)
+	run_startup.passive = current_character.passive
+	get_tree().change_scene_to_packed(RUN_SCENE)
+	

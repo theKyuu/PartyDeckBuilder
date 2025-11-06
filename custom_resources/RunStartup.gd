@@ -5,3 +5,4 @@ enum Type {NEW_RUN, CONTINUED_RUN}
 
 @export var type: Type
 @export var player_team: TeamStats
+@export var passive: Passive

@@ -35,6 +35,8 @@ func _ready() -> void:
 	match run_startup.type:
 		RunStartup.Type.NEW_RUN:
 			team = run_startup.player_team.create_instance()
+			if is_instance_of(run_startup.passive, Passive):
+				passive_handler.add_passive(run_startup.passive)
 			_start_run()
 		RunStartup.Type.CONTINUED_RUN:
 			print("TODO: load previous run")

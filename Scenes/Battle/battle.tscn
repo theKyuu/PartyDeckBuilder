@@ -92,6 +92,8 @@ hand = NodePath("../BattleUI/Hand")
 script = ExtResource("7_11mmy")
 
 [node name="Tooltip" parent="BattleUI" instance=ExtResource("7_q43bu")]
+offset_top = 60.0
+offset_bottom = 260.0
 
 [node name="Hand" type="Container" parent="BattleUI" node_paths=PackedStringArray("player")]
 custom_minimum_size = Vector2(800, 200)
