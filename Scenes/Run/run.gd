@@ -31,7 +31,7 @@ var team: TeamStats
 func _ready() -> void:
 	if not run_startup:
 		return
-
+	
 	match run_startup.type:
 		RunStartup.Type.NEW_RUN:
 			team = run_startup.player_team.create_instance()
