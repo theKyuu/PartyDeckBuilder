@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfhv41dlhdtih"]
+
+[ext_resource type="PackedScene" uid="uid://b8p5xgwmrurfa" path="res://Enemy/enemy.tscn" id="1_yixe0"]
+[ext_resource type="Resource" uid="uid://dubm7oopfqqv" path="res://enemies/slimeboss/slimeboss.tres" id="2_4mpxl"]
+
+[node name="BossLevelSlime" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_yixe0")]
+position = Vector2(1039, 261)
+stats = ExtResource("2_4mpxl")

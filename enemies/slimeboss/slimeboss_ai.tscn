@@ -1,0 +1,50 @@
+[gd_scene load_steps=14 format=3 uid="uid://do3e5lc2aerdc"]
+
+[ext_resource type="Script" uid="uid://fc4qm4848qmg" path="res://Enemy/enemy_action_picker.gd" id="1_pwq3t"]
+[ext_resource type="Script" uid="uid://cfrhktsiwfxx5" path="res://enemies/slimeboss/power_buff_action.gd" id="2_oetda"]
+[ext_resource type="Texture2D" uid="uid://ddj4y5h5gbenj" path="res://art/punch.png" id="3_ljfl3"]
+[ext_resource type="Script" uid="uid://k088fiuv8jay" path="res://custom_resources/intent.gd" id="4_sdhk8"]
+[ext_resource type="Script" uid="uid://5oporihi3ogj" path="res://enemies/slimeboss/slimeboss_attack.gd" id="5_sdhk8"]
+[ext_resource type="Texture2D" uid="uid://ptj0sbblrisb" path="res://art/icky_punch.png" id="6_7kwbk"]
+[ext_resource type="AudioStream" uid="uid://df5wkihx1i16d" path="res://audio/hit.ogg" id="7_gxwcc"]
+[ext_resource type="Script" uid="uid://dhm3ogfp2tghy" path="res://enemies/slimeboss/slimeboss_block.gd" id="8_gxwcc"]
+[ext_resource type="Texture2D" uid="uid://qa82ot6kehru" path="res://art/block.png" id="9_t6yow"]
+[ext_resource type="AudioStream" uid="uid://hgmr0ssdojie" path="res://audio/armor.ogg" id="10_keh7m"]
+
+[sub_resource type="Resource" id="Resource_emyy6"]
+script = ExtResource("4_sdhk8")
+base_text = ""
+icon = ExtResource("3_ljfl3")
+metadata/_custom_type_script = "uid://k088fiuv8jay"
+
+[sub_resource type="Resource" id="Resource_jyr3f"]
+script = ExtResource("4_sdhk8")
+base_text = "%s"
+icon = ExtResource("6_7kwbk")
+metadata/_custom_type_script = "uid://k088fiuv8jay"
+
+[sub_resource type="Resource" id="Resource_koett"]
+script = ExtResource("4_sdhk8")
+base_text = ""
+icon = ExtResource("9_t6yow")
+metadata/_custom_type_script = "uid://k088fiuv8jay"
+
+[node name="EnemyActionPicker" type="Node"]
+script = ExtResource("1_pwq3t")
+
+[node name="PowerBuffAction" type="Node" parent="."]
+script = ExtResource("2_oetda")
+intent = SubResource("Resource_emyy6")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("5_sdhk8")
+intent = SubResource("Resource_jyr3f")
+sound = ExtResource("7_gxwcc")
+type = 1
+chance_weight = 6.5
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("8_gxwcc")
+intent = SubResource("Resource_koett")
+sound = ExtResource("10_keh7m")
+chance_weight = 3.5

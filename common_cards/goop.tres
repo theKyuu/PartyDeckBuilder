@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cf37r530raisx"]
+
+[ext_resource type="Texture2D" uid="uid://bk34wglcha0hb" path="res://art/slimeboss.png" id="1_monl6"]
+[ext_resource type="Script" uid="uid://5jjm0pxg22ag" path="res://custom_resources/card.gd" id="1_r07kg"]
+
+[resource]
+script = ExtResource("1_r07kg")
+id = "goop"
+type = 1
+target = 0
+cost = 1
+exhausts = true
+icon = ExtResource("1_monl6")
+tooltip_text = "[center]Glorp...[/center]"
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"

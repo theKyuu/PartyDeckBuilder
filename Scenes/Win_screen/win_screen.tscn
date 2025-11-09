@@ -1,0 +1,162 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvp7ia33f4ugo"]
+
+[ext_resource type="Script" uid="uid://dbn1c8oc2n6e3" path="res://Scenes/Win_screen/win_screen.gd" id="1_kb6dx"]
+[ext_resource type="Texture2D" uid="uid://bap7boopew7cu" path="res://art/warrior.png" id="2_665we"]
+[ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/druid.png" id="3_3ys03"]
+[ext_resource type="Script" uid="uid://dqpvivxfjgcmv" path="res://Scenes/Player/team_sprite_container.gd" id="3_4pecu"]
+[ext_resource type="Texture2D" uid="uid://j66j40js5f14" path="res://art/hero.png" id="4_m7xvi"]
+
+[sub_resource type="Gradient" id="Gradient_36iwh"]
+offsets = PackedFloat32Array(0, 0.996269)
+colors = PackedColorArray(0.142858, 0.142858, 0.142858, 1, 0.423542, 0.136569, 1.20327e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5wsvm"]
+gradient = SubResource("Gradient_36iwh")
+
+[sub_resource type="LabelSettings" id="LabelSettings_7cbnv"]
+font_size = 50
+shadow_size = 10
+shadow_color = Color(0.635294, 0.309804, 0, 0.52549)
+shadow_offset = Vector2(5, 5)
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kb6dx")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_5wsvm")
+
+[node name="CharacterPortrait" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -398.0
+offset_top = -150.0
+offset_right = -98.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_665we")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TeamSpriteContainer" type="Control" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -398.0
+offset_top = -125.0
+offset_right = -148.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_4pecu")
+
+[node name="Spot1" type="TextureRect" parent="TeamSpriteContainer"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("4_m7xvi")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Spot2" type="TextureRect" parent="TeamSpriteContainer"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 250.0
+offset_top = 100.0
+offset_right = 250.0
+offset_bottom = 100.0
+texture = ExtResource("2_665we")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Spot3" type="TextureRect" parent="TeamSpriteContainer"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 175.0
+offset_top = 150.0
+offset_right = 175.0
+offset_bottom = 150.0
+texture = ExtResource("3_3ys03")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Spot4" type="TextureRect" parent="TeamSpriteContainer"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 100.0
+offset_bottom = 200.0
+texture = ExtResource("2_665we")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Spot5" type="TextureRect" parent="TeamSpriteContainer"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 250.0
+offset_top = 200.0
+offset_right = 250.0
+offset_bottom = 200.0
+texture = ExtResource("4_m7xvi")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -170.0
+offset_right = 465.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Message" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Conglaturation!
+A winner is you"
+label_settings = SubResource("LabelSettings_7cbnv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
