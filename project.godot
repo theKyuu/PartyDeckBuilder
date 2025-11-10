@@ -21,6 +21,7 @@ Events="*res://Global/events.gd"
 Shaker="*res://Global/shaker.gd"
 MusicPlayer="*res://Global/music_player.tscn"
 SFXPlayer="*res://Global/sfx_player.tscn"
+RNG="*res://Global/rng.gd"
 
 [display]
 
