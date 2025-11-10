@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func start_battle(char_stats: TeamStats) -> void:
 	team = char_stats
-	team.draw_pile = team.deck.duplicate(true)
+	team.draw_pile = team.deck.duplicate_cardpile()
 	team.draw_pile.shuffle()
 	team.discard = CardPile.new()
 	passives.passives_activated.connect(_on_passives_activated)
