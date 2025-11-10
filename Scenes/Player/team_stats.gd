@@ -2,8 +2,8 @@ class_name TeamStats
 extends Stats
 
 @export var team: Array[CharacterStats]
-var cards_per_turn := 0
-var max_mana := 0
+@export var cards_per_turn := 0
+@export var max_mana := 0
 var mana: int : set = set_mana
 var deck: CardPile
 var discard: CardPile

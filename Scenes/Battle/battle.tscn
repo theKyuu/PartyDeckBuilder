@@ -29,6 +29,8 @@
 [sub_resource type="Resource" id="Resource_xx4v1"]
 script = ExtResource("4_xx4v1")
 team = Array[ExtResource("5_pcxeh")]([ExtResource("10_rcd83"), ExtResource("4_rgg0r")])
+cards_per_turn = 0
+max_mana = 0
 max_health = 1
 metadata/_custom_type_script = "uid://c8dmgly6pie5w"
 

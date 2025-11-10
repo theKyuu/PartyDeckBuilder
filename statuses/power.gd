@@ -10,7 +10,6 @@ func initialize_status(target: Node) -> void:
 	_on_status_changed(target)
 
 func _on_status_changed(target: Node) -> void:
-	print("Power status: +%s damage" % stacks)
 	assert(target.get("modifier_handler"), "No modifiers on %s" % target)
 	
 	var dmg_dealt_modifier: Modifier = target.modifier_handler.get_modifier(Modifier.Type.DMG_DEALT)
