@@ -4,12 +4,15 @@ const STARTER_CHAR_PICKER := preload("res://Scenes/UI/starter_character_picker.t
 const RUN_SCENE := preload("res://Scenes/Run/run.tscn")
 
 @export var run_startup: RunStartup
+@export var base_hero: CharacterStats
 
 @onready var continue_button: Button = %Continue
 
 func _ready() -> void:
+	MusicPlayer.stop()
 	get_tree().paused = false
 	continue_button.visible = SaveGame.load_data() != null
+	run_startup.player_team.team = [base_hero]
 
 func _on_continue_pressed() -> void:
 	run_startup.type = RunStartup.Type.CONTINUED_RUN
