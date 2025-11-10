@@ -12,7 +12,7 @@ const MAP_LINE = preload("res://Scenes/UI/Map/map_line.tscn")
 @onready var camera_2d: Camera2D = $Camera2D
 
 var map_data: Array[Array]
-var floors_climbed: int
+var rooms_entered: int
 var last_room: Room
 var camera_edge_y: float
 
@@ -31,9 +31,20 @@ func _input(event: InputEvent) -> void:
 	camera_2d.position.y = clamp(camera_2d.position.y, -camera_edge_y, 0)
 
 func generate_new_map() -> void:
-	floors_climbed = 0
+	rooms_entered = 0
 	map_data = map_generator.generate_map()
 	create_map()
+
+func load_map(loaded_map: Array[Array], loaded_rooms_entered: int, loaded_last_room: Room) -> void:
+	rooms_entered = loaded_rooms_entered
+	map_data = loaded_map
+	last_room = loaded_last_room
+	create_map()
+	
+	if rooms_entered > 0:
+		unlock_next_rooms()
+	else:
+		unlock_row()
 
 func create_map() -> void:
 	for current_row: Array in map_data:
@@ -49,7 +60,7 @@ func create_map() -> void:
 	visuals.position.x = (get_viewport_rect().size.x - map_width_pixels) / 2
 	visuals.position.y = get_viewport_rect().size.y / 2
 
-func unlock_row(which_row: int = floors_climbed) -> void:
+func unlock_row(which_row: int = rooms_entered) -> void:
 	for map_room: MapRoom in rooms.get_children():
 		if map_room.room.row == which_row:
 			map_room.available = true
@@ -74,7 +85,7 @@ func _spawn_room(room: Room) -> void:
 	new_map_room.selected.connect(_on_map_room_selected)
 	_connect_lines(room)
 	
-	if room.selected and room.row < floors_climbed:
+	if room.selected and room.row < rooms_entered:
 		new_map_room.show_selected()
 
 func _connect_lines(room: Room) -> void:
@@ -93,5 +104,5 @@ func _on_map_room_selected(room: Room) -> void:
 			map_room.available = false
 	
 	last_room = room
-	floors_climbed += 1
+	rooms_entered += 1
 	Events.map_exited.emit(room)

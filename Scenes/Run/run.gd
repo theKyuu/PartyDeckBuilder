@@ -30,6 +30,7 @@ const MAIN_MENU_PATH := "res://Scenes/UI/main_menu.tscn"
 
 var stats: RunStats
 var team: TeamStats
+var save_data: SaveGame
 
 func _ready() -> void:
 	if not run_startup:
@@ -47,7 +48,7 @@ func _ready() -> void:
 				passive_handler.add_passive(run_startup.passive)
 			_start_run()
 		RunStartup.Type.CONTINUED_RUN:
-			print("TODO: load previous run")
+			_load_run()
 	
 
 func _start_run() -> void:
@@ -57,6 +58,37 @@ func _start_run() -> void:
 	_setup_top_bar()
 	map.generate_new_map()
 	map.unlock_row(0)
+	
+	save_data = SaveGame.new()
+	_save_run(true)
+
+func _save_run(was_on_map: bool) -> void:
+	save_data.run_stats = stats
+	save_data.team_stats = team
+	save_data.current_deck = team.deck
+	save_data.current_health = team.health
+	save_data.current_passives = passive_handler.get_all_passives()
+	save_data.last_room = map.last_room
+	save_data.map_data = map.map_data.duplicate()
+	save_data.rooms_entered = map.rooms_entered
+	save_data.was_on_map = was_on_map
+	save_data.save_data()
+
+func _load_run() -> void:
+	save_data = SaveGame.load_data()
+	assert(save_data, "Couldn't load last save!")
+	
+	stats = save_data.run_stats
+	team = save_data.team_stats
+	team.deck = save_data.current_deck
+	team.health = save_data.current_health
+	passive_handler.add_passives(save_data.current_passives)
+	_setup_top_bar()
+	_setup_event_connections()
+	
+	map.load_map(save_data.map_data, save_data.rooms_entered, save_data.last_room)
+	if save_data.last_room and not save_data.was_on_map:
+		_on_map_exited(save_data.last_room)
 
 func _change_view(scene: PackedScene) -> Node:
 	if current_view.get_child_count() > 0:
@@ -72,8 +104,10 @@ func _change_view(scene: PackedScene) -> Node:
 func _show_map() -> void:
 	if current_view.get_child_count() > 0:
 		current_view.get_child(0).queue_free()
-		map.show_map()
-		map.unlock_next_rooms()
+		
+	map.show_map()
+	map.unlock_next_rooms()
+	_save_run(true)
 
 func _setup_event_connections() -> void:
 	Events.battle_won.connect(_on_battle_won)
@@ -112,14 +146,17 @@ func _on_battle_room_entered(room: Room) -> void:
 	battle_scene.start_battle()
 
 func _on_battle_won() -> void:
-	if map.floors_climbed == MapGenerator.ROWS:
+	if map.rooms_entered == MapGenerator.ROWS:
 		MusicPlayer.stop()
 		var win_screen := _change_view(WIN_SCREEN_SCENE) as WinScreen
 		win_screen.team_stats = team
+		SaveGame.delete_data()
 	else:
 		_show_regular_battle_rewards()
 
 func _on_map_exited(room: Room) -> void:
+	_save_run(false)
+	
 	match room.type:
 		Room.Type.FIGHT:
 			_on_battle_room_entered(room)

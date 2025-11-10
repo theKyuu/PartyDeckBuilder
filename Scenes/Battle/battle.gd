@@ -49,3 +49,4 @@ func _on_enemy_turn_ended() -> void:
 
 func _on_player_died() -> void:
 	Events.battle_over_screen_requested.emit("Game Over...", BattleOverPanel.Type.LOSE)
+	SaveGame.delete_data()

@@ -1,14 +1,19 @@
 extends Control
 
 const STARTER_CHAR_PICKER := preload("res://Scenes/UI/starter_character_picker.tscn")
+const RUN_SCENE := preload("res://Scenes/Run/run.tscn")
+
+@export var run_startup: RunStartup
 
 @onready var continue_button: Button = %Continue
 
 func _ready() -> void:
 	get_tree().paused = false
+	continue_button.visible = SaveGame.load_data() != null
 
 func _on_continue_pressed() -> void:
-	print("Continue Run")
+	run_startup.type = RunStartup.Type.CONTINUED_RUN
+	get_tree().change_scene_to_packed(RUN_SCENE)
 
 
 func _on_new_game_pressed() -> void:
