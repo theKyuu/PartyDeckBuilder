@@ -22,7 +22,8 @@ var random_room_type_weights = {
 var random_room_type_total_weight := 0
 var map_data: Array[Array]
 
-
+# Not using the seed-based RNG here as map is generated upon run start
+# May have to revisit if we add more floors in the future, depending on how/when it's done! 
 func generate_map() -> Array[Array]:
 	map_data = _generate_initial_grid()
 	var starting_points := _get_random_starting_points()

@@ -38,6 +38,7 @@ func _ready() -> void:
 	
 	pause_manu.save_and_quit.connect(
 		func():
+			MusicPlayer.stop()
 			get_tree().change_scene_to_file(MAIN_MENU_PATH)
 	)
 	
