@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://u3j4cx7fhpd3"]
+[gd_scene load_steps=13 format=3 uid="uid://u3j4cx7fhpd3"]
 
 [ext_resource type="PackedScene" uid="uid://bnuasnlbmj5rf" path="res://Scenes/UI/Map/map.tscn" id="1_1rprc"]
 [ext_resource type="Script" uid="uid://ot4snydssqd7" path="res://Scenes/Run/run.gd" id="1_g5qup"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://kaup3wrvo677" path="res://Scenes/UI/card_pile_view.tscn" id="6_3lri4"]
 [ext_resource type="PackedScene" uid="uid://caoclrmf81h6p" path="res://Scenes/passives_handler/passive_handler.tscn" id="7_vwusp"]
 [ext_resource type="PackedScene" uid="uid://dxl7wwj46p43l" path="res://Scenes/passives_handler/passive_tooltip_popup.tscn" id="11_5riug"]
+[ext_resource type="Script" uid="uid://cmdm61rddjxww" path="res://Scenes/Run/pause_menu.gd" id="12_r6wr3"]
 
 [node name="Run" type="Node"]
 script = ExtResource("1_g5qup")
@@ -125,3 +126,54 @@ visible = false
 [node name="PassiveTooltipPopup" parent="TopBar" instance=ExtResource("11_5riug")]
 unique_name_in_owner = true
 visible = false
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 5
+visible = false
+script = ExtResource("12_r6wr3")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.701961)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -70.0
+offset_right = 250.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BackToGameButton" type="Button" parent="PauseMenu/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+text = "Back"
+
+[node name="SaveAndQuitButton" type="Button" parent="PauseMenu/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+text = "Main Menu"

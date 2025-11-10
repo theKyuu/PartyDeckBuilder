@@ -7,6 +7,7 @@ const CHARACTER_PICKER_SCENE := preload("res://Scenes/UI/character_picker.tscn")
 const TRAINING_SCENE := preload("res://Scenes/Training/training.tscn")
 const EVENT_SCENE := preload("res://Scenes/Event/event.tscn")
 const WIN_SCREEN_SCENE := preload("res://Scenes/Win_screen/win_screen.tscn")
+const MAIN_MENU_PATH := "res://Scenes/UI/main_menu.tscn"
 
 @export var run_startup: RunStartup
 
@@ -18,6 +19,7 @@ const WIN_SCREEN_SCENE := preload("res://Scenes/Win_screen/win_screen.tscn")
 @onready var deck_button: CardPileOpener = %DeckButton
 @onready var deck_view: CardPileView = %DeckView
 @onready var map: Map = $Map
+@onready var pause_manu: PauseMenu = $PauseMenu
 
 # Debug buttons
 @onready var map_button: Button = %MapButton
@@ -32,6 +34,11 @@ var team: TeamStats
 func _ready() -> void:
 	if not run_startup:
 		return
+	
+	pause_manu.save_and_quit.connect(
+		func():
+			get_tree().change_scene_to_file(MAIN_MENU_PATH)
+	)
 	
 	match run_startup.type:
 		RunStartup.Type.NEW_RUN:
