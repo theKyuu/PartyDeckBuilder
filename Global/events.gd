@@ -35,7 +35,8 @@ signal event_node_exited
 
 # Team-related events
 signal character_added(character: CharacterStats)
-signal card_upgraded(card: Card)
+signal card_upgraded(card: Card, type: CardUpgradePopup.Type, cost: int)
+signal card_upgrade_completed()
 
 # Passive-related events
 signal passive_tooltip_requested(passive: Passive)

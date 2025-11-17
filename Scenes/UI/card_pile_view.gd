@@ -15,6 +15,7 @@ enum Type {DISPLAY, UPGRADE}
 
 func _ready() -> void:
 	back_button.pressed.connect(hide)
+	Events.card_upgrade_completed.connect(_on_card_upgrade_completed)
 	
 	for card: Node in cards.get_children():
 		card.queue_free()
@@ -41,6 +42,11 @@ func show_current_view(new_title: String, randomized: bool = false) -> void:
 	title.text = new_title
 	_update_view.call_deferred(randomized)
 
+func set_upgrade_view_type(type: CardUpgradePopup.Type, cost: int) -> void:
+	card_upgrade_popup.type = type
+	if cost:
+		card_upgrade_popup.upgrade_cost = cost
+
 func _update_view(randomized: bool) -> void:
 	if not card_pile:
 		return
@@ -59,3 +65,9 @@ func _update_view(randomized: bool) -> void:
 			new_card.tooltip_requested.connect(card_upgrade_popup.show_tooltip)
 	
 	show()
+
+func _on_card_upgrade_completed() -> void:
+	if type == Type.UPGRADE:
+		hide()
+		for card: Node in cards.get_children():
+			card.queue_free()

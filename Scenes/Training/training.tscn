@@ -32,11 +32,10 @@ text = "TRAINING CAMP"
 
 [node name="UpgradeCardButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Upgrade Card"
+text = "Upgrade Card - 25G"
 
 [node name="GoBackButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true

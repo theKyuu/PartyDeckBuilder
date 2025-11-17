@@ -139,6 +139,7 @@ func _setup_top_bar():
 func _show_training_room() -> void:
 	var training_scene := _change_view(TRAINING_SCENE) as Training
 	training_scene.team = team
+	training_scene.stats = stats
 	training_scene.setup_training_options()
 
 func _show_regular_battle_rewards() -> void:
@@ -171,7 +172,7 @@ func _on_map_exited(room: Room) -> void:
 		Room.Type.FIGHT:
 			_on_battle_room_entered(room)
 		Room.Type.TRAINING:
-			_change_view(TRAINING_SCENE)
+			_show_training_room()
 		Room.Type.CHARACTER:
 			_change_view(CHARACTER_PICKER_SCENE)
 		Room.Type.EVENT:
@@ -188,12 +189,17 @@ func _on_character_added(character: CharacterStats) -> void:
 	
 	_setup_top_bar()
 	
-func _on_card_upgraded(origin_card: Card) -> void:
+func _on_card_upgraded(origin_card: Card, type: CardUpgradePopup.Type, cost: int) -> void:
 	for character: CharacterStats in team.team:
 		for card: Card in character.deck.cards:
 			if card == origin_card:
-				print("Card found! Upgrading!")
 				character.deck.replace_card(origin_card, origin_card.upgrades_into)
+				if type == CardUpgradePopup.Type.PAID:
+					stats.gold = stats.gold - cost
+					stats.times_bought_upgrades += 1
 				break
 	team.set_combined_stats()
+	deck_button.card_pile = team.deck
+	deck_view.card_pile = team.deck
+	Events.card_upgrade_completed.emit()
 	

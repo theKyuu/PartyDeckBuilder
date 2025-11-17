@@ -3,6 +3,11 @@ extends Control
 
 const CARD_MENU_UI_SCENE := preload("res://Scenes/UI/card_menu_ui.tscn")
 
+enum Type {EVENT, PAID}
+
+@export var type := Type.EVENT
+@export var upgrade_cost: int = 0
+
 @onready var tooltip_origin_card: CenterContainer = %TooltipOriginCard
 @onready var origin_card_description: RichTextLabel = %OriginCardDescription
 @onready var tooltip_upgrade_card: CenterContainer = %TooltipUpgradeCard
@@ -57,5 +62,6 @@ func _on_gui_input(event: InputEvent) -> void:
 func _on_upgrade_button_pressed() -> void:
 	if not card_to_upgrade:
 		return
-	Events.card_upgraded.emit(card_to_upgrade)
+
+	Events.card_upgraded.emit(card_to_upgrade, type, upgrade_cost)
 	hide_tooltip()
