@@ -17,6 +17,11 @@ func add_card(card: Card):
 	cards.append(card)
 	card_pile_size_changed.emit(cards.size())
 
+func replace_card(origin_card: Card, new_card: Card):
+	if cards.has(origin_card):
+		cards.erase(origin_card)
+		cards.append(new_card)
+
 func shuffle() -> void:
 	RNG.array_shuffle(cards)
 

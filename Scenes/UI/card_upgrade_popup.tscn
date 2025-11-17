@@ -1,0 +1,109 @@
+[gd_scene load_steps=4 format=3 uid="uid://cawpe3bj5gyh1"]
+
+[ext_resource type="Script" uid="uid://cfycatgfc5uat" path="res://Scenes/UI/card_upgrade_popup.gd" id="1_q86y4"]
+[ext_resource type="PackedScene" uid="uid://bfaynmksjd00m" path="res://Scenes/UI/card_menu_ui.tscn" id="2_2kv4x"]
+[ext_resource type="Texture2D" uid="uid://b52fyao0e0xj1" path="res://art/side_arrow_fade.png" id="3_2kv4x"]
+
+[node name="CardUpgradePopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q86y4")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -402.0
+offset_top = -302.0
+offset_right = 402.0
+offset_bottom = 302.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OriginCardContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TooltipOriginCard" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/OriginCardContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CardMenuUI" parent="MarginContainer/VBoxContainer/HBoxContainer/OriginCardContainer/TooltipOriginCard" instance=ExtResource("2_2kv4x")]
+layout_mode = 2
+
+[node name="OriginCardDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/OriginCardContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Card Description[/center]
+
+Bla blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah "
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+texture = ExtResource("3_2kv4x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="UpgradeCardContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TooltipUpgradeCard" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/UpgradeCardContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CardMenuUI" parent="MarginContainer/VBoxContainer/HBoxContainer/UpgradeCardContainer/TooltipUpgradeCard" instance=ExtResource("2_2kv4x")]
+layout_mode = 2
+
+[node name="UpgradeCardDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/UpgradeCardContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Card Description[/center]
+
+Bla blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah "
+fit_content = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="UpgradeButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(240, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Upgrade"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/UpgradeButton" to="." method="_on_upgrade_button_pressed"]

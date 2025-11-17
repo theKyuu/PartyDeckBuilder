@@ -50,3 +50,4 @@ text = "Go back"
 [node name="UpgradePileView" parent="CardPileViews" instance=ExtResource("2_5epjo")]
 unique_name_in_owner = true
 visible = false
+type = 1

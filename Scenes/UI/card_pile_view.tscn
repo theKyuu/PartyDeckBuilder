@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://kaup3wrvo677"]
+[gd_scene load_steps=5 format=3 uid="uid://kaup3wrvo677"]
 
 [ext_resource type="PackedScene" uid="uid://bfaynmksjd00m" path="res://Scenes/UI/card_menu_ui.tscn" id="1_8nxh8"]
 [ext_resource type="Script" uid="uid://de326q35kav7e" path="res://Scenes/UI/card_pile_view.gd" id="1_pxd3d"]
 [ext_resource type="PackedScene" uid="uid://do80o2ft2bqwf" path="res://Scenes/UI/card_tooltip_popup.tscn" id="3_wmck8"]
+[ext_resource type="PackedScene" uid="uid://cawpe3bj5gyh1" path="res://Scenes/UI/card_upgrade_popup.tscn" id="4_wmck8"]
 
 [node name="CardPileView" type="Control"]
 layout_mode = 3
@@ -31,7 +32,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
+theme_override_constants/margin_top = 130
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
@@ -127,14 +128,19 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -173.0
-offset_top = 22.0
-offset_right = -23.0
-offset_bottom = 112.0
+offset_left = -180.0
+offset_top = 100.0
+offset_right = -30.0
+offset_bottom = 190.0
 grow_horizontal = 0
 text = "Back"
 
 [node name="CardTooltipPopup" parent="." instance=ExtResource("3_wmck8")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="CardUpgradePopup" parent="." instance=ExtResource("4_wmck8")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

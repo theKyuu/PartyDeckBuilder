@@ -119,6 +119,7 @@ func _setup_event_connections() -> void:
 	Events.battle_reward_exited.connect(_show_map)
 	Events.map_exited.connect(_on_map_exited)
 	Events.character_added.connect(_on_character_added)
+	Events.card_upgraded.connect(_on_card_upgraded)
 	
 	map_button.pressed.connect(_show_map)
 	battle_button.pressed.connect(_change_view.bind(BATTLE_SCENE))
@@ -186,4 +187,13 @@ func _on_character_added(character: CharacterStats) -> void:
 		passive_handler.add_passive(character.passive)
 	
 	_setup_top_bar()
+	
+func _on_card_upgraded(origin_card: Card) -> void:
+	for character: CharacterStats in team.team:
+		for card: Card in character.deck.cards:
+			if card == origin_card:
+				print("Card found! Upgrading!")
+				character.deck.replace_card(origin_card, origin_card.upgrades_into)
+				break
+	team.set_combined_stats()
 	

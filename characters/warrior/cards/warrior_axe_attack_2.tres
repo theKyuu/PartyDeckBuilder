@@ -1,5 +1,6 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://4r3j80j74vvi"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://4r3j80j74vvi"]
 
+[ext_resource type="Texture2D" uid="uid://c8hehdbegh82b" path="res://art/axe.png" id="1_qhnhy"]
 [ext_resource type="Script" uid="uid://dwdklnadigjvv" path="res://characters/warrior/cards/warrior_axe_attack_2.gd" id="1_xikbq"]
 
 [resource]
@@ -9,6 +10,7 @@ type = 0
 target = 1
 cost = 1
 exhausts = false
+icon = ExtResource("1_qhnhy")
 tooltip_text = "[center][b]Axe chop[/b]
 Deal %s damage.[/center]"
 card_grade = 1
