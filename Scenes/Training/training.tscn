@@ -1,36 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://l8lntcfmq7x6"]
+[gd_scene load_steps=3 format=3 uid="uid://l8lntcfmq7x6"]
 
 [ext_resource type="Script" uid="uid://bkn5asckb80h0" path="res://Scenes/Training/training.gd" id="1_msmdf"]
+[ext_resource type="PackedScene" uid="uid://kaup3wrvo677" path="res://Scenes/UI/card_pile_view.tscn" id="2_5epjo"]
 
-[node name="Training" type="Node2D"]
+[node name="Training" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_msmdf")
 
-[node name="GoBackButton" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 548.0
-offset_top = 323.5
-offset_right = 732.0
-offset_bottom = 396.5
+offset_left = -177.0
+offset_top = -70.0
+offset_right = 177.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "TRAINING CAMP"
+
+[node name="UpgradeCardButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Upgrade Card"
+
+[node name="GoBackButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Go back"
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 450.0
-offset_top = 157.0
-offset_right = 804.0
-offset_bottom = 220.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "TRAINING CAMP"
+[node name="CardPileViews" type="CanvasLayer" parent="."]
+
+[node name="UpgradePileView" parent="CardPileViews" instance=ExtResource("2_5epjo")]
+unique_name_in_owner = true
+visible = false

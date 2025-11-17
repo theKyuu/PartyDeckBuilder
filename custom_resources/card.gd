@@ -3,6 +3,7 @@ extends Resource
 
 enum Type {ATTACK, SKILL, POWER}
 enum Target {SELF, SINGLE_ENEMY, ALL_ENEMIES, EVERYONE}
+enum CardGrade {BASE, UPGRADED}
 
 @export_group("Card Attributes")
 @export var id: String
@@ -15,6 +16,10 @@ enum Target {SELF, SINGLE_ENEMY, ALL_ENEMIES, EVERYONE}
 @export var icon: Texture
 @export_multiline var tooltip_text: String
 @export var sound: AudioStream
+
+@export_group("Card Upgrades")
+@export var card_grade: CardGrade = CardGrade.BASE
+@export var upgrades_into: Card
 
 
 func is_single_targeted() -> bool:

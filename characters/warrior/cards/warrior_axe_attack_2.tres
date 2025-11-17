@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://4r3j80j74vvi"]
+
+[ext_resource type="Script" uid="uid://dwdklnadigjvv" path="res://characters/warrior/cards/warrior_axe_attack_2.gd" id="1_xikbq"]
+
+[resource]
+script = ExtResource("1_xikbq")
+id = "warrior_axe_attack_2"
+type = 0
+target = 1
+cost = 1
+exhausts = false
+tooltip_text = "[center][b]Axe chop[/b]
+Deal %s damage.[/center]"
+card_grade = 1
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"

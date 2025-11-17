@@ -123,7 +123,7 @@ func _setup_event_connections() -> void:
 	map_button.pressed.connect(_show_map)
 	battle_button.pressed.connect(_change_view.bind(BATTLE_SCENE))
 	character_pick_button.pressed.connect(_change_view.bind(CHARACTER_PICKER_SCENE))
-	training_button.pressed.connect(_change_view.bind(TRAINING_SCENE))
+	training_button.pressed.connect(_show_training_room)
 	event_button.pressed.connect(_change_view.bind(EVENT_SCENE))
 
 func _setup_top_bar():
@@ -134,6 +134,11 @@ func _setup_top_bar():
 	deck_button.card_pile = team.deck
 	deck_view.card_pile = team.deck
 	deck_button.pressed.connect(deck_view.show_current_view.bind("Deck"))
+
+func _show_training_room() -> void:
+	var training_scene := _change_view(TRAINING_SCENE) as Training
+	training_scene.team = team
+	training_scene.setup_training_options()
 
 func _show_regular_battle_rewards() -> void:
 	var reward_scene := _change_view(BATTLE_REWARD_SCENE) as BattleReward
