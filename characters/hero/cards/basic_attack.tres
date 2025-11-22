@@ -17,4 +17,5 @@ tooltip_text = "[center][b]Punch![/b]
 Deal %s damage.
 [/center]"
 sound = ExtResource("3_lkng4")
+card_grade = 0
 metadata/_custom_type_script = "uid://5jjm0pxg22ag"

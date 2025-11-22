@@ -4,10 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://ctiam1unriej" path="res://enemies/crab/crab_enemy_ai.tscn" id="1_phnif"]
 [ext_resource type="Texture2D" uid="uid://b821mqbxk5lvx" path="res://art/crab.png" id="2_phnif"]
 
-
 [resource]
 script = ExtResource("1_lvgwk")
 ai = ExtResource("1_phnif")
-max_health = 10
+max_health = 40
 art = ExtResource("2_phnif")
 metadata/_custom_type_script = "uid://da8jwtw4h62ku"

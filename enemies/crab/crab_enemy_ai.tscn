@@ -48,5 +48,6 @@ chance_weight = 1.2
 
 [node name="MegaBlockAction" type="Node" parent="."]
 script = ExtResource("4_mdraf")
+hp_threshold = 20
 intent = SubResource("Resource_yihd4")
 sound = ExtResource("8_trgox")

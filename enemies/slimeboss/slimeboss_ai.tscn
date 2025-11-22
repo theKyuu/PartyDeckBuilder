@@ -34,6 +34,7 @@ script = ExtResource("1_pwq3t")
 
 [node name="PowerBuffAction" type="Node" parent="."]
 script = ExtResource("2_oetda")
+hp_treshold = 160
 intent = SubResource("Resource_emyy6")
 
 [node name="AttackAction" type="Node" parent="."]

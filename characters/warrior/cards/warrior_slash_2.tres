@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://2u8ayub8l1jg"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://2u8ayub8l1jg"]
 
 [ext_resource type="Texture2D" uid="uid://dfyrgx0b1e4i7" path="res://art/whirlwind.png" id="1_l71mg"]
 [ext_resource type="Script" uid="uid://bx2k47wg8r5bb" path="res://characters/warrior/cards/warrior_slash_2.gd" id="2_yplrp"]
+[ext_resource type="AudioStream" uid="uid://df5wkihx1i16d" path="res://audio/hit.ogg" id="3_l71mg"]
 
 [resource]
 script = ExtResource("2_yplrp")
@@ -13,5 +14,6 @@ exhausts = false
 icon = ExtResource("1_l71mg")
 tooltip_text = "[center][b]Whirlwind[/b]
 Deal %s damage to all enemies.[/center]"
+sound = ExtResource("3_l71mg")
 card_grade = 1
 metadata/_custom_type_script = "uid://5jjm0pxg22ag"

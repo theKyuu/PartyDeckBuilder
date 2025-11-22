@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bjwpibyrjk7rs"]
+
+[ext_resource type="Texture2D" uid="uid://orm6q6ad66v" path="res://art/big_block.png" id="1_rupsa"]
+[ext_resource type="Script" uid="uid://csmemjymguhim" path="res://characters/druid/cards/vine_shield_2.gd" id="2_rupsa"]
+[ext_resource type="AudioStream" uid="uid://hgmr0ssdojie" path="res://audio/armor.ogg" id="3_nlu6i"]
+
+[resource]
+script = ExtResource("2_rupsa")
+id = "vine_shield_2"
+type = 1
+target = 0
+cost = 1
+exhausts = false
+icon = ExtResource("1_rupsa")
+tooltip_text = "[center][b]Vine Shield[/b]
+
+Heal 3.
+Add 8 block.[/center]"
+sound = ExtResource("3_nlu6i")
+card_grade = 1
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"
