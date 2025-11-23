@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmwwb3pkfs25m"]
+[gd_scene load_steps=11 format=3 uid="uid://dmwwb3pkfs25m"]
 
+[ext_resource type="Script" uid="uid://px07bck0g5ea" path="res://character_card_pile_view.gd" id="1_3uo5y"]
 [ext_resource type="PackedScene" uid="uid://pjheahstip5v" path="res://Scenes/UI/character_cards_component.tscn" id="1_luij3"]
+[ext_resource type="Script" uid="uid://c8dmgly6pie5w" path="res://Scenes/Player/team_stats.gd" id="2_td4j4"]
+[ext_resource type="Script" uid="uid://dlw8qygrsxfxo" path="res://custom_resources/character_stats.gd" id="3_c4lji"]
+[ext_resource type="Resource" uid="uid://c1ehhigqoqx20" path="res://characters/hero/hero.tres" id="4_vudnw"]
+[ext_resource type="Resource" uid="uid://ov1akopl5o1w" path="res://characters/druid/druid.tres" id="5_q3rl7"]
+[ext_resource type="Resource" uid="uid://br6exup0xrpih" path="res://characters/warrior/warrior.tres" id="6_laag2"]
+[ext_resource type="PackedScene" uid="uid://do80o2ft2bqwf" path="res://Scenes/UI/card_tooltip_popup.tscn" id="8_c4lji"]
+[ext_resource type="PackedScene" uid="uid://cawpe3bj5gyh1" path="res://Scenes/UI/card_upgrade_popup.tscn" id="9_vudnw"]
+
+[sub_resource type="Resource" id="Resource_y4ver"]
+script = ExtResource("2_td4j4")
+team = Array[ExtResource("3_c4lji")]([ExtResource("4_vudnw"), ExtResource("5_q3rl7"), ExtResource("6_laag2")])
+cards_per_turn = 0
+max_mana = 0
+max_health = 1
+metadata/_custom_type_script = "uid://c8dmgly6pie5w"
 
 [node name="CharacterCardPileView" type="Control"]
 layout_mode = 3
@@ -9,6 +25,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3uo5y")
+team = SubResource("Resource_y4ver")
+type = 1
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -37,14 +56,38 @@ size_flags_vertical = 3
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+[node name="CharacterCardsContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="CharacterCardsComponent" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_luij3")]
+[node name="CharacterCardsComponent" parent="MarginContainer/ScrollContainer/CharacterCardsContainer" instance=ExtResource("1_luij3")]
 layout_mode = 2
 
-[node name="CharacterCardsComponent2" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_luij3")]
+[node name="CharacterCardsComponent2" parent="MarginContainer/ScrollContainer/CharacterCardsContainer" instance=ExtResource("1_luij3")]
 layout_mode = 2
 
-[node name="CharacterCardsComponent3" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_luij3")]
+[node name="CharacterCardsComponent3" parent="MarginContainer/ScrollContainer/CharacterCardsContainer" instance=ExtResource("1_luij3")]
 layout_mode = 2
+
+[node name="BackButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -230.0
+offset_top = 79.0
+offset_right = -80.0
+offset_bottom = 169.0
+grow_horizontal = 0
+text = "Back"
+
+[node name="CardTooltipPopup" parent="." instance=ExtResource("8_c4lji")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="CardUpgradePopup" parent="." instance=ExtResource("9_vudnw")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
