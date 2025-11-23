@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://pjheahstip5v"]
+
+[ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/druid.png" id="1_3e6ri"]
+[ext_resource type="Script" uid="uid://ctmm8mvnofbk0" path="res://Scenes/UI/character_cards_component.gd" id="1_k5i0i"]
+[ext_resource type="PackedScene" uid="uid://bfaynmksjd00m" path="res://Scenes/UI/card_menu_ui.tscn" id="2_k5i0i"]
+
+[node name="CharacterCardsComponent" type="BoxContainer"]
+offset_right = 1060.0
+offset_bottom = 513.0
+script = ExtResource("1_k5i0i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CharacterName" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CharName"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="CharacterPortrait" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_3e6ri")
+stretch_mode = 4
+
+[node name="Cards" type="GridContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 30
+columns = 4
+
+[node name="CardMenuUI" parent="VBoxContainer/HBoxContainer/Cards" instance=ExtResource("2_k5i0i")]
+layout_mode = 2
+
+[node name="CardMenuUI2" parent="VBoxContainer/HBoxContainer/Cards" instance=ExtResource("2_k5i0i")]
+layout_mode = 2
+
+[node name="CardMenuUI3" parent="VBoxContainer/HBoxContainer/Cards" instance=ExtResource("2_k5i0i")]
+layout_mode = 2
+
+[node name="CardMenuUI4" parent="VBoxContainer/HBoxContainer/Cards" instance=ExtResource("2_k5i0i")]
+layout_mode = 2
+
+[node name="CardMenuUI5" parent="VBoxContainer/HBoxContainer/Cards" instance=ExtResource("2_k5i0i")]
+layout_mode = 2
+
+[node name="CardMenuUI6" parent="VBoxContainer/HBoxContainer/Cards" instance=ExtResource("2_k5i0i")]
+layout_mode = 2
+
+[node name="CardMenuUI7" parent="VBoxContainer/HBoxContainer/Cards" instance=ExtResource("2_k5i0i")]
+layout_mode = 2
+
+[node name="CardMenuUI8" parent="VBoxContainer/HBoxContainer/Cards" instance=ExtResource("2_k5i0i")]
+layout_mode = 2

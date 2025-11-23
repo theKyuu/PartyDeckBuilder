@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmwwb3pkfs25m"]
+
+[ext_resource type="PackedScene" uid="uid://pjheahstip5v" path="res://Scenes/UI/character_cards_component.tscn" id="1_luij3"]
+
+[node name="CharacterCardPileView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 130
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="CharacterCardsComponent" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_luij3")]
+layout_mode = 2
+
+[node name="CharacterCardsComponent2" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_luij3")]
+layout_mode = 2
+
+[node name="CharacterCardsComponent3" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_luij3")]
+layout_mode = 2
