@@ -3,10 +3,13 @@ extends CanvasLayer
 
 signal  save_and_quit
 
+@export var temporary_view: Node
+
 @onready var back_to_game_button: Button = %BackToGameButton
 @onready var save_and_quit_button: Button = %SaveAndQuitButton
 @onready var deck_view: CharacterCardPileView = %DeckView
 @onready var passive_tooltip_popup: PassiveTooltipPopup = %PassiveTooltipPopup
+
 
 func _ready() -> void:
 	back_to_game_button.pressed.connect(_unpause)
@@ -16,8 +19,15 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		if visible:
 			_unpause()
-		elif not deck_view.visible == true and not passive_tooltip_popup.visible == true:
+		elif not deck_view.visible == true and not passive_tooltip_popup.visible == true and not _temp_view_visible():
 			_pause()
+
+func _temp_view_visible() -> bool:
+	if temporary_view:
+		return temporary_view.visible
+	
+	return false
+	
 
 func _pause() -> void:
 	show()

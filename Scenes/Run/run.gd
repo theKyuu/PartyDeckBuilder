@@ -19,7 +19,7 @@ const MAIN_MENU_PATH := "res://Scenes/UI/main_menu.tscn"
 @onready var deck_button: CardPileOpener = %DeckButton
 @onready var deck_view: CharacterCardPileView = %DeckView
 @onready var map: Map = $Map
-@onready var pause_manu: PauseMenu = $PauseMenu
+@onready var pause_menu: PauseMenu = $PauseMenu
 
 # Debug buttons
 @onready var map_button: Button = %MapButton
@@ -36,7 +36,7 @@ func _ready() -> void:
 	if not run_startup:
 		return
 	
-	pause_manu.save_and_quit.connect(
+	pause_menu.save_and_quit.connect(
 		func():
 			MusicPlayer.stop()
 			get_tree().change_scene_to_file(MAIN_MENU_PATH)
@@ -140,7 +140,9 @@ func _show_training_room() -> void:
 	var training_scene := _change_view(TRAINING_SCENE) as Training
 	training_scene.team = team
 	training_scene.stats = stats
+	pause_menu.temporary_view = training_scene.character_card_view
 	training_scene.setup_training_options()
+	
 
 func _show_regular_battle_rewards() -> void:
 	var reward_scene := _change_view(BATTLE_REWARD_SCENE) as BattleReward
@@ -200,6 +202,5 @@ func _on_card_upgraded(origin_card: Card, type: CardUpgradePopup.Type, cost: int
 				break
 	team.set_combined_stats()
 	deck_button.card_pile = team.deck
-	deck_view.card_pile = team.deck
 	Events.card_upgrade_completed.emit()
 	
