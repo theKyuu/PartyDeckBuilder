@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://l8lntcfmq7x6"]
 
 [ext_resource type="Script" uid="uid://bkn5asckb80h0" path="res://Scenes/Training/training.gd" id="1_msmdf"]
-[ext_resource type="PackedScene" uid="uid://kaup3wrvo677" path="res://Scenes/UI/card_pile_view.tscn" id="2_5epjo"]
+[ext_resource type="PackedScene" uid="uid://dmwwb3pkfs25m" path="res://character_card_pile_view.tscn" id="2_5epjo"]
 
 [node name="Training" type="Control"]
 layout_mode = 3
@@ -46,7 +46,8 @@ text = "Go back"
 
 [node name="CardPileViews" type="CanvasLayer" parent="."]
 
-[node name="UpgradePileView" parent="CardPileViews" instance=ExtResource("2_5epjo")]
+[node name="CharacterCardView" parent="CardPileViews" instance=ExtResource("2_5epjo")]
 unique_name_in_owner = true
 visible = false
-type = 1
+
+[connection signal="pressed" from="VBoxContainer/UpgradeCardButton" to="." method="_on_upgrade_card_button_pressed"]

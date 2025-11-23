@@ -15,18 +15,14 @@ enum Type {DISPLAY, UPGRADE}
 
 func _ready() -> void:
 	back_button.pressed.connect(hide)
+	Events.card_upgrade_completed.connect(_on_card_upgrade_completed)
+
 	card_tooltip_popup.hide_tooltip()
 	card_upgrade_popup.hide_tooltip()
 
 	for character_cards_component: Control in character_cards_container.get_children():
 		character_cards_component.queue_free()
 	
-	# Test func
-	await get_tree().create_timer(1.0).timeout
-	for character: CharacterStats in team.team:
-		character.deck = character.starting_deck
-		
-	list_cards()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -36,6 +32,11 @@ func _input(event: InputEvent) -> void:
 			card_upgrade_popup.hide_tooltip()
 		else:
 			hide()
+
+func set_upgrade_view_type(type: CardUpgradePopup.Type, cost: int) -> void:
+	card_upgrade_popup.type = type
+	if cost:
+		card_upgrade_popup.upgrade_cost = cost
 
 
 func list_cards() -> void:
@@ -49,3 +50,9 @@ func list_cards() -> void:
 			character_cards_component.list_cards(type)
 	
 	show()
+
+func _on_card_upgrade_completed() -> void:
+	if type == Type.UPGRADE:
+		hide()
+		for character_cards_component: Node in character_cards_container.get_children():
+			character_cards_component.queue_free()
