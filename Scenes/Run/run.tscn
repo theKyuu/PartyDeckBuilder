@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cg2so00cqpm3e" path="res://Scenes/UI/card_pile_opener.tscn" id="4_iq2b7"]
 [ext_resource type="Texture2D" uid="uid://c63othrnrmcgl" path="res://art/deck_pile.png" id="5_73a50"]
 [ext_resource type="PackedScene" uid="uid://beptpar4p077e" path="res://Scenes/UI/health_ui.tscn" id="5_gomxk"]
-[ext_resource type="PackedScene" uid="uid://kaup3wrvo677" path="res://Scenes/UI/card_pile_view.tscn" id="6_3lri4"]
 [ext_resource type="PackedScene" uid="uid://caoclrmf81h6p" path="res://Scenes/passives_handler/passive_handler.tscn" id="7_vwusp"]
 [ext_resource type="PackedScene" uid="uid://dxl7wwj46p43l" path="res://Scenes/passives_handler/passive_tooltip_popup.tscn" id="11_5riug"]
+[ext_resource type="PackedScene" uid="uid://dmwwb3pkfs25m" path="res://character_card_pile_view.tscn" id="11_ltpwg"]
 [ext_resource type="Script" uid="uid://cmdm61rddjxww" path="res://Scenes/Run/pause_menu.gd" id="12_r6wr3"]
 
 [node name="Run" type="Node"]
@@ -119,9 +119,11 @@ theme_override_font_sizes/font_size = 30
 text = "99"
 horizontal_alignment = 1
 
-[node name="DeckView" parent="TopBar" instance=ExtResource("6_3lri4")]
+[node name="DeckView" parent="TopBar" instance=ExtResource("11_ltpwg")]
 unique_name_in_owner = true
 visible = false
+mouse_force_pass_scroll_events = false
+type = 0
 
 [node name="PassiveTooltipPopup" parent="TopBar" instance=ExtResource("11_5riug")]
 unique_name_in_owner = true

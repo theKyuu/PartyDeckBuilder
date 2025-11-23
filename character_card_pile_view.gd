@@ -14,7 +14,7 @@ enum Type {DISPLAY, UPGRADE}
 @onready var card_upgrade_popup: CardUpgradePopup = %CardUpgradePopup
 
 func _ready() -> void:
-	back_button.pressed.connect(hide)
+	back_button.pressed.connect(_hide_view)
 	Events.card_upgrade_completed.connect(_on_card_upgrade_completed)
 
 	card_tooltip_popup.hide_tooltip()
@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 		elif card_upgrade_popup.visible:
 			card_upgrade_popup.hide_tooltip()
 		else:
-			hide()
+			_hide_view()
 
 func set_upgrade_view_type(type: CardUpgradePopup.Type, cost: int) -> void:
 	card_upgrade_popup.type = type
@@ -53,6 +53,9 @@ func list_cards() -> void:
 
 func _on_card_upgrade_completed() -> void:
 	if type == Type.UPGRADE:
-		hide()
-		for character_cards_component: Node in character_cards_container.get_children():
+		_hide_view()
+
+func _hide_view() -> void:
+	for character_cards_component: Node in character_cards_container.get_children():
 			character_cards_component.queue_free()
+	hide()

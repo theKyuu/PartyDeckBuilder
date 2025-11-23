@@ -17,7 +17,7 @@ const MAIN_MENU_PATH := "res://Scenes/UI/main_menu.tscn"
 @onready var passive_handler: PassiveHandler = %PassiveHandler
 @onready var passive_tooltip: PassiveTooltipPopup = %PassiveTooltipPopup
 @onready var deck_button: CardPileOpener = %DeckButton
-@onready var deck_view: CardPileView = %DeckView
+@onready var deck_view: CharacterCardPileView = %DeckView
 @onready var map: Map = $Map
 @onready var pause_manu: PauseMenu = $PauseMenu
 
@@ -133,8 +133,8 @@ func _setup_top_bar():
 	gold_ui.run_stats = stats
 	Events.passive_tooltip_requested.connect(passive_tooltip.show_tooltip)
 	deck_button.card_pile = team.deck
-	deck_view.card_pile = team.deck
-	deck_button.pressed.connect(deck_view.show_current_view.bind("Deck"))
+	deck_view.team = team
+	deck_button.pressed.connect(deck_view.list_cards)
 
 func _show_training_room() -> void:
 	var training_scene := _change_view(TRAINING_SCENE) as Training

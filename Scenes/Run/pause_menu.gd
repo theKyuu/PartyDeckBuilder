@@ -5,7 +5,7 @@ signal  save_and_quit
 
 @onready var back_to_game_button: Button = %BackToGameButton
 @onready var save_and_quit_button: Button = %SaveAndQuitButton
-@onready var deck_view: CardPileView = %DeckView
+@onready var deck_view: CharacterCardPileView = %DeckView
 @onready var passive_tooltip_popup: PassiveTooltipPopup = %PassiveTooltipPopup
 
 func _ready() -> void:
