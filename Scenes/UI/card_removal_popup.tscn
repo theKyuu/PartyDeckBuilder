@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://sbyg8ckqp8b1"]
+
+[ext_resource type="Script" uid="uid://dmfkrbboppfo1" path="res://Scenes/UI/card_removal_popup.gd" id="1_ppljx"]
+[ext_resource type="PackedScene" uid="uid://bfaynmksjd00m" path="res://Scenes/UI/card_menu_ui.tscn" id="2_25mft"]
+
+[node name="CardRemovalPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ppljx")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -402.0
+offset_top = -302.0
+offset_right = 402.0
+offset_bottom = 302.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="OriginCardContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardTooltip" type="CenterContainer" parent="MarginContainer/VBoxContainer/OriginCardContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CardMenuUI" parent="MarginContainer/VBoxContainer/OriginCardContainer/CardTooltip" instance=ExtResource("2_25mft")]
+layout_mode = 2
+
+[node name="CardDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OriginCardContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Card Description[/center]
+
+Bla blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah "
+fit_content = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="RemoveButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(240, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Remove"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/RemoveButton" to="." method="_on_remove_button_pressed"]

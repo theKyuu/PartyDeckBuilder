@@ -2,7 +2,7 @@ class_name CharacterCardPileView
 extends Control
 
 const CHARACTER_CARDS_COMPONENT = preload("res://Scenes/UI/character_cards_component.tscn")
-enum Type {DISPLAY, UPGRADE}
+enum Type {DISPLAY, UPGRADE, REMOVE}
 
 @export var team: TeamStats
 @export var type: Type = Type.DISPLAY
@@ -12,13 +12,16 @@ enum Type {DISPLAY, UPGRADE}
 @onready var back_button: Button = %BackButton
 @onready var card_tooltip_popup: CardTooltipPopup = %CardTooltipPopup
 @onready var card_upgrade_popup: CardUpgradePopup = %CardUpgradePopup
+@onready var card_removal_popup: CardRemovalPopup = %CardRemovalPopup
 
 func _ready() -> void:
 	back_button.pressed.connect(_hide_view)
 	Events.card_upgrade_completed.connect(_on_card_upgrade_completed)
+	Events.card_removal_completed.connect(_on_card_removal_completed)
 
 	card_tooltip_popup.hide_tooltip()
 	card_upgrade_popup.hide_tooltip()
+	card_removal_popup.hide_tooltip()
 
 	for character_cards_component: Control in character_cards_container.get_children():
 		character_cards_component.queue_free()
@@ -30,6 +33,8 @@ func _input(event: InputEvent) -> void:
 			card_tooltip_popup.hide_tooltip()
 		elif card_upgrade_popup.visible:
 			card_upgrade_popup.hide_tooltip()
+		elif card_removal_popup.visible:
+			card_removal_popup.hide_tooltip()
 		else:
 			_hide_view()
 
@@ -37,6 +42,11 @@ func set_upgrade_view_type(type: CardUpgradePopup.Type, cost: int) -> void:
 	card_upgrade_popup.type = type
 	if cost:
 		card_upgrade_popup.upgrade_cost = cost
+
+func set_removal_view_type(type: CardRemovalPopup.Type, cost: int) -> void:
+	card_removal_popup.type = type
+	if cost:
+		card_removal_popup.removal_cost = cost
 
 
 func list_cards() -> void:
@@ -46,6 +56,7 @@ func list_cards() -> void:
 			character_cards_component.character = character
 			character_cards_component.card_tooltip_popup = card_tooltip_popup
 			character_cards_component.card_upgrade_popup = card_upgrade_popup
+			character_cards_component.card_removal_popup = card_removal_popup
 			character_cards_container.add_child(character_cards_component)
 			character_cards_component.list_cards(type)
 	
@@ -53,6 +64,10 @@ func list_cards() -> void:
 
 func _on_card_upgrade_completed() -> void:
 	if type == Type.UPGRADE:
+		_hide_view()
+
+func _on_card_removal_completed() -> void:
+	if type == Type.REMOVE:
 		_hide_view()
 
 func _hide_view() -> void:

@@ -14,6 +14,7 @@ enum Type {EVENT, PAID}
 @onready var upgrade_card_description: RichTextLabel = %UpgradeCardDescription
 
 var card_to_upgrade: Card
+var card_holder: CharacterStats
 
 func _ready() -> void:
 	card_to_upgrade = null

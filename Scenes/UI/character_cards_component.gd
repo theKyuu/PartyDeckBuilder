@@ -6,6 +6,7 @@ const CARD_MENU_UI_SCENE := preload("res://Scenes/UI/card_menu_ui.tscn")
 @export var character: CharacterStats
 @export var card_tooltip_popup: CardTooltipPopup
 @export var card_upgrade_popup: CardUpgradePopup
+@export var card_removal_popup: CardRemovalPopup
 
 @onready var character_name: Label = %CharacterName
 @onready var character_portrait: TextureRect = %CharacterPortrait
@@ -38,6 +39,8 @@ func _update_view(type: CharacterCardPileView.Type) -> void:
 				new_card.tooltip_requested.connect(card_tooltip_popup.show_tooltip)
 			elif type == CharacterCardPileView.Type.UPGRADE:
 				new_card.tooltip_requested.connect(card_upgrade_popup.show_tooltip)
+			elif type == CharacterCardPileView.Type.REMOVE:
+				new_card.tooltip_requested.connect(card_removal_popup.show_tooltip)
 	
 	if cards_container.get_child_count() < 1:
 		hide()

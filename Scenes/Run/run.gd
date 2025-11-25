@@ -120,6 +120,7 @@ func _setup_event_connections() -> void:
 	Events.map_exited.connect(_on_map_exited)
 	Events.character_added.connect(_on_character_added)
 	Events.card_upgraded.connect(_on_card_upgraded)
+	Events.card_removed.connect(_on_card_removed)
 	
 	map_button.pressed.connect(_show_map)
 	battle_button.pressed.connect(_change_view.bind(BATTLE_SCENE))
@@ -191,6 +192,8 @@ func _on_character_added(character: CharacterStats) -> void:
 	
 	_setup_top_bar()
 	
+
+# TODO: Make upgrades and removals char specific (or else Hero might eat them)
 func _on_card_upgraded(origin_card: Card, type: CardUpgradePopup.Type, cost: int) -> void:
 	for character: CharacterStats in team.team:
 		for card: Card in character.deck.cards:
@@ -204,3 +207,16 @@ func _on_card_upgraded(origin_card: Card, type: CardUpgradePopup.Type, cost: int
 	deck_button.card_pile = team.deck
 	Events.card_upgrade_completed.emit()
 	
+
+func _on_card_removed(card_to_remove: Card, type: CardRemovalPopup.Type, cost: int) -> void:
+	for character: CharacterStats in team.team:
+		for card: Card in character.deck.cards:
+			if card == card_to_remove:
+				character.deck.remove_card(card_to_remove)
+				if type == CardRemovalPopup.Type.PAID:
+					stats.gold = stats.gold - cost
+					stats.times_bought_removal += 1
+				break
+	team.set_combined_stats()
+	deck_button.card_pile = team.deck
+	Events.card_removal_completed.emit()
