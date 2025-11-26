@@ -193,30 +193,27 @@ func _on_character_added(character: CharacterStats) -> void:
 	_setup_top_bar()
 	
 
-# TODO: Make upgrades and removals char specific (or else Hero might eat them)
-func _on_card_upgraded(origin_card: Card, type: CardUpgradePopup.Type, cost: int) -> void:
-	for character: CharacterStats in team.team:
-		for card: Card in character.deck.cards:
-			if card == origin_card:
-				character.deck.replace_card(origin_card, origin_card.upgrades_into)
-				if type == CardUpgradePopup.Type.PAID:
-					stats.gold = stats.gold - cost
-					stats.times_bought_upgrades += 1
-				break
+func _on_card_upgraded(origin_card: Card, card_owner: CharacterStats, type: CardUpgradePopup.Type, cost: int) -> void:
+	for card: Card in card_owner.deck.cards:
+		if card == origin_card:
+			card_owner.deck.replace_card(origin_card, origin_card.upgrades_into)
+			if type == CardUpgradePopup.Type.PAID:
+				stats.gold = stats.gold - cost
+				stats.times_bought_upgrades += 1
+			break
 	team.set_combined_stats()
 	deck_button.card_pile = team.deck
 	Events.card_upgrade_completed.emit()
 	
 
-func _on_card_removed(card_to_remove: Card, type: CardRemovalPopup.Type, cost: int) -> void:
-	for character: CharacterStats in team.team:
-		for card: Card in character.deck.cards:
-			if card == card_to_remove:
-				character.deck.remove_card(card_to_remove)
-				if type == CardRemovalPopup.Type.PAID:
-					stats.gold = stats.gold - cost
-					stats.times_bought_removal += 1
-				break
+func _on_card_removed(card_to_remove: Card, card_owner: CharacterStats, type: CardRemovalPopup.Type, cost: int) -> void:
+	for card: Card in card_owner.deck.cards:
+		if card == card_to_remove:
+			card_owner.deck.remove_card(card_to_remove)
+			if type == CardRemovalPopup.Type.PAID:
+				stats.gold = stats.gold - cost
+				stats.times_bought_removal += 1
+			break
 	team.set_combined_stats()
 	deck_button.card_pile = team.deck
 	Events.card_removal_completed.emit()

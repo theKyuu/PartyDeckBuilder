@@ -12,7 +12,7 @@ enum Type {EVENT, PAID}
 @onready var card_description: RichTextLabel = %CardDescription
 
 var card_to_remove: Card
-var card_holder: CharacterStats
+var card_owner: CharacterStats
 
 func _ready() -> void:
 	card_to_remove = null
@@ -20,13 +20,14 @@ func _ready() -> void:
 	for card: CardMenuUI in card_tooltip.get_children():
 		card.queue_free()
 
-func show_tooltip(card: Card) -> void:
+func show_tooltip(card: Card, character: CharacterStats) -> void:
 	card_to_remove = card
+	card_owner = character
 	
 	var card_ui := CARD_MENU_UI_SCENE.instantiate() as CardMenuUI
 	card_tooltip.add_child(card_ui)
 	card_ui.card = card
-	card_ui.tooltip_requested.connect(hide_tooltip.unbind(1))
+	card_ui.tooltip_requested.connect(hide_tooltip.unbind(2))
 	card_description.text = card.get_default_tooltip()
 
 	show()
@@ -50,5 +51,5 @@ func _on_remove_button_pressed() -> void:
 	if not card_to_remove:
 		return
 
-	Events.card_removed.emit(card_to_remove, type, removal_cost)
+	Events.card_removed.emit(card_to_remove, card_owner, type, removal_cost)
 	hide_tooltip()

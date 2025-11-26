@@ -35,8 +35,8 @@ signal event_node_exited
 
 # Team-related events
 signal character_added(character: CharacterStats)
-signal card_upgraded(card: Card, type: CardUpgradePopup.Type, cost: int)
-signal card_removed(card: Card, type: CardRemovalPopup.Type, cost: int)
+signal card_upgraded(card: Card, card_owner: CharacterStats, type: CardUpgradePopup.Type, cost: int)
+signal card_removed(card: Card, card_owner: CharacterStats, type: CardRemovalPopup.Type, cost: int)
 signal card_upgrade_completed()
 signal card_removal_completed()
 

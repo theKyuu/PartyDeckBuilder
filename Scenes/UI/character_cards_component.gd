@@ -31,9 +31,10 @@ func _update_view(type: CharacterCardPileView.Type) -> void:
 	var all_character_cards := character.deck.cards.duplicate()
 	
 	for card: Card in all_character_cards:
-		if type == CharacterCardPileView.Type.DISPLAY or card.upgrades_into:
+		if type != CharacterCardPileView.Type.UPGRADE or card.upgrades_into:
 			var new_card := CARD_MENU_UI_SCENE.instantiate() as CardMenuUI
 			cards_container.add_child(new_card)
+			new_card.card_owner = character
 			new_card.card = card
 			if type == CharacterCardPileView.Type.DISPLAY:
 				new_card.tooltip_requested.connect(card_tooltip_popup.show_tooltip)
