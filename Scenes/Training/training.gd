@@ -75,6 +75,7 @@ func _on_upgrade_card_button_pressed() -> void:
 	character_card_view.show_hero = false
 	character_card_view.type = CharacterCardPileView.Type.UPGRADE
 	character_card_view.set_upgrade_view_type(CardUpgradePopup.Type.PAID, upgrade_cost)
+	character_card_view.title_text = "Select a card to upgrade:"
 	character_card_view.list_cards()
 
 
@@ -83,4 +84,5 @@ func _on_remove_card_button_pressed() -> void:
 	character_card_view.show_hero = false
 	character_card_view.type = CharacterCardPileView.Type.REMOVE
 	character_card_view.set_removal_view_type(CardRemovalPopup.Type.PAID, removal_cost)
+	character_card_view.title_text = "Select a card to remove:"
 	character_card_view.list_cards()

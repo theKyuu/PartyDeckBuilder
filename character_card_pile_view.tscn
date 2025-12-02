@@ -70,6 +70,19 @@ layout_mode = 2
 [node name="CharacterCardsComponent3" parent="MarginContainer/ScrollContainer/CharacterCardsContainer" instance=ExtResource("1_luij3")]
 layout_mode = 2
 
+[node name="CardPileTitle" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -103.0
+offset_top = 78.0
+offset_right = 103.0
+offset_bottom = 141.0
+grow_horizontal = 2
+text = "List Label"
+
 [node name="BackButton" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -95,4 +108,5 @@ layout_mode = 1
 
 [node name="CardRemovalPopup" parent="." instance=ExtResource("10_q3rl7")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1

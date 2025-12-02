@@ -135,6 +135,7 @@ func _setup_top_bar():
 	Events.passive_tooltip_requested.connect(passive_tooltip.show_tooltip)
 	deck_button.card_pile = team.deck
 	deck_view.team = team
+	deck_view.title_text = "Deck"
 	deck_button.pressed.connect(deck_view.list_cards)
 
 func _show_training_room() -> void:

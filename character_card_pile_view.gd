@@ -2,12 +2,14 @@ class_name CharacterCardPileView
 extends Control
 
 const CHARACTER_CARDS_COMPONENT = preload("res://Scenes/UI/character_cards_component.tscn")
-enum Type {DISPLAY, UPGRADE, REMOVE}
+enum Type {DISPLAY, UPGRADE, REMOVE, COPY, REPLACE}
 
 @export var team: TeamStats
 @export var type: Type = Type.DISPLAY
 @export var show_hero: bool = true
+@export var title_text: String: set = set_title
 
+@onready var card_pile_title: Label = %CardPileTitle
 @onready var character_cards_container: VBoxContainer = %CharacterCardsContainer
 @onready var back_button: Button = %BackButton
 @onready var card_tooltip_popup: CardTooltipPopup = %CardTooltipPopup
@@ -38,6 +40,10 @@ func _input(event: InputEvent) -> void:
 		else:
 			_hide_view()
 
+func set_title(new_title: String) -> void:
+	title_text = new_title
+	card_pile_title.text = new_title
+
 func set_upgrade_view_type(type: CardUpgradePopup.Type, cost: int) -> void:
 	card_upgrade_popup.type = type
 	if cost:
@@ -52,15 +58,21 @@ func set_removal_view_type(type: CardRemovalPopup.Type, cost: int) -> void:
 func list_cards() -> void:
 	for character: CharacterStats in team.team:
 		if show_hero or character.character_name != "Hero":
-			var character_cards_component := CHARACTER_CARDS_COMPONENT.instantiate() as CharacterCardsComponent
-			character_cards_component.character = character
-			character_cards_component.card_tooltip_popup = card_tooltip_popup
-			character_cards_component.card_upgrade_popup = card_upgrade_popup
-			character_cards_component.card_removal_popup = card_removal_popup
-			character_cards_container.add_child(character_cards_component)
-			character_cards_component.list_cards(type)
+			list_single_characters_cards(character, false)
 	
 	show()
+
+func list_single_characters_cards(character: CharacterStats, show_immediately: bool = true) -> void:
+	var character_cards_component := CHARACTER_CARDS_COMPONENT.instantiate() as CharacterCardsComponent
+	character_cards_component.character = character
+	character_cards_component.card_tooltip_popup = card_tooltip_popup
+	character_cards_component.card_upgrade_popup = card_upgrade_popup
+	character_cards_component.card_removal_popup = card_removal_popup
+	character_cards_container.add_child(character_cards_component)
+	character_cards_component.list_cards(type)
+	
+	if show_immediately:
+		show()
 
 func _on_card_upgrade_completed() -> void:
 	if type == Type.UPGRADE:
