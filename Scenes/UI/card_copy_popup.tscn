@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgkav3th8sso0"]
+[gd_scene load_steps=4 format=3 uid="uid://dgkav3th8sso0"]
 
 [ext_resource type="Script" uid="uid://2t3vf4dg3lbx" path="res://Scenes/UI/card_copy_popup.gd" id="1_7iw53"]
 [ext_resource type="PackedScene" uid="uid://bfaynmksjd00m" path="res://Scenes/UI/card_menu_ui.tscn" id="2_gwbu4"]
+[ext_resource type="Texture2D" uid="uid://b52fyao0e0xj1" path="res://art/side_arrow_fade.png" id="3_gwbu4"]
 
 [node name="CardCopyPopup" type="Control"]
 layout_mode = 3
@@ -39,18 +40,55 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="OriginCardContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="FocusCardContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="CardTooltip" type="CenterContainer" parent="MarginContainer/VBoxContainer/OriginCardContainer"]
+[node name="CardTooltip" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/FocusCardContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="CardMenuUI" parent="MarginContainer/VBoxContainer/OriginCardContainer/CardTooltip" instance=ExtResource("2_gwbu4")]
+[node name="CardMenuUI" parent="MarginContainer/VBoxContainer/HBoxContainer/FocusCardContainer/CardTooltip" instance=ExtResource("2_gwbu4")]
 layout_mode = 2
 
-[node name="CardDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer/OriginCardContainer"]
+[node name="CardDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/FocusCardContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Card Description[/center]
+
+Bla blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah "
+fit_content = true
+
+[node name="ReplaceArrow" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+texture = ExtResource("3_gwbu4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ReplaceCardContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ReplaceCardTooltip" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ReplaceCardContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CardMenuUI" parent="MarginContainer/VBoxContainer/HBoxContainer/ReplaceCardContainer/ReplaceCardTooltip" instance=ExtResource("2_gwbu4")]
+layout_mode = 2
+
+[node name="ReplaceCardDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/ReplaceCardContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
@@ -67,8 +105,19 @@ layout_mode = 2
 theme_override_constants/separation = 150
 alignment = 1
 
-[node name="RemoveButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(240, 90)
+[node name="CopyButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 90)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Remove"
+text = "Copy card"
+
+[node name="ReplaceButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(250, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Replace card"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/CopyButton" to="." method="_on_copy_button_pressed"]

@@ -15,15 +15,20 @@ enum Type {DISPLAY, UPGRADE, REMOVE, COPY, REPLACE}
 @onready var card_tooltip_popup: CardTooltipPopup = %CardTooltipPopup
 @onready var card_upgrade_popup: CardUpgradePopup = %CardUpgradePopup
 @onready var card_removal_popup: CardRemovalPopup = %CardRemovalPopup
+@onready var card_copy_popup: CardCopyPopup = %CardCopyPopup
+
+var hero_character: CharacterStats
 
 func _ready() -> void:
 	back_button.pressed.connect(_hide_view)
 	Events.card_upgrade_completed.connect(_on_card_upgrade_completed)
 	Events.card_removal_completed.connect(_on_card_removal_completed)
+	Events.card_copy_initiated.connect(_on_card_copy_initiated)
 
 	card_tooltip_popup.hide_tooltip()
 	card_upgrade_popup.hide_tooltip()
 	card_removal_popup.hide_tooltip()
+	card_copy_popup.hide_tooltip()
 
 	for character_cards_component: Control in character_cards_container.get_children():
 		character_cards_component.queue_free()
@@ -37,7 +42,10 @@ func _input(event: InputEvent) -> void:
 			card_upgrade_popup.hide_tooltip()
 		elif card_removal_popup.visible:
 			card_removal_popup.hide_tooltip()
+		elif card_copy_popup.visible:
+			card_copy_popup.hide_tooltip()
 		else:
+			card_copy_popup.view_state = CardCopyPopup.ViewState.COPY
 			_hide_view()
 
 func set_title(new_title: String) -> void:
@@ -46,17 +54,24 @@ func set_title(new_title: String) -> void:
 
 func set_upgrade_view_type(type: CardUpgradePopup.Type, cost: int) -> void:
 	card_upgrade_popup.type = type
-	if cost:
+	if cost > 0:
 		card_upgrade_popup.upgrade_cost = cost
 
 func set_removal_view_type(type: CardRemovalPopup.Type, cost: int) -> void:
 	card_removal_popup.type = type
-	if cost:
+	if cost > 0:
 		card_removal_popup.removal_cost = cost
+
+func set_copy_view_type(type: CardCopyPopup.Type, cost: int) -> void:
+	card_copy_popup.type = type
+	if cost > 0:
+		card_copy_popup.removal_cost = cost
 
 
 func list_cards() -> void:
 	for character: CharacterStats in team.team:
+		if character.character_name == "Hero":
+			hero_character = character
 		if show_hero or character.character_name != "Hero":
 			list_single_characters_cards(character, false)
 	
@@ -68,6 +83,7 @@ func list_single_characters_cards(character: CharacterStats, show_immediately: b
 	character_cards_component.card_tooltip_popup = card_tooltip_popup
 	character_cards_component.card_upgrade_popup = card_upgrade_popup
 	character_cards_component.card_removal_popup = card_removal_popup
+	character_cards_component.card_copy_popup = card_copy_popup
 	character_cards_container.add_child(character_cards_component)
 	character_cards_component.list_cards(type)
 	
@@ -81,6 +97,13 @@ func _on_card_upgrade_completed() -> void:
 func _on_card_removal_completed() -> void:
 	if type == Type.REMOVE:
 		_hide_view()
+
+func _on_card_copy_initiated(card: Card) -> void:
+	_hide_view()
+	if hero_character:
+		type = Type.REPLACE
+		card_copy_popup.view_state = CardCopyPopup.ViewState.REPLACE
+		list_single_characters_cards(hero_character)
 
 func _hide_view() -> void:
 	for character_cards_component: Node in character_cards_container.get_children():

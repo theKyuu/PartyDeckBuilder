@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmwwb3pkfs25m"]
+[gd_scene load_steps=13 format=3 uid="uid://dmwwb3pkfs25m"]
 
 [ext_resource type="Script" uid="uid://px07bck0g5ea" path="res://character_card_pile_view.gd" id="1_3uo5y"]
 [ext_resource type="PackedScene" uid="uid://pjheahstip5v" path="res://Scenes/UI/character_cards_component.tscn" id="1_luij3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://do80o2ft2bqwf" path="res://Scenes/UI/card_tooltip_popup.tscn" id="8_c4lji"]
 [ext_resource type="PackedScene" uid="uid://cawpe3bj5gyh1" path="res://Scenes/UI/card_upgrade_popup.tscn" id="9_vudnw"]
 [ext_resource type="PackedScene" uid="uid://sbyg8ckqp8b1" path="res://Scenes/UI/card_removal_popup.tscn" id="10_q3rl7"]
+[ext_resource type="PackedScene" uid="uid://dgkav3th8sso0" path="res://Scenes/UI/card_copy_popup.tscn" id="11_laag2"]
 
 [sub_resource type="Resource" id="Resource_y4ver"]
 script = ExtResource("2_td4j4")
@@ -107,6 +108,11 @@ visible = false
 layout_mode = 1
 
 [node name="CardRemovalPopup" parent="." instance=ExtResource("10_q3rl7")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="CardCopyPopup" parent="." instance=ExtResource("11_laag2")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

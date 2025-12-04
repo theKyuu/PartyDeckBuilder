@@ -86,3 +86,12 @@ func _on_remove_card_button_pressed() -> void:
 	character_card_view.set_removal_view_type(CardRemovalPopup.Type.PAID, removal_cost)
 	character_card_view.title_text = "Select a card to remove:"
 	character_card_view.list_cards()
+
+
+func _on_copy_card_pressed() -> void:
+	character_card_view.team = team
+	character_card_view.show_hero = false
+	character_card_view.type = CharacterCardPileView.Type.COPY
+	character_card_view.set_copy_view_type(CardCopyPopup.Type.EVENT, 0)
+	character_card_view.title_text = "Select a card to copy:"
+	character_card_view.list_cards()

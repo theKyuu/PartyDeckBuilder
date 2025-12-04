@@ -37,6 +37,7 @@ signal event_node_exited
 signal character_added(character: CharacterStats)
 signal card_upgraded(card: Card, card_owner: CharacterStats, type: CardUpgradePopup.Type, cost: int)
 signal card_removed(card: Card, card_owner: CharacterStats, type: CardRemovalPopup.Type, cost: int)
+signal card_copy_initiated(card: Card)
 signal card_upgrade_completed()
 signal card_removal_completed()
 
