@@ -18,8 +18,7 @@ var removal_cost: int
 
 func _ready() -> void:
 	back_button.pressed.connect(_on_go_back_pressed)
-	Events.card_upgrade_completed.connect(_on_card_edit_completed)
-	Events.card_removal_completed.connect(_on_card_edit_completed)
+	Events.card_edit_completed.connect(_on_card_edit_completed)
 
 func setup_training_options() -> void:
 	if not team:

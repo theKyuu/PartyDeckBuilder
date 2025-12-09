@@ -121,3 +121,4 @@ size_flags_horizontal = 4
 text = "Replace card"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/CopyButton" to="." method="_on_copy_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/ReplaceButton" to="." method="_on_replace_button_pressed"]

@@ -21,8 +21,7 @@ var hero_character: CharacterStats
 
 func _ready() -> void:
 	back_button.pressed.connect(_hide_view)
-	Events.card_upgrade_completed.connect(_on_card_upgrade_completed)
-	Events.card_removal_completed.connect(_on_card_removal_completed)
+	Events.card_edit_completed.connect(_hide_view)
 	Events.card_copy_initiated.connect(_on_card_copy_initiated)
 
 	card_tooltip_popup.hide_tooltip()
@@ -89,19 +88,11 @@ func list_single_characters_cards(character: CharacterStats, show_immediately: b
 	if show_immediately:
 		show()
 
-func _on_card_upgrade_completed() -> void:
-	if type == Type.UPGRADE:
-		_hide_view()
-
-func _on_card_removal_completed() -> void:
-	if type == Type.REMOVE:
-		_hide_view()
-
 func _on_card_copy_initiated(card: Card) -> void:
 	_hide_view()
 	if hero_character:
 		type = Type.REPLACE
-		card_copy_popup.view_state = CardCopyPopup.ViewState.REPLACE
+		card_copy_popup.prepare_replace(card)
 		list_single_characters_cards(hero_character)
 
 func _hide_view() -> void:

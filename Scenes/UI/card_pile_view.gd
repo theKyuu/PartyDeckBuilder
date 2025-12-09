@@ -15,7 +15,7 @@ enum Type {DISPLAY, UPGRADE}
 
 func _ready() -> void:
 	back_button.pressed.connect(hide)
-	Events.card_upgrade_completed.connect(_on_card_upgrade_completed)
+	Events.card_edit_completed.connect(_on_card_edit_completed)
 	
 	for card: Node in cards.get_children():
 		card.queue_free()
@@ -66,7 +66,7 @@ func _update_view(randomized: bool) -> void:
 	
 	show()
 
-func _on_card_upgrade_completed() -> void:
+func _on_card_edit_completed() -> void:
 	if type == Type.UPGRADE:
 		hide()
 		for card: Node in cards.get_children():
