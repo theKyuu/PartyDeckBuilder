@@ -153,6 +153,7 @@ func _show_regular_battle_rewards() -> void:
 	reward_scene.team_stats = team
 	MusicPlayer.stop()
 	reward_scene.add_gold_reward(map.last_room.battle_stats.roll_gold_reward())
+	reward_scene.add_copy_reward()
 
 func _on_battle_room_entered(room: Room) -> void:
 	var battle_scene: Battle = _change_view(BATTLE_SCENE) as Battle

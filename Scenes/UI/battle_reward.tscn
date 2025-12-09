@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8rr8poc6crf4"]
+[gd_scene load_steps=7 format=3 uid="uid://c8rr8poc6crf4"]
 
 [ext_resource type="PackedScene" uid="uid://daeu3dfhwupxg" path="res://Scenes/UI/reward_button.tscn" id="1_0oli3"]
 [ext_resource type="Script" uid="uid://c4i3xtfwmwr6y" path="res://Scenes/UI/battle_reward.gd" id="1_eru8t"]
 [ext_resource type="Texture2D" uid="uid://bk07207ok5nnc" path="res://art/gold.png" id="2_geotb"]
+[ext_resource type="PackedScene" uid="uid://dmwwb3pkfs25m" path="res://character_card_pile_view.tscn" id="4_o06k2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ngd44"]
 font_size = 60
@@ -79,10 +80,20 @@ layout_mode = 2
 reward_icon = ExtResource("2_geotb")
 reward_text = "78 Gold"
 
+[node name="Button" type="Button" parent="VBoxContainer/RewardContainer/MarginContainer/Rewards"]
+layout_mode = 2
+text = "Copy Card"
+
 [node name="ContinueButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Continue"
+
+[node name="CardPileViews" type="CanvasLayer" parent="."]
+
+[node name="CharacterCardView" parent="CardPileViews" instance=ExtResource("4_o06k2")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
