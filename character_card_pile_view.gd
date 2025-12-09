@@ -45,7 +45,6 @@ func _input(event: InputEvent) -> void:
 		elif card_copy_popup.visible:
 			card_copy_popup.hide_tooltip()
 		else:
-			card_copy_popup.view_state = CardCopyPopup.ViewState.COPY
 			_hide_view()
 
 func set_title(new_title: String) -> void:
@@ -106,6 +105,7 @@ func _on_card_copy_initiated(card: Card) -> void:
 		list_single_characters_cards(hero_character)
 
 func _hide_view() -> void:
+	card_copy_popup.view_state = CardCopyPopup.ViewState.COPY
 	for character_cards_component: Node in character_cards_container.get_children():
 			character_cards_component.queue_free()
 	hide()
