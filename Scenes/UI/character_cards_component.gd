@@ -32,6 +32,9 @@ func _update_view(type: CharacterCardPileView.Type) -> void:
 	
 	var all_character_cards := character.deck.cards.duplicate()
 	
+	if type == CharacterCardPileView.Type.COPY:
+		all_character_cards = hero_deck_copy_filter(all_character_cards)
+	
 	for card: Card in all_character_cards:
 		if type != CharacterCardPileView.Type.UPGRADE or card.upgrades_into:
 			var new_card := CARD_MENU_UI_SCENE.instantiate() as CardMenuUI
@@ -48,3 +51,21 @@ func _update_view(type: CharacterCardPileView.Type) -> void:
 				new_card.tooltip_requested.connect(card_copy_popup.show_tooltip)	
 	if cards_container.get_child_count() < 1:
 		hide()
+
+func hero_deck_copy_filter(character_cards: Array[Card]) -> Array[Card]:
+	var hero_cards = hero_deck.cards.duplicate()
+	# First-hand filter out direct copies
+	for card: Card in character_cards:
+		if hero_cards.has(card):
+			character_cards.erase(card)
+			hero_cards.erase(card)
+	# Second hand filter out up/downgrades
+	for card: Card in character_cards:
+		if hero_cards.has(card.upgrades_into):
+			character_cards.erase(card)
+			hero_cards.erase(card.upgrades_into)
+		elif hero_cards.has(card.upgraded_from):
+			character_cards.erase(card)
+			hero_cards.erase(card.upgraded_from)
+	
+	return character_cards

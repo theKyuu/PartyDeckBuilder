@@ -21,6 +21,8 @@ enum CardGrade {BASE, UPGRADED}
 @export var card_grade: CardGrade = CardGrade.BASE
 @export var upgrades_into: Card
 
+var upgraded_from: Card = null
+
 
 func is_single_targeted() -> bool:
 	return target == Target.SINGLE_ENEMY

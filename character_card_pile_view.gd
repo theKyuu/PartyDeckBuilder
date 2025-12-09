@@ -78,6 +78,7 @@ func list_cards() -> void:
 func list_single_characters_cards(character: CharacterStats, show_immediately: bool = true) -> void:
 	var character_cards_component := CHARACTER_CARDS_COMPONENT.instantiate() as CharacterCardsComponent
 	character_cards_component.character = character
+	character_cards_component.hero_deck = hero_character.deck
 	character_cards_component.card_tooltip_popup = card_tooltip_popup
 	character_cards_component.card_upgrade_popup = card_upgrade_popup
 	character_cards_component.card_removal_popup = card_removal_popup

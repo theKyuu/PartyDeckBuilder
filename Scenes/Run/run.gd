@@ -198,7 +198,9 @@ func _on_character_added(character: CharacterStats) -> void:
 func _on_card_upgraded(origin_card: Card, card_owner: CharacterStats, type: CardUpgradePopup.Type, cost: int) -> void:
 	for card: Card in card_owner.deck.cards:
 		if card == origin_card:
-			card_owner.deck.replace_card(origin_card, origin_card.upgrades_into)
+			var upgraded_card = origin_card.upgrades_into
+			upgraded_card.upgraded_from = origin_card
+			card_owner.deck.replace_card(origin_card, upgraded_card)
 			if type == CardUpgradePopup.Type.PAID:
 				stats.gold = stats.gold - cost
 				stats.times_bought_upgrades += 1
