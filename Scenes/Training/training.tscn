@@ -47,7 +47,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Remove Card - 25G"
 
-[node name="Copy Card" type="Button" parent="VBoxContainer"]
+[node name="CopyCardButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
@@ -71,4 +71,4 @@ visible = false
 
 [connection signal="pressed" from="VBoxContainer/UpgradeCardButton" to="." method="_on_upgrade_card_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/RemoveCardButton" to="." method="_on_remove_card_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Copy Card" to="." method="_on_copy_card_pressed"]
+[connection signal="pressed" from="VBoxContainer/CopyCardButton" to="." method="_on_copy_card_button_pressed"]

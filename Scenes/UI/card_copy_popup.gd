@@ -100,7 +100,7 @@ func _on_replace_button_pressed() -> void:
 	if not focus_card or not focus_character or not card_to_copy:
 		return
 	
-	Events.card_replaced.emit(focus_card, card_to_copy, focus_character)
+	Events.card_replaced.emit(focus_card, card_to_copy, focus_character, type, copy_cost)
 	
 	card_to_copy = null
 	for card: CardMenuUI in replace_card_tooltip.get_children():

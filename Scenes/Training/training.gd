@@ -3,18 +3,21 @@ extends Control
 
 @export var upgrade_price_increase_steps: int = 25
 @export var removal_price_increase_steps: int = 30
+@export var copy_price_increase_steps: int = 35
 @export var team: TeamStats
 @export var stats: RunStats
 
 @onready var back_button: Button = %GoBackButton
 @onready var upgrade_card_button: Button = %UpgradeCardButton
 @onready var remove_card_button: Button = %RemoveCardButton
+@onready var copy_card_button: Button = %CopyCardButton
 @onready var character_card_view: CharacterCardPileView = %CharacterCardView
 
 var upgradable_cards: CardPile
 var removable_cards: CardPile
 var upgrade_cost: int
 var removal_cost: int
+var copy_cost: int
 
 func _ready() -> void:
 	back_button.pressed.connect(_on_go_back_pressed)
@@ -42,6 +45,8 @@ func setup_training_options() -> void:
 		_setup_card_removal_button()
 	else:
 		remove_card_button.hide()
+	
+	_setup_card_copy_button()
 
 func _setup_card_upgrade_button() -> void:
 	upgrade_cost = upgrade_price_increase_steps + upgrade_price_increase_steps * stats.times_bought_upgrades
@@ -61,6 +66,14 @@ func _setup_card_removal_button() -> void:
 		remove_card_button.disabled = false
 	remove_card_button.show()
 
+func _setup_card_copy_button() -> void:
+	copy_cost = copy_price_increase_steps + copy_price_increase_steps * stats.times_bought_copy
+	copy_card_button.text = "Copy Card - %sG" % copy_cost
+	if copy_cost > stats.gold:
+		copy_card_button.disabled = true
+	else:
+		copy_card_button.disabled = false
+	copy_card_button.show()
 
 func _on_go_back_pressed() -> void:
 	Events.event_node_exited.emit()
@@ -87,10 +100,10 @@ func _on_remove_card_button_pressed() -> void:
 	character_card_view.list_cards()
 
 
-func _on_copy_card_pressed() -> void:
+func _on_copy_card_button_pressed() -> void:
 	character_card_view.team = team
 	character_card_view.show_hero = false
 	character_card_view.type = CharacterCardPileView.Type.COPY
-	character_card_view.set_copy_view_type(CardCopyPopup.Type.EVENT, 0)
+	character_card_view.set_copy_view_type(CardCopyPopup.Type.PAID, copy_cost)
 	character_card_view.title_text = "Select a card to copy:"
 	character_card_view.list_cards()

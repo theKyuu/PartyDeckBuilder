@@ -220,13 +220,13 @@ func _on_card_removed(card_to_remove: Card, card_owner: CharacterStats, type: Ca
 	deck_button.card_pile = team.deck
 	Events.card_edit_completed.emit()
 
-func _on_card_replaced(origin_card: Card, new_card: Card, card_owner: CharacterStats) -> void:
+func _on_card_replaced(origin_card: Card, new_card: Card, card_owner: CharacterStats, type: CardCopyPopup.Type, cost: int) -> void:
 	for card: Card in card_owner.deck.cards:
 		if card == origin_card:
 			card_owner.deck.replace_card(origin_card, new_card)
-			#if type == CardRemovalPopup.Type.PAID:
-				#stats.gold = stats.gold - cost
-				#stats.times_bought_removal += 1
+			if type == CardRemovalPopup.Type.PAID:
+				stats.gold = stats.gold - cost
+				stats.times_bought_copy += 1
 			break
 	team.set_combined_stats()
 	deck_button.card_pile = team.deck

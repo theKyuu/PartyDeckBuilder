@@ -63,7 +63,7 @@ func set_removal_view_type(type: CardRemovalPopup.Type, cost: int) -> void:
 func set_copy_view_type(type: CardCopyPopup.Type, cost: int) -> void:
 	card_copy_popup.type = type
 	if cost > 0:
-		card_copy_popup.removal_cost = cost
+		card_copy_popup.copy_cost = cost
 
 
 func list_cards() -> void:
