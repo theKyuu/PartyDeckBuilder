@@ -54,18 +54,22 @@ func _update_view(type: CharacterCardPileView.Type) -> void:
 
 func hero_deck_copy_filter(character_cards: Array[Card]) -> Array[Card]:
 	var hero_cards = hero_deck.cards.duplicate()
+	var filtered_cards: Array[Card] = []
 	# First-hand filter out direct copies
 	for card: Card in character_cards:
 		if hero_cards.has(card):
-			character_cards.erase(card)
+			filtered_cards.append(card)
 			hero_cards.erase(card)
 	# Second hand filter out up/downgrades
 	for card: Card in character_cards:
 		if hero_cards.has(card.upgrades_into):
-			character_cards.erase(card)
+			filtered_cards.append(card)
 			hero_cards.erase(card.upgrades_into)
 		elif hero_cards.has(card.upgraded_from):
-			character_cards.erase(card)
+			filtered_cards.append(card)
 			hero_cards.erase(card.upgraded_from)
+	
+	for card: Card in filtered_cards:
+		character_cards.erase(card)
 	
 	return character_cards
