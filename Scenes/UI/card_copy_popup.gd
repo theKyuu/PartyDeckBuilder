@@ -101,6 +101,10 @@ func _on_replace_button_pressed() -> void:
 		var card_ui: CardMenuUI = card_tooltip.get_child(0)
 		focus_card = card_ui.card
 		print("Saved focus card")
+	if not card_to_copy:
+		var card_ui: CardMenuUI = replace_card_tooltip.get_child(0)
+		card_to_copy = card_ui.card
+		print("Saved replacement card")
 	
 	Events.card_replaced.emit(focus_card, card_to_copy, focus_character, type, copy_cost)
 	
