@@ -36,19 +36,20 @@ func _update_view(type: CharacterCardPileView.Type) -> void:
 		all_character_cards = hero_deck_copy_filter(all_character_cards)
 	
 	for card: Card in all_character_cards:
-		if type != CharacterCardPileView.Type.UPGRADE or card.upgrades_into:
-			var new_card := CARD_MENU_UI_SCENE.instantiate() as CardMenuUI
-			cards_container.add_child(new_card)
-			new_card.card_owner = character
-			new_card.card = card
-			if type == CharacterCardPileView.Type.DISPLAY:
-				new_card.tooltip_requested.connect(card_tooltip_popup.show_tooltip)
-			elif type == CharacterCardPileView.Type.UPGRADE:
-				new_card.tooltip_requested.connect(card_upgrade_popup.show_tooltip)
-			elif type == CharacterCardPileView.Type.REMOVE:
-				new_card.tooltip_requested.connect(card_removal_popup.show_tooltip)
-			elif type == CharacterCardPileView.Type.COPY or type == CharacterCardPileView.Type.REPLACE:
-				new_card.tooltip_requested.connect(card_copy_popup.show_tooltip)	
+		if card:
+			if type != CharacterCardPileView.Type.UPGRADE or card.upgrades_into:
+				var new_card := CARD_MENU_UI_SCENE.instantiate() as CardMenuUI
+				cards_container.add_child(new_card)
+				new_card.card_owner = character
+				new_card.card = card
+				if type == CharacterCardPileView.Type.DISPLAY:
+					new_card.tooltip_requested.connect(card_tooltip_popup.show_tooltip)
+				elif type == CharacterCardPileView.Type.UPGRADE:
+					new_card.tooltip_requested.connect(card_upgrade_popup.show_tooltip)
+				elif type == CharacterCardPileView.Type.REMOVE:
+					new_card.tooltip_requested.connect(card_removal_popup.show_tooltip)
+				elif type == CharacterCardPileView.Type.COPY or type == CharacterCardPileView.Type.REPLACE:
+					new_card.tooltip_requested.connect(card_copy_popup.show_tooltip)	
 	if cards_container.get_child_count() < 1:
 		hide()
 

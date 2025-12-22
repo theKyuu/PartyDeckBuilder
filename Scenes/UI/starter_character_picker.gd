@@ -29,7 +29,7 @@ func _on_druid_button_pressed() -> void:
 
 func _on_select_button_pressed() -> void:
 	run_startup.type = RunStartup.Type.NEW_RUN
-	run_startup.player_team.team.append(current_character)
+	run_startup.player_team.team.append(current_character.duplicate())
 	run_startup.passive = current_character.passive
 	get_tree().change_scene_to_packed(RUN_SCENE)
 	

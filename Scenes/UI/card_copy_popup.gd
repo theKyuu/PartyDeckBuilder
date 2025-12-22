@@ -97,8 +97,10 @@ func _on_copy_button_pressed() -> void:
 
 
 func _on_replace_button_pressed() -> void:
-	if not focus_card or not focus_character or not card_to_copy:
-		return
+	if not focus_card:
+		var card_ui: CardMenuUI = card_tooltip.get_child(0)
+		focus_card = card_ui.card
+		print("Saved focus card")
 	
 	Events.card_replaced.emit(focus_card, card_to_copy, focus_character, type, copy_cost)
 	

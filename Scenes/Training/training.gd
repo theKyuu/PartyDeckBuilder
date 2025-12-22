@@ -33,7 +33,7 @@ func setup_training_options() -> void:
 		for card: Card in character.deck.cards:
 			if character.character_name != "Hero":
 				removable_cards.add_card(card)
-			if card.upgrades_into:
+			if card && card.upgrades_into:
 				upgradable_cards.add_card(card)
 	
 	if upgradable_cards.cards.size() > 0:

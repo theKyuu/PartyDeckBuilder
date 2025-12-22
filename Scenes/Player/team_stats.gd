@@ -35,7 +35,7 @@ func set_combined_stats() -> void:
 		total_mana += character.max_mana
 		total_cards_per_turn += character.cards_per_turn
 		if not character.deck:
-			character.deck = character.starting_deck
+			character.deck = character.starting_deck.duplicate()
 		for card in character.deck.cards:
 			combined_deck.add_card(card)
 	deck = combined_deck.duplicate()

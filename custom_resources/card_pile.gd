@@ -39,7 +39,8 @@ func duplicate_cards() -> Array[Card]:
 	var new_array: Array[Card]
 	
 	for card: Card in cards:
-		new_array.append(card.duplicate())
+		if card:
+			new_array.append(card.duplicate())
 	
 	return new_array
 

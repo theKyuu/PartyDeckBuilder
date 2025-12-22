@@ -12,7 +12,7 @@ func _ready() -> void:
 	MusicPlayer.stop()
 	get_tree().paused = false
 	continue_button.visible = SaveGame.load_data() != null
-	run_startup.player_team.team = [base_hero]
+	run_startup.player_team.team = [base_hero.duplicate()]
 
 func _on_continue_pressed() -> void:
 	run_startup.type = RunStartup.Type.CONTINUED_RUN
