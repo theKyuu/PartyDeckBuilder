@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://cfor2sc8egfbv"]
+
+[ext_resource type="Script" uid="uid://dlw8qygrsxfxo" path="res://custom_resources/character_stats.gd" id="1_e5jgn"]
+[ext_resource type="Texture2D" uid="uid://bk3ncj2emmk44" path="res://art/characters/bong.png" id="1_gfije"]
+[ext_resource type="Texture2D" uid="uid://d4euj41drkex4" path="res://art/characters/bong_portrait.png" id="2_8suw4"]
+
+[resource]
+script = ExtResource("1_e5jgn")
+rarity = 2
+character_name = "Bong"
+description = "With great weight comes great power!
+... Slowly."
+portrait = ExtResource("2_8suw4")
+cards_per_turn = 0
+max_mana = 0
+max_health = 20
+art = ExtResource("1_gfije")
+metadata/_custom_type_script = "uid://dlw8qygrsxfxo"

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_r07kg")
 id = "goop"
-type = 1
+type = 3
 target = 0
 cost = 1
 exhausts = true

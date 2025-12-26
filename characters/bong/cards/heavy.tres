@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://28qwtn0fxryt"]
+
+[ext_resource type="Script" uid="uid://5jjm0pxg22ag" path="res://custom_resources/card.gd" id="1_5dscu"]
+[ext_resource type="Texture2D" uid="uid://c33ovt7wjtni1" path="res://art/heavy.png" id="1_mpphw"]
+
+[resource]
+script = ExtResource("1_5dscu")
+id = "heavy"
+type = 3
+target = 0
+cost = 1
+exhausts = true
+icon = ExtResource("1_mpphw")
+tooltip_text = "Oof..."
+card_grade = 0
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"

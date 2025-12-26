@@ -1,0 +1,19 @@
+extends Card
+
+var base_damage := 10
+var base_block := 10
+
+func get_default_tooltip() -> String:
+	return tooltip_text % [base_damage, base_block]
+
+func get_updated_tooltip(player_modifiers: ModifierHandler, enemy_modifiers: ModifierHandler) -> String:
+	var modified_dmg := player_modifiers.get_modified_value(base_damage, Modifier.Type.DMG_DEALT)
+	
+	if enemy_modifiers:
+		modified_dmg = enemy_modifiers.get_modified_value(modified_dmg, Modifier.Type.DMG_TAKEN)
+	
+	return tooltip_text % [modified_dmg, base_block]
+
+func apply_effects(targets: Array[Node], _modifiers: ModifierHandler) -> void:
+	print("Card has been played!")
+	print("Targets: %s" % targets)

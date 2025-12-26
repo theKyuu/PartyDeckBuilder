@@ -14,7 +14,7 @@ cost = 1
 exhausts = false
 icon = ExtResource("1_ungqh")
 tooltip_text = "[center][b]Axe chop[/b]
-Deal %s damage.[/center]"
+Deal %s damage to the target and %s to yourself.[/center]"
 sound = ExtResource("3_6uoki")
 card_grade = 0
 upgrades_into = ExtResource("4_qn34n")
