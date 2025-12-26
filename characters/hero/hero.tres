@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("2_kj3r7")
+rarity = 4
 character_name = "Hero"
 description = ""
 portrait = ExtResource("1_kj3r7")

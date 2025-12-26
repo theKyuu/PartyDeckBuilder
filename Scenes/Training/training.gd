@@ -31,7 +31,7 @@ func setup_training_options() -> void:
 	removable_cards = CardPile.new()
 	for character: CharacterStats in team.team:
 		for card: Card in character.deck.cards:
-			if character.character_name != "Hero":
+			if character.rarity != CharacterStats.Rarity.PLAYER_CHARACTER:
 				removable_cards.add_card(card)
 			if card && card.upgrades_into:
 				upgradable_cards.add_card(card)

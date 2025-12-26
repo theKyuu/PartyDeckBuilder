@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("3_lwfpv")
+rarity = 0
 character_name = "Druid"
 description = "May nature heal and protect you."
 portrait = ExtResource("1_uqtek")

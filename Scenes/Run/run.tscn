@@ -35,6 +35,7 @@ text = "Map"
 
 [node name="BattleButton" type="Button" parent="DebugButtons"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme = ExtResource("4_3lri4")
 text = "Battle
@@ -48,6 +49,7 @@ text = "Character Picker
 "
 
 [node name="BattleRewardButton" type="Button" parent="DebugButtons"]
+visible = false
 layout_mode = 2
 theme = ExtResource("4_3lri4")
 text = "Rewards"

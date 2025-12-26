@@ -68,9 +68,9 @@ func set_copy_view_type(type: CardCopyPopup.Type, cost: int) -> void:
 
 func list_cards() -> void:
 	for character: CharacterStats in team.team:
-		if character.character_name == "Hero":
+		if character.rarity == CharacterStats.Rarity.PLAYER_CHARACTER:
 			hero_character = character
-		if show_hero or character.character_name != "Hero":
+		if show_hero or character.rarity != CharacterStats.Rarity.PLAYER_CHARACTER:
 			list_single_characters_cards(character, false)
 	
 	show()
