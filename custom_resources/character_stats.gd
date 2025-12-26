@@ -12,4 +12,4 @@ extends Stats
 @export var max_mana: int
 @export var passive: Passive
 
-var deck: CardPile
+@export var deck: CardPile
