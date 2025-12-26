@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://pjheahstip5v"]
 
-[ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/druid.png" id="1_3e6ri"]
+[ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/characters/druid.png" id="1_3e6ri"]
 [ext_resource type="Script" uid="uid://ctmm8mvnofbk0" path="res://Scenes/UI/character_cards_component.gd" id="1_k5i0i"]
 [ext_resource type="PackedScene" uid="uid://bfaynmksjd00m" path="res://Scenes/UI/card_menu_ui.tscn" id="2_k5i0i"]
+
 
 [node name="CharacterCardsComponent" type="BoxContainer"]
 offset_right = 1060.0

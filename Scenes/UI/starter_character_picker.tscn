@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bsdf75enhuvtm" path="res://Scenes/UI/starter_character_picker.gd" id="1_ka475"]
 [ext_resource type="Resource" uid="uid://nle813selunr" path="res://Scenes/Run/run_startup.tres" id="2_gx57u"]
-[ext_resource type="Texture2D" uid="uid://bap7boopew7cu" path="res://art/warrior.png" id="2_ka475"]
-[ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/druid.png" id="3_gx57u"]
+[ext_resource type="Texture2D" uid="uid://bap7boopew7cu" path="res://art/characters/warrior.png" id="2_ka475"]
+[ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/characters/druid.png" id="3_gx57u"]
 
 [sub_resource type="Gradient" id="Gradient_36iwh"]
 offsets = PackedFloat32Array(0, 0.996269)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://b10amp27ohyt8"]
 
 [ext_resource type="Script" uid="uid://bg46qj3w5vgbg" path="res://Scenes/UI/character_picker.gd" id="1_lflt0"]
-[ext_resource type="Texture2D" uid="uid://bap7boopew7cu" path="res://art/warrior.png" id="2_ixchd"]
-[ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/druid.png" id="3_ttp2l"]
+[ext_resource type="Texture2D" uid="uid://bap7boopew7cu" path="res://art/characters/warrior.png" id="2_ixchd"]
+[ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/characters/druid.png" id="3_ttp2l"]
 
 [sub_resource type="Gradient" id="Gradient_36iwh"]
 offsets = PackedFloat32Array(0, 0.996269)

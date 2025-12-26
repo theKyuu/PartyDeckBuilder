@@ -1,10 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dvp7ia33f4ugo"]
 
 [ext_resource type="Script" uid="uid://dbn1c8oc2n6e3" path="res://Scenes/Win_screen/win_screen.gd" id="1_kb6dx"]
-[ext_resource type="Texture2D" uid="uid://bap7boopew7cu" path="res://art/warrior.png" id="2_665we"]
-[ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/druid.png" id="3_3ys03"]
+[ext_resource type="Texture2D" uid="uid://bap7boopew7cu" path="res://art/characters/warrior.png" id="2_665we"]
+[ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/characters/druid.png" id="3_3ys03"]
 [ext_resource type="Script" uid="uid://dqpvivxfjgcmv" path="res://Scenes/Player/team_sprite_container.gd" id="3_4pecu"]
-[ext_resource type="Texture2D" uid="uid://j66j40js5f14" path="res://art/hero.png" id="4_m7xvi"]
+[ext_resource type="Texture2D" uid="uid://j66j40js5f14" path="res://art/characters/hero.png" id="4_m7xvi"]
+
 
 [sub_resource type="Gradient" id="Gradient_36iwh"]
 offsets = PackedFloat32Array(0, 0.996269)

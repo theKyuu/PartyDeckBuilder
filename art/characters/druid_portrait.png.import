@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bitspch5jco18"
-path="res://.godot/imported/druid.png-8c8807b070a2ab747cf7885265af1877.ctex"
+uid="uid://dehlb80cjv50s"
+path="res://.godot/imported/druid_portrait.png-89be34d722159fdbb88e8265635ef41f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/druid.png"
-dest_files=["res://.godot/imported/druid.png-8c8807b070a2ab747cf7885265af1877.ctex"]
+source_file="res://art/characters/druid_portrait.png"
+dest_files=["res://.godot/imported/druid_portrait.png-89be34d722159fdbb88e8265635ef41f.ctex"]
 
 [params]
 
