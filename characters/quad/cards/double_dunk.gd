@@ -1,0 +1,27 @@
+extends Card
+
+# Card values
+var base_damage := 5
+var repetitions := 2
+
+func get_default_tooltip() -> String:
+	return tooltip_text % [repetitions, base_damage]
+
+func get_updated_tooltip(player_modifiers: ModifierHandler, enemy_modifiers: ModifierHandler) -> String:
+	var modified_dmg := player_modifiers.get_modified_value(base_damage, Modifier.Type.DMG_DEALT)
+	
+	if enemy_modifiers:
+		modified_dmg = enemy_modifiers.get_modified_value(modified_dmg, Modifier.Type.DMG_TAKEN)
+	
+	return tooltip_text % [repetitions, modified_dmg]
+
+
+func apply_effects(targets: Array[Node], modifiers: ModifierHandler) -> void:
+	# Damage effect
+	var damage_effect := DamageEffect.new()
+	damage_effect.amount = modifiers.get_modified_value(base_damage, Modifier.Type.DMG_DEALT)
+	damage_effect.sound = sound
+	
+	for i in repetitions:
+		damage_effect.execute(targets) # TODO: Find a way to create intervals
+	

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://hqkpo8qs2tee"]
+
+[ext_resource type="Script" uid="uid://c2nsnrrhqc523" path="res://characters/quad/cards/double_dunk.gd" id="1_1pyle"]
+[ext_resource type="AudioStream" uid="uid://df5wkihx1i16d" path="res://audio/hit.ogg" id="2_1pyle"]
+
+[resource]
+script = ExtResource("1_1pyle")
+id = "double_dunk"
+type = 0
+target = 1
+cost = 1
+exhausts = false
+tooltip_text = "[center][b]Double Dunk[/b]
+
+Deal %s x %s damage.[/center]"
+sound = ExtResource("2_1pyle")
+card_grade = 0
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=6 format=3 uid="uid://cnxpjxq7edede"]
+
+[ext_resource type="Script" uid="uid://5jjm0pxg22ag" path="res://custom_resources/card.gd" id="1_cf1fw"]
+[ext_resource type="Script" uid="uid://c5r1qqnd6s0vv" path="res://custom_resources/card_pile.gd" id="2_7erxc"]
+[ext_resource type="Resource" uid="uid://hqkpo8qs2tee" path="res://characters/quad/cards/double_dunk.tres" id="2_cyj5t"]
+[ext_resource type="Resource" uid="uid://d0fd3ovl7ll7d" path="res://characters/quad/cards/quad_strike.tres" id="3_b0w30"]
+[ext_resource type="Resource" uid="uid://ctyt4irigiqir" path="res://characters/hero/cards/basic_defend.tres" id="4_ty5gp"]
+
+[resource]
+script = ExtResource("2_7erxc")
+cards = Array[ExtResource("1_cf1fw")]([ExtResource("2_cyj5t"), ExtResource("2_cyj5t"), ExtResource("2_cyj5t"), ExtResource("3_b0w30"), ExtResource("3_b0w30"), ExtResource("4_ty5gp"), ExtResource("4_ty5gp"), ExtResource("4_ty5gp")])
+metadata/_custom_type_script = "uid://c5r1qqnd6s0vv"

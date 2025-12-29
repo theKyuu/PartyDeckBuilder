@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="CharacterStats" load_steps=5 format=3 uid="uid://cfor2sc8egfbv"]
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=6 format=3 uid="uid://cfor2sc8egfbv"]
 
 [ext_resource type="Script" uid="uid://dlw8qygrsxfxo" path="res://custom_resources/character_stats.gd" id="1_e5jgn"]
 [ext_resource type="Texture2D" uid="uid://bk3ncj2emmk44" path="res://art/characters/bong.png" id="1_gfije"]
 [ext_resource type="Texture2D" uid="uid://d4euj41drkex4" path="res://art/characters/bong_portrait.png" id="2_8suw4"]
+[ext_resource type="Resource" uid="uid://c6dnfnroa5514" path="res://passives/leftovers.tres" id="2_jtcgq"]
 [ext_resource type="Resource" uid="uid://cxxrxb14ciruk" path="res://characters/bong/bong_starting_deck.tres" id="4_8suw4"]
 
 [resource]
@@ -15,6 +16,7 @@ portrait = ExtResource("2_8suw4")
 starting_deck = ExtResource("4_8suw4")
 cards_per_turn = 0
 max_mana = 0
+passive = ExtResource("2_jtcgq")
 max_health = 20
 art = ExtResource("1_gfije")
 metadata/_custom_type_script = "uid://dlw8qygrsxfxo"
