@@ -3,7 +3,7 @@ extends Resource
 
 signal gold_changed
 
-const STARTING_GOLD := 2000
+const STARTING_GOLD := 50
 
 @export var gold := STARTING_GOLD : set = set_gold
 @export var times_bought_upgrades : int = 0
