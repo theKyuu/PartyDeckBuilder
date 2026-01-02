@@ -1,13 +1,16 @@
+class_name CharacterPicker
 extends Control
 
 const WARRIOR_STATS := preload("res://characters/starters/warrior/warrior.tres")
 const DRUID_STATS := preload("res://characters/starters/druid/druid.tres")
 
 @export var character_pool: CharacterPool
+@export var team: TeamStats
 
 @onready var title: Label = %Title
 @onready var description: Label = %Description
 @onready var character_portrait: TextureRect = %CharacterPortrait
+
 
 var available_characters: Array[CharacterStats]
 var current_character: CharacterStats : set = set_current_character
@@ -17,12 +20,17 @@ func _ready() -> void:
 	set_current_character(WARRIOR_STATS)
 
 func setup_available_characters() -> void:
-	while character_pool.size() < 2:
+	while available_characters.size() < 2:
 		var character: CharacterStats = character_pool.get_random_character()
-		if not character_pool.has(character):
-			character_pool.add(character)
+		if not available_characters.has(character):
+			var in_team: bool = false
+			for player_char: CharacterStats in team.team:
+				if player_char.character_name == character.character_name:
+					in_team = true
+			if not in_team:
+				available_characters.append(character)
 	
-	for character: CharacterStats in character_pool:
+	for character: CharacterStats in available_characters:
 		print(character.character_name)
 
 func set_current_character(new_character: CharacterStats) -> void:

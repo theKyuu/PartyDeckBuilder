@@ -125,7 +125,7 @@ func _setup_event_connections() -> void:
 	
 	map_button.pressed.connect(_show_map)
 	battle_button.pressed.connect(_change_view.bind(BATTLE_SCENE))
-	character_pick_button.pressed.connect(_change_view.bind(CHARACTER_PICKER_SCENE))
+	character_pick_button.pressed.connect(_show_character_picker)
 	training_button.pressed.connect(_show_training_room)
 	event_button.pressed.connect(_change_view.bind(EVENT_SCENE))
 
@@ -138,6 +138,11 @@ func _setup_top_bar():
 	deck_view.team = team
 	deck_view.title_text = "Deck"
 	deck_button.pressed.connect(deck_view.list_cards)
+
+func _show_character_picker() -> void:
+	var character_picker_scene := _change_view(CHARACTER_PICKER_SCENE) as CharacterPicker
+	character_picker_scene.team = team
+	character_picker_scene.setup_available_characters()
 
 func _show_training_room() -> void:
 	var training_scene := _change_view(TRAINING_SCENE) as Training
@@ -180,14 +185,14 @@ func _on_map_exited(room: Room) -> void:
 		Room.Type.TRAINING:
 			_show_training_room()
 		Room.Type.CHARACTER:
-			_change_view(CHARACTER_PICKER_SCENE)
+			_show_character_picker()
 		Room.Type.EVENT:
 			_change_view(EVENT_SCENE)
 		Room.Type.BOSS:
 			_on_battle_room_entered(room)
 
 func _on_character_added(character: CharacterStats) -> void:
-	team.team.append(character)
+	team.team.append(character.duplicate())
 	team.set_combined_stats()
 	team.health += character.max_health
 	if is_instance_of(character.passive, Passive):
