@@ -146,11 +146,16 @@ func _setup_room_types() -> void:
 			room.type = Room.Type.FIGHT
 			room.battle_stats = battle_stats_pool.get_random_battle_for_tier(0)
 	
-	# Middle row is always a character
-	for room: Room in map_data[floor(ROWS / 2)]:
+	# Second row is always a character
+	for room: Room in map_data[1]:
 		if room.next_rooms.size() > 0:
 			room.type = Room.Type.CHARACTER
-	
+			
+	# Tenth row is always a character
+	for room: Room in map_data[9]:
+		if room.next_rooms.size() > 0:
+			room.type = Room.Type.CHARACTER
+			
 	# last row before boss is always a training hall(?)
 	for room: Room in map_data[ROWS - 2]:
 		if room.next_rooms.size() > 0:
