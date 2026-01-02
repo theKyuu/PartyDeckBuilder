@@ -129,14 +129,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
 
-[node name="WarriorButton" type="Button" parent="CharacterButtons"]
+[node name="CharButton1" type="Button" parent="CharacterButtons"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 button_pressed = true
 button_group = SubResource("ButtonGroup_5hekf")
 
-[node name="Icon" type="TextureRect" parent="CharacterButtons/WarriorButton"]
+[node name="CharIcon1" type="TextureRect" parent="CharacterButtons/CharButton1"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,13 +154,14 @@ texture = ExtResource("2_ixchd")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="DruidButton" type="Button" parent="CharacterButtons"]
+[node name="CharButton2" type="Button" parent="CharacterButtons"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_5hekf")
 
-[node name="Icon" type="TextureRect" parent="CharacterButtons/DruidButton"]
+[node name="CharIcon2" type="TextureRect" parent="CharacterButtons/CharButton2"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -177,5 +179,5 @@ expand_mode = 1
 stretch_mode = 5
 
 [connection signal="pressed" from="SelectButton" to="." method="_on_select_button_pressed"]
-[connection signal="pressed" from="CharacterButtons/WarriorButton" to="." method="_on_warrior_button_pressed"]
-[connection signal="pressed" from="CharacterButtons/DruidButton" to="." method="_on_druid_button_pressed"]
+[connection signal="pressed" from="CharacterButtons/CharButton1" to="." method="_on_char_button_1_pressed"]
+[connection signal="pressed" from="CharacterButtons/CharButton2" to="." method="_on_char_button_2_pressed"]

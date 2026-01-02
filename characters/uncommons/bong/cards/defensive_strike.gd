@@ -14,6 +14,17 @@ func get_updated_tooltip(player_modifiers: ModifierHandler, enemy_modifiers: Mod
 	
 	return tooltip_text % [modified_dmg, base_block]
 
-func apply_effects(targets: Array[Node], _modifiers: ModifierHandler) -> void:
-	print("Card has been played!")
-	print("Targets: %s" % targets)
+func apply_effects(targets: Array[Node], modifiers: ModifierHandler) -> void:
+	# Damage effect
+	var damage_effect := DamageEffect.new()
+	damage_effect.amount = modifiers.get_modified_value(base_damage, Modifier.Type.DMG_DEALT)
+	damage_effect.sound = sound
+	damage_effect.execute(targets)
+	
+	# Non-targeted player effects
+	var tree := targets[0].get_tree()
+	var player_target = tree.get_nodes_in_group("player")
+
+	var block_effect := BlockEffect.new()
+	block_effect.amount = base_block
+	block_effect.execute(player_target)
