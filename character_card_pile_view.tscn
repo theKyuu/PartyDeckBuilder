@@ -5,12 +5,13 @@
 [ext_resource type="Script" uid="uid://c8dmgly6pie5w" path="res://Scenes/Player/team_stats.gd" id="2_td4j4"]
 [ext_resource type="Script" uid="uid://dlw8qygrsxfxo" path="res://custom_resources/character_stats.gd" id="3_c4lji"]
 [ext_resource type="Resource" uid="uid://c1ehhigqoqx20" path="res://characters/hero/hero.tres" id="4_vudnw"]
-[ext_resource type="Resource" uid="uid://ov1akopl5o1w" path="res://characters/druid/druid.tres" id="5_q3rl7"]
-[ext_resource type="Resource" uid="uid://br6exup0xrpih" path="res://characters/warrior/warrior.tres" id="6_laag2"]
+[ext_resource type="Resource" uid="uid://ov1akopl5o1w" path="res://characters/starters/druid/druid.tres" id="5_q3rl7"]
+[ext_resource type="Resource" uid="uid://br6exup0xrpih" path="res://characters/starters/warrior/warrior.tres" id="6_laag2"]
 [ext_resource type="PackedScene" uid="uid://do80o2ft2bqwf" path="res://Scenes/UI/card_tooltip_popup.tscn" id="8_c4lji"]
 [ext_resource type="PackedScene" uid="uid://cawpe3bj5gyh1" path="res://Scenes/UI/card_upgrade_popup.tscn" id="9_vudnw"]
 [ext_resource type="PackedScene" uid="uid://sbyg8ckqp8b1" path="res://Scenes/UI/card_removal_popup.tscn" id="10_q3rl7"]
 [ext_resource type="PackedScene" uid="uid://dgkav3th8sso0" path="res://Scenes/UI/card_copy_popup.tscn" id="11_laag2"]
+
 
 [sub_resource type="Resource" id="Resource_y4ver"]
 script = ExtResource("2_td4j4")

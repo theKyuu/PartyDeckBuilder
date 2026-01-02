@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://200nnnwdycv"]
+
+[ext_resource type="Texture2D" uid="uid://c4lo6w2lphrpe" path="res://art/healfluff.png" id="1_a4hfn"]
+[ext_resource type="Script" uid="uid://8w2pr4so64qo" path="res://characters/starters/druid/cards/druid_heal_2.gd" id="2_a4hfn"]
+
+[resource]
+script = ExtResource("2_a4hfn")
+id = "druid_heal_2"
+type = 1
+target = 0
+cost = 1
+exhausts = true
+icon = ExtResource("1_a4hfn")
+tooltip_text = "[center][b]Healing Touch[/b]
+
+Heal 6 HP.[/center]"
+card_grade = 1
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"

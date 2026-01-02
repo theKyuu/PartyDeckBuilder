@@ -1,8 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://b10amp27ohyt8"]
+[gd_scene load_steps=15 format=3 uid="uid://b10amp27ohyt8"]
 
 [ext_resource type="Script" uid="uid://bg46qj3w5vgbg" path="res://Scenes/UI/character_picker.gd" id="1_lflt0"]
 [ext_resource type="Texture2D" uid="uid://bap7boopew7cu" path="res://art/characters/warrior.png" id="2_ixchd"]
+[ext_resource type="Script" uid="uid://dlw8qygrsxfxo" path="res://custom_resources/character_stats.gd" id="2_vqhq1"]
+[ext_resource type="Resource" uid="uid://daeutj71cnj3i" path="res://characters/commons/monk/monk.tres" id="3_gf43c"]
 [ext_resource type="Texture2D" uid="uid://bitspch5jco18" path="res://art/characters/druid.png" id="3_ttp2l"]
+[ext_resource type="Resource" uid="uid://b57i1jivugxa3" path="res://characters/commons/quad/quad.tres" id="4_ixxgb"]
+[ext_resource type="Resource" uid="uid://cfor2sc8egfbv" path="res://characters/uncommons/bong/bong.tres" id="5_tdl8o"]
+[ext_resource type="Script" uid="uid://d22tydkfsoid6" path="res://custom_resources/character_pool.gd" id="6_ths30"]
+
+[sub_resource type="Resource" id="Resource_0k5a8"]
+script = ExtResource("6_ths30")
+pool = Array[ExtResource("2_vqhq1")]([ExtResource("3_gf43c"), ExtResource("4_ixxgb"), ExtResource("5_tdl8o")])
+metadata/_custom_type_script = "uid://d22tydkfsoid6"
 
 [sub_resource type="Gradient" id="Gradient_36iwh"]
 offsets = PackedFloat32Array(0, 0.996269)
@@ -33,6 +43,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lflt0")
+character_pool = SubResource("Resource_0k5a8")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1

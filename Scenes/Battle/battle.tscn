@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://berxw01stitjb" path="res://audio/game-gaming-minecraft-background-music-379533.mp3" id="3_g0m8i"]
 [ext_resource type="PackedScene" uid="uid://d21upu05jj1gy" path="res://Scenes/Card_Target_Selector/card_target_selector.tscn" id="3_vvvpr"]
 [ext_resource type="Script" uid="uid://cotw6qsvq4m4q" path="res://Enemy/enemy_handler.gd" id="4_ev1ic"]
-[ext_resource type="Resource" uid="uid://br6exup0xrpih" path="res://characters/warrior/warrior.tres" id="4_rgg0r"]
+[ext_resource type="Resource" uid="uid://br6exup0xrpih" path="res://characters/starters/warrior/warrior.tres" id="4_rgg0r"]
 [ext_resource type="Script" uid="uid://c8dmgly6pie5w" path="res://Scenes/Player/team_stats.gd" id="4_xx4v1"]
 [ext_resource type="Resource" uid="uid://dnub0t0uthdb2" path="res://enemies/crab/crab_enemy.tres" id="5_11mmy"]
 [ext_resource type="Script" uid="uid://dlw8qygrsxfxo" path="res://custom_resources/character_stats.gd" id="5_pcxeh"]

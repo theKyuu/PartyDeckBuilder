@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://p7jkubqxm3nh"]
+
+[ext_resource type="Texture2D" uid="uid://orm6q6ad66v" path="res://art/big_block.png" id="1_c3qq7"]
+[ext_resource type="Script" uid="uid://cjdpiohf1iakv" path="res://characters/commons/monk/cards/brace.gd" id="2_qjl4x"]
+
+[resource]
+script = ExtResource("2_qjl4x")
+id = "brace"
+type = 1
+target = 0
+cost = 2
+exhausts = false
+icon = ExtResource("1_c3qq7")
+tooltip_text = "[center][b]Brace[/b]
+Gain 1 Fortify.[/center]"
+card_grade = 0
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"

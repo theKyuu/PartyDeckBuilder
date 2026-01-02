@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dxif6qxeotwkl" path="res://main_theme.tres" id="1_jlnra"]
 [ext_resource type="Script" uid="uid://b7ew8xjcbnd7c" path="res://Scenes/UI/card_menu_ui.gd" id="1_qqm41"]
-[ext_resource type="Resource" uid="uid://bdmrfoeusi5pp" path="res://characters/warrior/cards/warrior_slash.tres" id="2_dhj6v"]
+[ext_resource type="Resource" uid="uid://bdmrfoeusi5pp" path="res://characters/starters/warrior/cards/warrior_slash.tres" id="2_dhj6v"]
 [ext_resource type="StyleBox" uid="uid://bmr02fwlonn52" path="res://Scenes/Card_UI/card_base_stylebox.tres" id="3_r5y20"]
 [ext_resource type="Texture2D" uid="uid://c8hehdbegh82b" path="res://art/axe.png" id="4_f05wo"]
 

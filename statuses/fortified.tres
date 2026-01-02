@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FortifiedStatus" load_steps=3 format=3 uid="uid://bvfwkbicrihwx"]
+
+[ext_resource type="Script" uid="uid://da6y0mi4pjnvv" path="res://statuses/fortified.gd" id="1_njhhy"]
+[ext_resource type="Texture2D" uid="uid://orm6q6ad66v" path="res://art/big_block.png" id="1_p8qqh"]
+
+[resource]
+script = ExtResource("1_njhhy")
+id = "fortified"
+type = 0
+stack_type = 2
+can_expire = true
+duration = 1
+stacks = 1
+icon = ExtResource("1_p8qqh")
+tooltip = "Fortified: Takes 50%% less damage for %s turns."
+metadata/_custom_type_script = "uid://cwieukejgvavl"

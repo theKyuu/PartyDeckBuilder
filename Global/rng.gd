@@ -9,6 +9,12 @@ func initialize() -> void:
 	instance = RandomNumberGenerator.new()
 	instance.randomize()
 
+func random_int_range(from: int, to: int) -> int:
+	return instance.randi_range(from, to)
+
+func random_float_range(from: float, to: float) -> float:
+	return instance.randf_range(from, to)
+
 func set_from_save_data(which_seed: int, state: int) -> void:
 	instance = RandomNumberGenerator.new()
 	instance.seed = which_seed

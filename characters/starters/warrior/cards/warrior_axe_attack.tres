@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bsa0cwjopy1ga"]
+
+[ext_resource type="Texture2D" uid="uid://c8hehdbegh82b" path="res://art/axe.png" id="1_ungqh"]
+[ext_resource type="Script" uid="uid://dwgk35etwkwd7" path="res://characters/starters/warrior/cards/warrior_axe_attack.gd" id="2_ungqh"]
+[ext_resource type="AudioStream" uid="uid://df5wkihx1i16d" path="res://audio/hit.ogg" id="3_6uoki"]
+[ext_resource type="Resource" uid="uid://4r3j80j74vvi" path="res://characters/starters/warrior/cards/warrior_axe_attack_2.tres" id="4_qn34n"]
+
+[resource]
+script = ExtResource("2_ungqh")
+id = "warrior_axe_attack"
+type = 0
+target = 1
+cost = 1
+exhausts = false
+icon = ExtResource("1_ungqh")
+tooltip_text = "[center][b]Axe chop[/b]
+Deal %s damage to the target and %s to yourself.[/center]"
+sound = ExtResource("3_6uoki")
+card_grade = 0
+upgrades_into = ExtResource("4_qn34n")
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"

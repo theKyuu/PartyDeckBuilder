@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://bjqvbwx2u54ux"]
+
+[ext_resource type="Script" uid="uid://5jjm0pxg22ag" path="res://custom_resources/card.gd" id="1_dkdrf"]
+[ext_resource type="Texture2D" uid="uid://byurxqbxsoqsd" path="res://art/hot_punch.png" id="1_r6gkm"]
+[ext_resource type="AudioStream" uid="uid://df5wkihx1i16d" path="res://audio/hit.ogg" id="3_rvg1v"]
+
+[resource]
+script = ExtResource("1_dkdrf")
+id = "power_up_punch"
+type = 0
+target = 1
+cost = 1
+exhausts = false
+icon = ExtResource("1_r6gkm")
+tooltip_text = "[center][b]Power-up Punch[/b]
+Deal %s damage and gain 1 Power.[/center]"
+sound = ExtResource("3_rvg1v")
+card_grade = 0
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"

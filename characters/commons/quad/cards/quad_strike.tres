@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://d0fd3ovl7ll7d"]
+
+[ext_resource type="Script" uid="uid://p8y4femh5bit" path="res://characters/commons/quad/cards/quad_strike.gd" id="1_ac7bg"]
+[ext_resource type="Texture2D" uid="uid://cr3g751xxyumj" path="res://art/quad_punch.png" id="1_cbn3a"]
+[ext_resource type="AudioStream" uid="uid://df5wkihx1i16d" path="res://audio/hit.ogg" id="2_ac7bg"]
+
+[resource]
+script = ExtResource("1_ac7bg")
+id = "quad_strike"
+type = 0
+target = 1
+cost = 2
+exhausts = false
+icon = ExtResource("1_cbn3a")
+tooltip_text = "[center][b]Quad Strike[/b]
+
+Deal %s x %s damage.[/center]"
+sound = ExtResource("2_ac7bg")
+card_grade = 0
+metadata/_custom_type_script = "uid://5jjm0pxg22ag"

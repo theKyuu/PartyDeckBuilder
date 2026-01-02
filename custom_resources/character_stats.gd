@@ -19,3 +19,5 @@ enum Rarity {STARTER, COMMON, UNCOMMON, SPECIAL, PLAYER_CHARACTER}
 @export var passive: Passive
 
 @export var deck: CardPile
+
+var rng_cumulative_weight: float

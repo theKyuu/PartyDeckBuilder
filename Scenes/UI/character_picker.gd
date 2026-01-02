@@ -1,16 +1,29 @@
 extends Control
 
-const WARRIOR_STATS := preload("res://characters/warrior/warrior.tres")
-const DRUID_STATS := preload("res://characters/druid/druid.tres")
+const WARRIOR_STATS := preload("res://characters/starters/warrior/warrior.tres")
+const DRUID_STATS := preload("res://characters/starters/druid/druid.tres")
+
+@export var character_pool: CharacterPool
 
 @onready var title: Label = %Title
 @onready var description: Label = %Description
 @onready var character_portrait: TextureRect = %CharacterPortrait
 
+var available_characters: Array[CharacterStats]
 var current_character: CharacterStats : set = set_current_character
 
 func _ready() -> void:
+	character_pool.setup_rng_weights()
 	set_current_character(WARRIOR_STATS)
+
+func setup_available_characters() -> void:
+	while character_pool.size() < 2:
+		var character: CharacterStats = character_pool.get_random_character()
+		if not character_pool.has(character):
+			character_pool.add(character)
+	
+	for character: CharacterStats in character_pool:
+		print(character.character_name)
 
 func set_current_character(new_character: CharacterStats) -> void:
 	current_character = new_character

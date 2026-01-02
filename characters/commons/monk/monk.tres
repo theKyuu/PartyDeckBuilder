@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=5 format=3 uid="uid://daeutj71cnj3i"]
+
+[ext_resource type="Texture2D" uid="uid://cpt81vb52bk7o" path="res://art/characters/monk.png" id="1_abjh3"]
+[ext_resource type="Texture2D" uid="uid://ch0kh4hgkq550" path="res://art/characters/monk_portrait.png" id="2_k1sop"]
+[ext_resource type="Script" uid="uid://dlw8qygrsxfxo" path="res://custom_resources/character_stats.gd" id="3_kw7tk"]
+[ext_resource type="Resource" uid="uid://2480k1ihlvwt" path="res://characters/commons/monk/monk_starting_deck.tres" id="4_b48ji"]
+
+[resource]
+script = ExtResource("3_kw7tk")
+rarity = 1
+character_name = "Monk"
+description = "Focus your energy, unleash your fury."
+portrait = ExtResource("2_k1sop")
+starting_deck = ExtResource("4_b48ji")
+cards_per_turn = 0
+max_mana = 0
+max_health = 15
+art = ExtResource("1_abjh3")
+metadata/_custom_type_script = "uid://dlw8qygrsxfxo"
